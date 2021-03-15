@@ -40,9 +40,9 @@
     <td class="tg-c3ow">Fri<br>3/19</td>
     <td class="tg-c3ow">IAMET<br>406-1</td>
     <td class="tg-c3ow">
-      <a href="../python-basics-2">1. Python 基础：函数定义</a>
+      <span href="../python-basics-2">1. Python 基础：函数定义</a>
       <br>
-      <a href="../code-style">2. 编程习惯和规范 </a>
+      <span href="../code-style">2. 编程习惯和规范 </a>
       <br>
     </td>
     <td class="tg-c3ow"></td>
@@ -52,11 +52,11 @@
     <td class="tg-svo0">TBA</td>
     <td class="tg-svo0">TBA</td>
     <td class="tg-svo0">
-      <a href="../python-basics-3">1. Python 基础：用户输入与字符串处理 </a>
+      <span href="../python-basics-3">1. Python 基础：用户输入与字符串处理 </a>
       <br>
-      <a href="../GOP">2. GOP-面向谷歌编程</a>
+      <span href="../GOP">2. GOP-面向谷歌编程</a>
       <br>
-      <a href="../debugging">3. Debugging</a>
+      <span href="../debugging">3. Debugging</a>
       <br>
     </td>
     <td class="tg-svo0"></td>
@@ -64,7 +64,7 @@
   <tr>
     <td class="tg-c3ow">TBA</td>
     <td class="tg-c3ow">TBA</td>
-    <td class="tg-c3ow"> 阶段总结</td>
+    <td class="tg-c3ow"> <b>阶段总结</b></td>
     <td class="tg-c3ow"></td>
   </tr>
   <tr>
@@ -72,21 +72,19 @@
     <td class="tg-svo0">TBA</td>
     <td class="tg-svo0">TBA</td>
     <td class="tg-svo0">
-      <a href="../abstraction">1. 接口和封装——人类伟大之始</a>
+      <span href="../abstraction">1. 抽象——人类伟大之始</a>
       <br>
     </td>
-    <td class="tg-svo0" rowspan="6"><a href="./automated-data-processing"> Project 2: Automated Data Processing <br> 自动化数据处理</a></td>
+    <td class="tg-svo0" rowspan="6"><span href="./automated-data-processing"> Project 2: Automated Data Processing <br> 自动化数据处理</a></td>
     <td class="tg-svo0"></td>
   </tr>
   <tr>
     <td class="tg-c3ow">TBA</td>
     <td class="tg-c3ow">TBA</td>
     <td class="tg-c3ow">
-      <a href="../files-and-formats">1. 文件和格式</a>
+      <span href="../libraries">1. 第三方库——不要重新发明轮子</a>
       <br>
-      <a href="../libraries">2. 第三方库——不要重新发明轮子</a>
-      <br>
-      <a href="docs"> 3. 阅读文档</a>
+      <span href="docs"> 2. 阅读文档</a>
       <br>
     </td>
     <td class="tg-c3ow"></td>
@@ -96,7 +94,8 @@
     <td class="tg-svo0">TBA</td>
     <td class="tg-svo0">TBA</td>
     <td class="tg-svo0">
-        TBA
+      <span href="../files-and-formats">1. 文件和格式</a>
+      <br>
     </td>
     <td class="tg-svo0"></td>
   </tr>
@@ -121,7 +120,7 @@
     <td class="tg-c3ow">TBA</td>
     <td class="tg-c3ow">TBA</td>
     <td class="tg-c3ow">
-        TBA 
+        TBA
     </td>
     <td class="tg-c3ow"></td>
   </tr>
