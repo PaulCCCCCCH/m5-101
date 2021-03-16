@@ -50,7 +50,7 @@ Week 6, 7
 
 ### 内容
 - 网络、数据和网页浏览原理
-- `Client-server` 模型 
+- `Client-Server` 模型 
 
 
 ### 产出
