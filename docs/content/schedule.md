@@ -17,27 +17,31 @@
     <th class="tg-c3ow">Location</th>
     <th class="tg-c3ow">Notes</th>
     <th class="tg-c3ow">Project</th>
-    <th class="tg-c3ow">Announcements</th>
+    <th class="tg-c3ow">Resources</th>
   </tr>
 </thead>
 <tbody>
   <tr>
     <td class="tg-svo0" rowspan="2">Week 1</td>
-    <td class="tg-svo0">Wed <br>3/17</td>
+    <td class="tg-svo0"> Tue <br>3/23</td>
     <td class="tg-svo0">IAMET<br>406-1</td>
     <td class="tg-svo0">
-      <a href="../introduction">1. 引言</a>
+      <a href="../python-set-up">1. Python 开发环境搭建</a>
       <br>
-      <a href="../python-set-up">2. Python 开发环境搭建</a>
+      <a href="../hello-world">2. Hello World</a>
       <br>
       <a href="../python-basics-1">3. Python 基础: 数据类型和基本语句</a>
       <br>
     </td>
     <td class="tg-svo0" rowspan="4"> <a href="../equation-solver">Project 1: Equation Solver 方程求解器 </td>
-    <td class="tg-svo0"></td>
+    <td class="tg-svo0">
+      <a href="https://www.runoob.com/python/python-basic-syntax.html">1. 菜鸟 Python 教程</a>
+      <br>
+      <a href="http://pythontutor.com/composingprograms.html">2. 在线 Python 运行器</a>
+    </td>
   </tr>
   <tr>
-    <td class="tg-c3ow">Fri<br>3/19</td>
+    <td class="tg-c3ow">Wed<br>3/24</td>
     <td class="tg-c3ow">IAMET<br>406-1</td>
     <td class="tg-c3ow">
       <span href="../python-basics-2">1. Python 基础：函数定义</a>

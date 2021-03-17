@@ -10,7 +10,15 @@ nav:
   - Home: index.md
   - Schedule: content/schedule.md
   - Notes:
-    - Introduction: 'content/introduction.md'
+    - Introduction: content/introduction.md
+  - Notebook Pages: 
+    - Hello World: content/hello-world.ipynb
 
 repo_url: https://github.com/PaulCCCCCCH/m5-101
 site_dir: m5-101/
+
+plugins: 
+  - mkdocs-jupyter:
+      execute: True
+      kernel_name: python3
+      include_source: True
