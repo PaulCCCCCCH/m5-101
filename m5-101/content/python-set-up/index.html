@@ -7,11 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="IceWould Training Hub">
     <meta name="author" content="IceWould Training Team Led by Chonghan Chen">
-    <link rel="canonical" href="https://paulcccccch.github.io/content/week1/">
+    <link rel="canonical" href="https://paulcccccch.github.io/content/python-set-up/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
 
     
-    <title>Week 1 - m5-101</title>
+    <title>Python 开发环境搭建 - m5-101</title>
     
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
@@ -96,8 +96,17 @@
                 
                 
                 
-                    <li >
-                        <a href="../python-basics-2/">Notebook page</a>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Notebook Pages <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../hello-world/">Hello World</a>
+</li>
+
+                        
+                        </ul>
                     </li>
                 
                 
@@ -105,7 +114,7 @@
 
             <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="https://github.com/PaulCCCCCCH/m5-101/edit/master/docs/content/week1.md"><i class="fab fa-github"></i> Edit on GitHub</a>
+                        <a href="https://github.com/PaulCCCCCCH/m5-101/edit/master/docs/content/python-set-up.md"><i class="fab fa-github"></i> Edit on GitHub</a>
                     </li>
             </ul>
         </div>
@@ -117,12 +126,85 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#week-1">Week 1</a></li>
+        <li class="first-level active"><a href="#python">Python 开发环境搭建</a></li>
+            <li class="second-level"><a href="#mac-os">mac OS</a></li>
+                
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h1 id="week-1">Week 1</h1></div>
+<h1 id="python">Python 开发环境搭建</h1>
+<h2 id="mac-os">mac OS</h2>
+<p>本文主要介绍三种安装 Python 的方法：</p>
+<ol>
+<li>
+<p>访问 <a href="https://www.python.org/downloads/mac-osx/">Python 官网</a>，选择 Stable Releases 下的 Python 3.8.x installer 下载安装。</p>
+</li>
+<li>
+<p>通过 <code>Homebrew</code> 安装：</p>
+</li>
+</ol>
+<blockquote>
+<p>如果你的电脑上已经安装了 <code>Homebrew</code>，则推荐使用此方式安装 ；或者虽然还未安装 <code>Homebrew</code>，但你是一名计算机系的学生，我们建议你了解一下 <a href="https://brew.sh/"><code>Homebrew</code></a> 并使用此方式安装 Python。</p>
+</blockquote>
+<p>在终端下输入以下命令：</p>
+<p><code>brew install python3</code></p>
+<p>由于网络环境因素，安装时间可能过长，可以考虑通过为 <code>Homebrew</code> 换源或者挂梯子等方式加速。</p>
+<p>安装完成后，终端应显示如下内容（具体版本号可能有轻微不同，并不影响后续课程）。</p>
+<p>```
+   Python has been installed as
+     /usr/local/opt/python@3.8/bin/python3</p>
+<p>You can install Python packages with
+     /usr/local/opt/python@3.8/bin/pip3 install <package>
+   They will install into the site-package directory
+     /usr/local/opt/python@3.8/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages</p>
+<p>See: https://docs.brew.sh/Homebrew-and-Python
+   ==&gt; Summary
+   🍺  /usr/local/Cellar/python@3.8/3.8.3_1: 4,125 files, 63MB
+   ```</p>
+<p>现在试试在终端中输入：</p>
+<p><code>python3 --version</code></p>
+<p>你应该可以看到（具体版本号可能有轻微不同，并不影响后续课程）：</p>
+<p><code>Python 3.8.3</code></p>
+<ol>
+<li>通过安装 Anaconda 来安装 Python。</li>
+</ol>
+<blockquote>
+<p>对于本课程来说，Anaconda 有些稍显臃肿，我们因此不推荐使用此方法安装 Python。如果你对数据科学非常感兴趣，计算机背景知识良好，也可以选择使用此方式安装 Python。</p>
+</blockquote>
+<p>进入 <a href="https://www.anaconda.com/products/individual#macos">Anaconda 官网下载页面</a>，选择一个 Installer 下载（为了方便，我们推荐选择第一个 Graphical Installer）。</p>
+<p><img alt="" src="../images/setup-macOS-anaconda.png" /></p>
+<p>如果下载速度不理想，可以通过 <a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/">清华源</a> 下载。点进页面后，拉到最下方，选择 <code>Anaconda3-5.3.1-MacOSX-x86_64.pkg</code> 这个包，下载即可。此处还有 TUNA 提供的 <a href="https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/">Anaconda 镜像使用帮助</a>。</p>
+<p>安装过程中，可以自行选择是否要一起打包安装 PyCharm，本课程中主要使用的编辑器为 Sublime Text 与 VS Code。</p>
+<p>现在试试在终端中输入：</p>
+<p><code>conda --version</code></p>
+<p>你应该可以看到（具体版本号可能有轻微不同，并不影响后续课程）：</p>
+<p><code>conda 4.7.12</code></p>
+<p>接下来我们讲介绍本次课程推荐使用的代码编辑器 — VS Code。</p>
+<p>VS Code 是一个轻量的免费跨平台代码编辑器。如果你还未安装 VS Code，可通过 <a href="https://code.visualstudio.com/">其官网</a>，直接下载安装。</p>
+<ol>
+<li>安装完毕后，选择最左侧一栏中的扩展图标（1.）进入扩展商店，在搜索栏（2.）中输入 Python，点击安装（3.）来安装 VS Code 为 Python 提供的插件。</li>
+</ol>
+<p><img alt="" src="../images/setup-macOS-extension.png" /></p>
+<ol>
+<li>安装插件完毕后，我们先创建一个文件夹，并且通过 VS Code 打开这个文件夹。之后按下 <code>Command</code> + <code>N</code>，创建一个新文件，并且按下<code>Command</code> + <code>S</code>，把它保存为<code>hello.py</code>。</li>
+</ol>
+<p>现在，VS Code 窗口的左下角，会出现你目前使用的 Python 环境，因为 mac OS 中自带了 Python 2.7，我们需要把它手动切换成我们刚刚安装的 Python 3。</p>
+<p><img src="images/setup-macOS-interpreter.png" alt="" style="zoom:50%;" /></p>
+<p>我们点击它，则可以选择其他 Python 解释器，因为笔者的 Mac 中有多个 Python 环境，所以这里的选项多一点，选择你刚刚安装的那个版本就好。</p>
+<p><img alt="" src="../images/setup-macOS-interpreter2.png" /></p>
+<ol>
+<li>现在，我们尝试在 <code>hello.py</code> 文件中输入：</li>
+</ol>
+<p><code>python
+   print("Hello, World!")</code></p>
+<p>然后点一下右上角的绿色三角运行按钮。</p>
+<p><img src="images/setup-macOS-pycode.png" alt="" style="zoom:50%;" /></p>
+<p>你应该可以看到编辑器下部分的终端中，成功打印了：</p>
+<p><code>▶ python3 /Users/xiuxiu/Desktop/py/hello.py
+   Hello, World!
+   (base)</code></p>
+<p>至此，一个基本的 Python 开发环境已经配置好啦，我们在课程中也会慢慢介绍可能使用到的其他扩展～</p></div>
         
         
     </div>

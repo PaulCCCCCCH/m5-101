@@ -17,8 +17,15 @@ nav:
 repo_url: https://github.com/PaulCCCCCCH/m5-101
 site_dir: m5-101/
 
+markdown_extensions:
+    - mdx_math
+
+extra_javascript:
+    - https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML
+    - assets/mathjaxhelper.js
+
+
 plugins: 
   - mkdocs-jupyter:
       execute: True
-      kernel_name: python3
       include_source: True

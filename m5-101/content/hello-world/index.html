@@ -7,11 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="IceWould Training Hub">
     <meta name="author" content="IceWould Training Team Led by Chonghan Chen">
-    <link rel="canonical" href="https://paulcccccch.github.io/content/python-basics-1/">
+    <link rel="canonical" href="https://paulcccccch.github.io/content/hello-world/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
 
     
-    <title>Python basics 1 - m5-101</title>
+    <title>Hello World - m5-101</title>
     
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
@@ -96,13 +96,13 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Notebook Pages <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
-<li >
-    <a href="../hello-world/">Hello World</a>
+<li class="active">
+    <a href="./">Hello World</a>
 </li>
 
                         
@@ -113,8 +113,18 @@
                 </ul>
 
             <ul class="nav navbar-nav navbar-right">
+                    <li >
+                        <a rel="prev" href="../introduction/">
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li class="disabled">
+                        <a rel="next" >
+                            Next <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </li>
                     <li>
-                        <a href="https://github.com/PaulCCCCCCH/m5-101/edit/master/docs/content/python-basics-1.ipynb"><i class="fab fa-github"></i> Edit on GitHub</a>
+                        <a href="https://github.com/PaulCCCCCCH/m5-101/edit/master/docs/content/hello-world.ipynb"><i class="fab fa-github"></i> Edit on GitHub</a>
                     </li>
             </ul>
         </div>
@@ -126,32 +136,7 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#_1">数据类型和基本语句</a></li>
-            <li class="second-level"><a href="#_2">基本运算符</a></li>
-                
-                <li class="third-level"><a href="#_3">一个例子</a></li>
-            <li class="second-level"><a href="#_4">赋值语句</a></li>
-                
-            <li class="second-level"><a href="#_5">数据类型</a></li>
-                
-                <li class="third-level"><a href="#_6">数字和字符串</a></li>
-                <li class="third-level"><a href="#_7">列表</a></li>
-                <li class="third-level"><a href="#boolean">开关(Boolean)</a></li>
-                <li class="third-level"><a href="#_8">还有很多...</a></li>
-            <li class="second-level"><a href="#_9">条件语句</a></li>
-                
-                <li class="third-level"><a href="#_10">一个例子</a></li>
-            <li class="second-level"><a href="#for">For 循环语句</a></li>
-                
-                <li class="third-level"><a href="#_11">一个例子</a></li>
-            <li class="second-level"><a href="#while">While 循环语句</a></li>
-                
-                <li class="third-level"><a href="#_12">一个例子</a></li>
-                <li class="third-level"><a href="#_13">另一个例子</a></li>
-            <li class="second-level"><a href="#cases">Cases</a></li>
-                
-                <li class="third-level"><a href="#case-1">Case 1</a></li>
-                <li class="third-level"><a href="#case-2">Case 2</a></li>
+        <li class="first-level active"><a href="#hello-world">Hello World</a></li>
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
@@ -1346,139 +1331,8 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="">&#25968;&#25454;&#31867;&#22411;&#21644;&#22522;&#26412;&#35821;&#21477;<a class="anchor-link" href="#&#25968;&#25454;&#31867;&#22411;&#21644;&#22522;&#26412;&#35821;&#21477;">&#182;</a></h1><p>本章包含：</p>
-<ul>
-<li>基本运算符</li>
-<li>赋值语句</li>
-<li>数据类型</li>
-<li>条件语句</li>
-<li>循环语句</li>
-</ul>
-<h2 id="">&#22522;&#26412;&#36816;&#31639;&#31526;<a class="anchor-link" href="#&#22522;&#26412;&#36816;&#31639;&#31526;">&#182;</a></h2><p>Python 可以当计算器来用哟。<br>
-还记得<code>print</code>命令吗？我们会用它来输出运算结果。<br>
-<strong>注意引号的使用</strong>。至于为什么，我们在<code>数据类型</code>里会解释。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
-
-    <div class="inner_cell">
-        
-        
-        <div class="input_area">
-            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;加法：1 + 2 的结果是：&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;乘法：4 * 6 的结果是：&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="mi">6</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;除法：24 / 4 的结果是：&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="mi">24</span> <span class="o">/</span> <span class="mi">4</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;除法：24 / 9 的结果是：&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="mi">24</span> <span class="o">/</span> <span class="mi">9</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;整除（做除法后取整数部分）：24 // 9 的结果是：&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="mi">24</span> <span class="o">//</span> <span class="mi">9</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;取余：24 % 9 的结果是：&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="mi">24</span> <span class="o">%</span> <span class="mi">9</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;取幂（一个数的n次方）：9 ** 2 的结果是：&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="mi">9</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
-</pre></div>
-
-        </div>
-    </div>
-
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>加法：1 + 2 的结果是：
-3
-乘法：4 * 6 的结果是：
-24
-除法：24 / 4 的结果是：
-6.0
-除法：24 / 9 的结果是：
-2.6666666666666665
-整除（做除法后取整数部分）：24 // 9 的结果是：
-2
-取余：24 % 9 的结果是：
-6
-取幂（一个数的n次方）：9 ** 2 的结果是：
-81
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>用 Python 写算式和用笔写算式的规则是一模一样的。</p>
-<h3 id="">&#19968;&#20010;&#20363;&#23376;<a class="anchor-link" href="#&#19968;&#20010;&#20363;&#23376;">&#182;</a></h3><p>求二维空间中坐标为<code>(4,5)</code>和<code>(1,1)</code>两个点之间的距离：</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
-
-    <div class="inner_cell">
-        
-        
-        <div class="input_area">
-            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="nb">print</span><span class="p">(((</span><span class="mi">4</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="mi">5</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.5</span><span class="p">)</span>
-</pre></div>
-
-        </div>
-    </div>
-
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>5.0
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><code>** 0.5</code> 就是取 0.5 次方，也就是开平方。<br>
-另外，注意一下括号的使用。必须完全正确才行。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="">&#36171;&#20540;&#35821;&#21477;<a class="anchor-link" href="#&#36171;&#20540;&#35821;&#21477;">&#182;</a></h2><p>就像我们小学数学课，学习方程，设置未知数ｘ和ｙ一样，编程的时候，为了方便，也会这么做。只不过，编程时候的未知数，叫做<strong>变量</strong>。</p>
+<h1 id="hello-world">Hello World<a class="anchor-link" href="#Hello-World">&#182;</a></h1><p>这是程序员专属的仪式。学习任何一门新语言、新技术，总是要从输出<code>Hello World</code>开始。<br>
+打开编辑器，输入以下代码：</p>
 
 </div>
 </div>
@@ -1491,9 +1345,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
         
         
         <div class="input_area">
-            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>     <span class="c1"># 设 x = 1</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1"># 设　y = x + 1</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>  <span class="c1"># 于是，y 就是 ２ 啦！</span>
+            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello World&quot;</span><span class="p">)</span>
 </pre></div>
 
         </div>
@@ -1511,7 +1363,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>2
+<pre>Hello World
 </pre>
 </div>
 </div>
@@ -1523,7 +1375,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>唯一与数学不同的地方在于以下的情况</p>
+<p>你可以尝试将<code>Hello World</code>改成任意内容，保存后重新运行。</p>
 
 </div>
 </div>
@@ -1536,9 +1388,9 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
         
         
         <div class="input_area">
-            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>     <span class="c1"># 设 x = 1 </span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1"># 先计算等式右边的 x + 1，结果是 2，然后让 x 等于等号右边的东西</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># 于是 x 就是 2 啦！</span>
+            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Good Morning!&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Welcome to UNNC!&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Icewould m5-101 is great!&quot;</span><span class="p">)</span>
 </pre></div>
 
         </div>
@@ -1556,7 +1408,9 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>2
+<pre>Good Morning!
+Welcome to UNNC!
+Icewould m5-101 is great!
 </pre>
 </div>
 </div>
@@ -1568,191 +1422,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>我们也可以重写最开始的 <code>Hello World</code> 程序：</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
-
-    <div class="inner_cell">
-        
-        
-        <div class="input_area">
-            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;Hello world!&quot;</span> <span class="c1"># 让 x 等于 &quot;Hello World!&quot; 这句话</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>           <span class="c1"># 输出 x</span>
-</pre></div>
-
-        </div>
-    </div>
-
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Hello world!
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="">&#25968;&#25454;&#31867;&#22411;<a class="anchor-link" href="#&#25968;&#25454;&#31867;&#22411;">&#182;</a></h2><h3 id="">&#25968;&#23383;&#21644;&#23383;&#31526;&#20018;<a class="anchor-link" href="#&#25968;&#23383;&#21644;&#23383;&#31526;&#20018;">&#182;</a></h3><p>我们可以让一个未知数（变量）等于不同类型的<strong>值</strong>。</p>
-<ul>
-<li>比如当我们运行 <code>x = 3 + 5</code> 的时候，<code>x</code> 的类型是<strong>数字</strong>，值是<code>8</code>。  </li>
-<li>当我们运行 <code>x = "Hello world!"</code> 的时候，<code>x</code> 的类型是<strong>字符串</strong>，值是<code>"Hello world!"</code>。  </li>
-<li>当我们运行 <code>x = "3 + 5"</code> 的时候（注意引号）, <code>x</code> 的类型是<strong>字符串</strong>，值是<code>"3 + 5"</code>。  </li>
-</ul>
-<h3 id="">&#21015;&#34920;<a class="anchor-link" href="#&#21015;&#34920;">&#182;</a></h3><p>就是一个排好顺序的盒子，啥都能往里放。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
-
-    <div class="inner_cell">
-        
-        
-        <div class="input_area">
-            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;world&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
-
-        </div>
-    </div>
-
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[3, 1, 4, 1, 5, &#39;hello&#39;, 9, 2, &#39;world&#39;, 5]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>程序猿们是从 0 开始数数的，所以第 0 个东西是 0，第 2 个是 1，...。<br>
-这样数数，想拿第 5 个东西（<code>hello</code> 字符串）的时候，只需要：</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
-
-    <div class="inner_cell">
-        
-        
-        <div class="input_area">
-            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="n">item</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-</pre></div>
-
-        </div>
-    </div>
-
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>hello
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>你也可以直接把它设置成其它东西，像这样：</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
-
-    <div class="inner_cell">
-        
-        
-        <div class="input_area">
-            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="n">another_item</span> <span class="o">=</span> <span class="s2">&quot;greetings&quot;</span>
-<span class="n">x</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="n">another_item</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
-
-        </div>
-    </div>
-
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[3, 1, 4, 1, 5, &#39;greetings&#39;, 9, 2, &#39;world&#39;, 5]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>注意，这里 <code>item</code> 和 <code>another_item</code> 都是变量的名字，就像 <code>x</code>, <code>y</code> 和 <code>z</code> 一样，都是随便起的，能表达意思就好。</p>
+<p>这样子写，程序会按照顺序执行这三句话 。</p>
 
 </div>
 </div>
@@ -1760,272 +1430,42 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="boolean">&#24320;&#20851;(Boolean)<a class="anchor-link" href="#&#24320;&#20851;(Boolean)">&#182;</a></h3><p>一个开关类型的变量，要么是 <code>True</code>，要么是 <code>False</code>，就像开关一样，要么是开，要么是关。<br>
-与之相关联的，是数值大小的判断的操作<code>&gt;</code>, <code>&lt;</code>, <code>==</code>, <code>!=</code>：</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
-
-    <div class="inner_cell">
-        
-        
-        <div class="input_area">
-            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">)</span>
-</pre></div>
-
-        </div>
-    </div>
-
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>True
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
-
-    <div class="inner_cell">
-        
-        
-        <div class="input_area">
-            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">)</span>
-</pre></div>
-
-        </div>
-    </div>
-
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
-
-    <div class="inner_cell">
-        
-        
-        <div class="input_area">
-            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span>
-</pre></div>
-
-        </div>
-    </div>
-
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>True
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
-
-    <div class="inner_cell">
-        
-        
-        <div class="input_area">
-            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">!=</span> <span class="mi">5</span><span class="p">)</span>
-</pre></div>
-
-        </div>
-    </div>
-
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>以及逻辑操作 <code>and</code>, <code>or</code>, <code>not</code>：</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
-
-    <div class="inner_cell">
-        
-        
-        <div class="input_area">
-            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="n">b</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="ow">and</span> <span class="n">b</span><span class="p">)</span>
-</pre></div>
-
-        </div>
-    </div>
-
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>False
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
-
-    <div class="inner_cell">
-        
-        
-        <div class="input_area">
-            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="ow">or</span> <span class="n">b</span><span class="p">)</span>
-</pre></div>
-
-        </div>
-    </div>
-
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>True
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
-
-    <div class="inner_cell">
-        
-        
-        <div class="input_area">
-            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="ow">not</span> <span class="n">b</span><span class="p">)</span>
-</pre></div>
-
-        </div>
-    </div>
-
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>True
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>开关变量会在条件语句中使用。</p>
+<p>我们不妨把<code>print</code>叫命令（让电脑打出文字的命令），括号内是命令的内容。</p>
+<p>世界上所有的程序，都可以写成以下形式：</p>
+
+<pre><code>命令1（内容1）
+命令2（内容2）
+命令3（内容3）
+...</code></pre>
+<p>相信我，天问一号火星车的发射程序也不过是以下：</p>
+
+<pre><code>监控（温度，燃料，重量...）
+设定目标（火星）
+点火（火箭）</code></pre>
+<p>也许稍微改动一下，就可以送它去月球：</p>
+
+<pre><code>监控（温度，燃料，重量...）
+设定目标（月球）
+点火（火箭）</code></pre>
+<p>甚至是搞一场烟火：</p>
+
+<pre><code>监控（温度，燃料，重量...）
+设定目标（月球）
+点火（燃料仓）</code></pre>
+<p>看吧，这就是程序猿的快乐。<br>
+只不过，这些命令本身，也是由一系列子命令组成的，而且复杂到需要庞大的技术团队去书写和反复测试的。<br>
+比如<code>设定目标</code>这个命令也许是这样定义的：</p>
+
+<pre><code>获取坐标（月球）
+计算距离（发射地点，月球）
+计算角度（发射地点，月球）
+设定（距离，角度）
+...</code></pre>
+<p>而子命令又有子命令，子子孙孙无穷匮也。</p>
+<p>而我们要做的，就是书写自己的命令，使用别人写好的命令，将它们组织起来，为社会带来生产力。<br>
+总而言之，让我们</p>
+
+<pre><code>改变（世界）</code></pre>
 
 </div>
 </div>
@@ -2033,376 +1473,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="">&#36824;&#26377;&#24456;&#22810;...<a class="anchor-link" href="#&#36824;&#26377;&#24456;&#22810;...">&#182;</a></h3><p>Python 中还有很多种数据类型，它们就像各种容器一样（杯子啊，脸盆啊甚至水库），有不同的使用方法。我们之后会接触到更多。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="">&#26465;&#20214;&#35821;&#21477;<a class="anchor-link" href="#&#26465;&#20214;&#35821;&#21477;">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>条件语句的结构大概是这样</p>
-<div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">开关类型的值1</span><span class="p">:</span>
-    <span class="n">命令１</span>
-<span class="k">elif</span> <span class="n">开关类型的值2</span><span class="p">:</span>
-    <span class="n">命令２</span>
-<span class="k">elif</span> <span class="n">开关类型的值3</span><span class="err">：</span>
-    <span class="n">命令3</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">命令4</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="">&#19968;&#20010;&#20363;&#23376;<a class="anchor-link" href="#&#19968;&#20010;&#20363;&#23376;">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
-
-    <div class="inner_cell">
-        
-        
-        <div class="input_area">
-            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">6</span>
-<span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;这个值大于 5&quot;</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;这个值等于 5&quot;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;这个值小于 5&quot;</span><span class="p">)</span>
-</pre></div>
-
-        </div>
-    </div>
-
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>这个值大于 5
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>条件语句会从上到下查看每一个<code>开关类型的值</code>，如果是 <code>True</code>，就执行对应的命令。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="for-">For &#24490;&#29615;&#35821;&#21477;<a class="anchor-link" href="#For-&#24490;&#29615;&#35821;&#21477;">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">变量</span> <span class="ow">in</span> <span class="p">[</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="o">...</span> <span class="p">]:</span>
-    <span class="n">执行命令</span><span class="o">...</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="">&#19968;&#20010;&#20363;&#23376;<a class="anchor-link" href="#&#19968;&#20010;&#20363;&#23376;">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
-
-    <div class="inner_cell">
-        
-        
-        <div class="input_area">
-            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">item</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;大于 5&quot;</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">item</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;等于 5&quot;</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;小于 5&quot;</span><span class="p">)</span>
-</pre></div>
-
-        </div>
-    </div>
-
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>小于 5
-等于 5
-小于 5
-大于 5
-小于 5
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>在这个循环中，我们把 <code>items</code> 中的每一个元素取出，赋值给 <code>item</code>，然后根据 <code>item</code> 的值完成一系列操作。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="while-">While &#24490;&#29615;&#35821;&#21477;<a class="anchor-link" href="#While-&#24490;&#29615;&#35821;&#21477;">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">开关类型的值</span><span class="p">:</span>
-    <span class="n">执行命令</span>
-</pre></div>
-<p>每当<code>执行命令</code>完成后，程序会重新计算一下 <code>开关类型的值</code>，如果是 <code>True</code>，那么<code>执行命令</code>会被再次执行，直到<code>开关类型的值</code>变成<code>False</code>。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="">&#19968;&#20010;&#20363;&#23376;<a class="anchor-link" href="#&#19968;&#20010;&#20363;&#23376;">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
-
-    <div class="inner_cell">
-        
-        
-        <div class="input_area">
-            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">while</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
-
-        </div>
-    </div>
-
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="">&#21478;&#19968;&#20010;&#20363;&#23376;<a class="anchor-link" href="#&#21478;&#19968;&#20010;&#20363;&#23376;">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>下面这个程序会造成所谓的<code>死循环</code>，程序永远无法完成执行，并且会无数次地输出。</p>
-<div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="k">while</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="cases">Cases<a class="anchor-link" href="#Cases">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="case-1">Case 1<a class="anchor-link" href="#Case-1">&#182;</a></h3><p>在 <code>Hello World</code> 程序中，如果这样写：
-<code>print(Hello World)</code>（不加引号）会怎么样呢？</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
-
-    <div class="inner_cell">
-        
-        
-        <div class="input_area">
-            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">Hello</span> <span class="n">world</span><span class="err">!</span><span class="p">)</span>
-</pre></div>
-
-        </div>
-    </div>
-
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;&lt;ipython-input-19-01a3c6a17cb8&gt;&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
-<span class="ansi-red-fg">    print(Hello world!)</span>
-                    ^
-<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>它提示了格式错误。因为计算机不知道你输入的 <code>Hello world !</code> 到底是什么东西。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="case-2">Case 2<a class="anchor-link" href="#Case-2">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
-
-    <div class="inner_cell">
-        
-        
-        <div class="input_area">
-            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1 + 2&quot;</span><span class="p">)</span>
-</pre></div>
-
-        </div>
-    </div>
-
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>3
-1 + 2
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>它俩有什么不同呢？</p>
-<ul>
-<li>引号包裹的东西，我们叫它<strong>字符串</strong>。丢给<code>print</code>的时候，引号里面是啥，出来就是啥。</li>
-<li>不加字符串的时候，它会进行加法运算，得出一个<strong>数字</strong>。</li>
-</ul>
 
 </div>
 </div>
