@@ -7,11 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="IceWould Training Hub">
     <meta name="author" content="IceWould Training Team Led by Chonghan Chen">
-    <link rel="canonical" href="https://paulcccccch.github.io/content/introduction/">
+    <link rel="canonical" href="https://paulcccccch.github.io/content/equation-solver/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
 
     
-    <title>Introduction - m5-101</title>
+    <title>Project 1: Equation Solver 方程求解器 - m5-101</title>
     
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
@@ -81,13 +81,13 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Notes <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
-<li class="active">
-    <a href="./">Introduction</a>
+<li >
+    <a href="../introduction/">Introduction</a>
 </li>
 
                         
@@ -113,18 +113,8 @@
                 </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                    <li >
-                        <a rel="prev" href="../schedule/">
-                            <i class="fas fa-arrow-left"></i> Previous
-                        </a>
-                    </li>
-                    <li >
-                        <a rel="next" href="../hello-world/">
-                            Next <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </li>
                     <li>
-                        <a href="https://github.com/PaulCCCCCCH/m5-101/edit/master/docs/content/introduction.md"><i class="fab fa-github"></i> Edit on GitHub</a>
+                        <a href="https://github.com/PaulCCCCCCH/m5-101/edit/master/docs/content/equation-solver.md"><i class="fab fa-github"></i> Edit on GitHub</a>
                     </li>
             </ul>
         </div>
@@ -136,12 +126,64 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#introduction-to-m5-101">Introduction to m5-101</a></li>
+        <li class="first-level active"><a href="#project-1-equation-solver">Project 1: Equation Solver 方程求解器</a></li>
+            <li class="second-level"><a href="#_1">引言</a></li>
+                
+                <li class="third-level"><a href="#_2">一个金融领域的例子</a></li>
+                <li class="third-level"><a href="#_3">从简单的算法开始</a></li>
+            <li class="second-level"><a href="#_4">准备工作</a></li>
+                
+            <li class="second-level"><a href="#section-1">Section 1: 求解线性方程</a></li>
+                
+            <li class="second-level"><a href="#section-2">Section 2: 公式法求解方程</a></li>
+                
+            <li class="second-level"><a href="#section-3">Section 3: 牛顿迭代法求解方程</a></li>
+                
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h1 id="introduction-to-m5-101">Introduction to m5-101</h1></div>
+<h1 id="project-1-equation-solver">Project 1: Equation Solver 方程求解器</h1>
+<h2 id="_1">引言</h2>
+<p>现实生活中，有很多实用的计算是通过程序来实现的。  </p>
+<h3 id="_2">一个金融领域的例子</h3>
+<p>（<strong>数学或者专业知识不够的话可以跳过</strong>）：<br />
+你要将手中的<script type="math/tex">S</script>元人民币用于投资，现在有多种投资方式可供选择。每种投资方式的收益是<script type="math/tex">R_1, R_2, ..., R_n</script>（更准确地说，设每种投资方式的收益是随机变量<script type="math/tex">R_1, R_2, ..., R_n</script>）。现在请问，怎样分配投资资金可以使得<a href="https://baike.baidu.com/item/%E5%9D%87%E5%80%BC-%E6%96%B9%E5%B7%AE%E6%A8%A1%E5%9E%8B/6811898">风险</a>最小？<br />
+更专业一点，如何达成一个<a href="https://baike.baidu.com/item/Efficient%20frontier/10366576"><code>efficient frontier portfolio</code></a>？<br />
+表述成数学的形式，就是如下问题：
+<script type="math/tex; mode=display">
+\begin{align}
+& \max_x & E_R(U(R_1 x_1 + ... + R_n x_n)) \\
+& \text{subject to } &  \Sigma_i x_i = S \\
+\end{align}
+</script>
+其中，<script type="math/tex">U</script>是可以有不同选择的<code>Utility Function</code>，<script type="math/tex">E_R</script>代表求关于<script type="math/tex">R</script>的数学期望。  </p>
+<p>这样的数学问题，很难通过纸和笔计算；通常，我们会设计一个计算机算法去求解。</p>
+<h3 id="_3">从简单的算法开始</h3>
+<p>在这个项目里，我们需要使用 Python 几乎全部的基础语法，并且灵活运用函数，来实现一些简单的算法，解决一些数学问题。今后若是在 Lecture 上看到一个数学算法，你就可以很自豪地用程序实现它了。</p>
+<h2 id="_4">准备工作</h2>
+<p><a href="../code/equation-solver.py" download="equation-solver.py">下载初始代码</a></p>
+<h2 id="section-1">Section 1: 求解线性方程</h2>
+<p>我们知道，一个线性方程可以写作以下一般形式：
+<script type="math/tex; mode=display">
+a x + b = 0
+</script>
+请完成 <code>Question 1</code>，函数的参数是<script type="math/tex">a</script>和<script type="math/tex">b</script>的值，输出对应方程的解，放在一个列表（<code>[]</code>）内。如果方程无解，请返回<code>[]</code>。如果方程有无数个解，请返回 <code>None</code>。<br />
+提示：注意 <script type="math/tex">a=0</script> 的情况。</p>
+<h2 id="section-2">Section 2: 公式法求解方程</h2>
+<p>一个一元二次方程可以写作以下一般形式：
+<script type="math/tex; mode=display">
+a x ^ 2 + b x + c = 0
+</script>
+</p>
+<p>请完成 <code>Question 2</code>，函数的参数是 <script type="math/tex">a</script>，<script type="math/tex">b</script> 和 <script type="math/tex">c</script> 的值，将所有解放在一个列表（<code>[]</code>）内。如果方程无解，请返回<code>[]</code>。如果方程有无数个解，请返回 <code>None</code>。<br />
+提示：可以使用<a href="https://baike.baidu.com/item/%E4%B8%80%E5%85%83%E4%BA%8C%E6%AC%A1%E6%96%B9%E7%A8%8B">一元二次方程求根公式</a>进行求解。</p>
+<h2 id="section-3">Section 3: 牛顿迭代法求解方程</h2>
+<p>现在，我们来介绍一种通过程序才能实现的求解方程的方法——<a href="https://baike.baidu.com/item/%E7%89%9B%E9%A1%BF%E8%BF%AD%E4%BB%A3%E6%B3%95/10887580">牛顿迭代法</a>。它对所求解的方程的形式并没有什么特定要求，其思想在数学优化问题中非常常用。  </p>
+<p>我们定义了 <code>solve_equation</code> 这个函数，它的唯一一个参数 <code>f</code>，就是用户定义的任意函数。<br />
+请编写程序进行求解，并且返回 <code>f(x) = 0</code> 的任意一个解。  </p>
+<p>提示１：求导过程可以令 <script type="math/tex">\Delta x = \epsilon</script>　来近似地获得一个函数在某一点的切线斜率。<br />
+提示２：暂不给出。</p></div>
         
         
     </div>
