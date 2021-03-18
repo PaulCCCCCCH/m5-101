@@ -1,5 +1,44 @@
 # Python 开发环境搭建
 
+## Windows
+
+### Python 安装（Windows）
+
+首先我们需要安装 Python，访问 [Python 官网](https://www.python.org/downloads/windows/)，选择 Stable Releases 下 Python 3.8.8 中的 Windows installer 下载，32 位还是 64 位根据个人情况选择哦。下载完毕后直接双击安装就好了，界面如下：
+
+![](images/setup-win-pyinstaller.png)
+
+**记得勾选最下方的选项 `Add Python 3.8 to PATH`，可以省很多事儿。** 然后一路 next 点点点，Python 就安装好了。
+
+接下来我们讲介绍本次课程推荐使用的代码编辑器 — VS Code。VS Code 是一个轻量的免费跨平台代码编辑器。如果你还未安装 VS Code，可通过[其官网](https://code.visualstudio.com/)，直接下载安装。
+
+安装 VS Code 的过程也是一路点点点，记得也要勾选 `添加到PATH` 这一项。
+
+![](images/setup-win-codeinstaller.png)
+
+然后打开 VS Code，我们点击最左侧选项栏的扩展页，在搜索栏中搜索 Python，第一个就是我们所需要的插件，点击 `install` 即可安装～
+
+![](images/setup-win-extension.png)
+
+现在，我们新建一个文件夹，并在 VS Code 中打开它，现在，我们通过 `ctrl` + `N` 来新建一个文件，并按下 `ctrl` + `S` 为 `hello.py`，现在 VS Code 识别到了我们正在编辑一个 Python 文件，窗口的左下角会出现我们所使用的 Python 解释器版本号。
+
+<img src="images/setup-win-interpreter.png" style="zoom:50%;" />
+
+现在，我们尝试在 `hello.py` 文件中输入：
+
+```python
+print("Hello, World!")
+```
+
+然后点一下右上角的绿色三角运行按钮。
+
+![](images/setup-win-code.png)
+
+你应该可以看到终端中输出的 `Hello World!`，现在， 我们的环境配置就算告一断落啦。
+
+![](images/setup-win-output.png)
+
+
 ## mac OS
 
 本文主要介绍三种安装 Python 的方法：
