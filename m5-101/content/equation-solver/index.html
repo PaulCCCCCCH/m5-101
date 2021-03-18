@@ -7,11 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="IceWould Training Hub">
     <meta name="author" content="IceWould Training Team Led by Chonghan Chen">
-    <link rel="canonical" href="https://paulcccccch.github.io/content/python-set-up/">
+    <link rel="canonical" href="https://paulcccccch.github.io/content/equation-solver/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
 
     
-    <title>Python 开发环境搭建 - m5-101</title>
+    <title>Project 1: Equation Solver 方程求解器 - m5-101</title>
     
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
@@ -114,7 +114,7 @@
 
             <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="https://github.com/PaulCCCCCCH/m5-101/edit/master/docs/content/python-set-up.md"><i class="fab fa-github"></i> Edit on GitHub</a>
+                        <a href="https://github.com/PaulCCCCCCH/m5-101/edit/master/docs/content/equation-solver.md"><i class="fab fa-github"></i> Edit on GitHub</a>
                     </li>
             </ul>
         </div>
@@ -126,85 +126,64 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#python">Python 开发环境搭建</a></li>
-            <li class="second-level"><a href="#mac-os">mac OS</a></li>
+        <li class="first-level active"><a href="#project-1-equation-solver">Project 1: Equation Solver 方程求解器</a></li>
+            <li class="second-level"><a href="#_1">引言</a></li>
+                
+                <li class="third-level"><a href="#_2">一个金融领域的例子</a></li>
+                <li class="third-level"><a href="#_3">从简单的算法开始</a></li>
+            <li class="second-level"><a href="#_4">准备工作</a></li>
+                
+            <li class="second-level"><a href="#section-1">Section 1: 求解线性方程</a></li>
+                
+            <li class="second-level"><a href="#section-2">Section 2: 公式法求解方程</a></li>
+                
+            <li class="second-level"><a href="#section-3">Section 3: 牛顿迭代法求解方程</a></li>
                 
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h1 id="python">Python 开发环境搭建</h1>
-<h2 id="mac-os">mac OS</h2>
-<p>本文主要介绍三种安装 Python 的方法：</p>
-<ol>
-<li>
-<p>访问 <a href="https://www.python.org/downloads/mac-osx/">Python 官网</a>，选择 Stable Releases 下的 Python 3.8.x installer 下载安装。</p>
-</li>
-<li>
-<p>通过 <code>Homebrew</code> 安装：</p>
-</li>
-</ol>
-<blockquote>
-<p>如果你的电脑上已经安装了 <code>Homebrew</code>，则推荐使用此方式安装 ；或者虽然还未安装 <code>Homebrew</code>，但你是一名计算机系的学生，我们建议你了解一下 <a href="https://brew.sh/"><code>Homebrew</code></a> 并使用此方式安装 Python。</p>
-</blockquote>
-<p>在终端下输入以下命令：</p>
-<p><code>brew install python3</code></p>
-<p>由于网络环境因素，安装时间可能过长，可以考虑通过为 <code>Homebrew</code> 换源或者挂梯子等方式加速。</p>
-<p>安装完成后，终端应显示如下内容（具体版本号可能有轻微不同，并不影响后续课程）。</p>
-<p>```
-   Python has been installed as
-     /usr/local/opt/python@3.8/bin/python3</p>
-<p>You can install Python packages with
-     /usr/local/opt/python@3.8/bin/pip3 install <package>
-   They will install into the site-package directory
-     /usr/local/opt/python@3.8/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages</p>
-<p>See: https://docs.brew.sh/Homebrew-and-Python
-   ==&gt; Summary
-   🍺  /usr/local/Cellar/python@3.8/3.8.3_1: 4,125 files, 63MB
-   ```</p>
-<p>现在试试在终端中输入：</p>
-<p><code>python3 --version</code></p>
-<p>你应该可以看到（具体版本号可能有轻微不同，并不影响后续课程）：</p>
-<p><code>Python 3.8.3</code></p>
-<ol>
-<li>通过安装 Anaconda 来安装 Python。</li>
-</ol>
-<blockquote>
-<p>对于本课程来说，Anaconda 有些稍显臃肿，我们因此不推荐使用此方法安装 Python。如果你对数据科学非常感兴趣，计算机背景知识良好，也可以选择使用此方式安装 Python。</p>
-</blockquote>
-<p>进入 <a href="https://www.anaconda.com/products/individual#macos">Anaconda 官网下载页面</a>，选择一个 Installer 下载（为了方便，我们推荐选择第一个 Graphical Installer）。</p>
-<p><img alt="" src="../images/setup-macOS-anaconda.png" /></p>
-<p>如果下载速度不理想，可以通过 <a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/">清华源</a> 下载。点进页面后，拉到最下方，选择 <code>Anaconda3-5.3.1-MacOSX-x86_64.pkg</code> 这个包，下载即可。此处还有 TUNA 提供的 <a href="https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/">Anaconda 镜像使用帮助</a>。</p>
-<p>安装过程中，可以自行选择是否要一起打包安装 PyCharm，本课程中主要使用的编辑器为 Sublime Text 与 VS Code。</p>
-<p>现在试试在终端中输入：</p>
-<p><code>conda --version</code></p>
-<p>你应该可以看到（具体版本号可能有轻微不同，并不影响后续课程）：</p>
-<p><code>conda 4.7.12</code></p>
-<p>接下来我们讲介绍本次课程推荐使用的代码编辑器 — VS Code。</p>
-<p>VS Code 是一个轻量的免费跨平台代码编辑器。如果你还未安装 VS Code，可通过 <a href="https://code.visualstudio.com/">其官网</a>，直接下载安装。</p>
-<ol>
-<li>安装完毕后，选择最左侧一栏中的扩展图标（1.）进入扩展商店，在搜索栏（2.）中输入 Python，点击安装（3.）来安装 VS Code 为 Python 提供的插件。</li>
-</ol>
-<p><img alt="" src="../images/setup-macOS-extension.png" /></p>
-<ol>
-<li>安装插件完毕后，我们先创建一个文件夹，并且通过 VS Code 打开这个文件夹。之后按下 <code>Command</code> + <code>N</code>，创建一个新文件，并且按下<code>Command</code> + <code>S</code>，把它保存为<code>hello.py</code>。</li>
-</ol>
-<p>现在，VS Code 窗口的左下角，会出现你目前使用的 Python 环境，因为 mac OS 中自带了 Python 2.7，我们需要把它手动切换成我们刚刚安装的 Python 3。</p>
-<p><img src="images/setup-macOS-interpreter.png" alt="" style="zoom:50%;" /></p>
-<p>我们点击它，则可以选择其他 Python 解释器，因为笔者的 Mac 中有多个 Python 环境，所以这里的选项多一点，选择你刚刚安装的那个版本就好。</p>
-<p><img alt="" src="../images/setup-macOS-interpreter2.png" /></p>
-<ol>
-<li>现在，我们尝试在 <code>hello.py</code> 文件中输入：</li>
-</ol>
-<p><code>python
-   print("Hello, World!")</code></p>
-<p>然后点一下右上角的绿色三角运行按钮。</p>
-<p><img src="images/setup-macOS-pycode.png" alt="" style="zoom:50%;" /></p>
-<p>你应该可以看到编辑器下部分的终端中，成功打印了：</p>
-<p><code>▶ python3 /Users/xiuxiu/Desktop/py/hello.py
-   Hello, World!
-   (base)</code></p>
-<p>至此，一个基本的 Python 开发环境已经配置好啦，我们在课程中也会慢慢介绍可能使用到的其他扩展～</p></div>
+<h1 id="project-1-equation-solver">Project 1: Equation Solver 方程求解器</h1>
+<h2 id="_1">引言</h2>
+<p>现实生活中，有很多实用的计算是通过程序来实现的。  </p>
+<h3 id="_2">一个金融领域的例子</h3>
+<p>（<strong>数学或者专业知识不够的话可以跳过</strong>）：<br />
+你要将手中的<script type="math/tex">S</script>元人民币用于投资，现在有多种投资方式可供选择。每种投资方式的收益是<script type="math/tex">R_1, R_2, ..., R_n</script>（更准确地说，设每种投资方式的收益是随机变量<script type="math/tex">R_1, R_2, ..., R_n</script>）。现在请问，怎样分配投资资金可以使得<a href="https://baike.baidu.com/item/%E5%9D%87%E5%80%BC-%E6%96%B9%E5%B7%AE%E6%A8%A1%E5%9E%8B/6811898">风险</a>最小？<br />
+更专业一点，如何达成一个<a href="https://baike.baidu.com/item/Efficient%20frontier/10366576"><code>efficient frontier portfolio</code></a>？<br />
+表述成数学的形式，就是如下问题：
+<script type="math/tex; mode=display">
+\begin{align}
+& \max_x & E_R(U(R_1 x_1 + ... + R_n x_n)) \\
+& \text{subject to } &  \Sigma_i x_i = S \\
+\end{align}
+</script>
+其中，<script type="math/tex">U</script>是可以有不同选择的<code>Utility Function</code>，<script type="math/tex">E_R</script>代表求关于<script type="math/tex">R</script>的数学期望。  </p>
+<p>这样的数学问题，很难通过纸和笔计算；通常，我们会设计一个计算机算法去求解。</p>
+<h3 id="_3">从简单的算法开始</h3>
+<p>在这个项目里，我们需要使用 Python 几乎全部的基础语法，并且灵活运用函数，来实现一些简单的算法，解决一些数学问题。今后若是在 Lecture 上看到一个数学算法，你就可以很自豪地用程序实现它了。</p>
+<h2 id="_4">准备工作</h2>
+<p><a href="../code/equation-solver.py" download="equation-solver.py">下载初始代码</a></p>
+<h2 id="section-1">Section 1: 求解线性方程</h2>
+<p>我们知道，一个线性方程可以写作以下一般形式：
+<script type="math/tex; mode=display">
+a x + b = 0
+</script>
+请完成 <code>Question 1</code>，函数的参数是<script type="math/tex">a</script>和<script type="math/tex">b</script>的值，输出对应方程的解，放在一个列表（<code>[]</code>）内。如果方程无解，请返回<code>[]</code>。如果方程有无数个解，请返回 <code>None</code>。<br />
+提示：注意 <script type="math/tex">a=0</script> 的情况。</p>
+<h2 id="section-2">Section 2: 公式法求解方程</h2>
+<p>一个一元二次方程可以写作以下一般形式：
+<script type="math/tex; mode=display">
+a x ^ 2 + b x + c = 0
+</script>
+</p>
+<p>请完成 <code>Question 2</code>，函数的参数是 <script type="math/tex">a</script>，<script type="math/tex">b</script> 和 <script type="math/tex">c</script> 的值，将所有解放在一个列表（<code>[]</code>）内。如果方程无解，请返回<code>[]</code>。如果方程有无数个解，请返回 <code>None</code>。<br />
+提示：可以使用<a href="https://baike.baidu.com/item/%E4%B8%80%E5%85%83%E4%BA%8C%E6%AC%A1%E6%96%B9%E7%A8%8B">一元二次方程求根公式</a>进行求解。</p>
+<h2 id="section-3">Section 3: 牛顿迭代法求解方程</h2>
+<p>现在，我们来介绍一种通过程序才能实现的求解方程的方法——<a href="https://baike.baidu.com/item/%E7%89%9B%E9%A1%BF%E8%BF%AD%E4%BB%A3%E6%B3%95/10887580">牛顿迭代法</a>。它对所求解的方程的形式并没有什么特定要求，其思想在数学优化问题中非常常用。  </p>
+<p>我们定义了 <code>solve_equation</code> 这个函数，它的唯一一个参数 <code>f</code>，就是用户定义的任意函数。<br />
+请编写程序进行求解，并且返回 <code>f(x) = 0</code> 的任意一个解。  </p>
+<p>提示１：求导过程可以令 <script type="math/tex">\Delta x = \epsilon</script>　来近似地获得一个函数在某一点的切线斜率。<br />
+提示２：暂不给出。</p></div>
         
         
     </div>

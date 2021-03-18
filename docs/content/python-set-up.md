@@ -1,8 +1,8 @@
 # Python 开发环境搭建
 
-## Windows
+## Windows 用户请看这
 
-### Python 安装（Windows）
+### Python 安装 (Windows)
 
 首先我们需要安装 Python，访问 [Python 官网](https://www.python.org/downloads/windows/)，选择 Stable Releases 下 Python 3.8.8 中的 Windows installer 下载，32 位还是 64 位根据个人情况选择哦。下载完毕后直接双击安装就好了，界面如下：
 
@@ -10,6 +10,8 @@
 
 **记得勾选最下方的选项 `Add Python 3.8 to PATH`，可以省很多事儿。** 然后一路 next 点点点，Python 就安装好了。
 
+<br>
+### 代码编辑神器 VS Code
 接下来我们讲介绍本次课程推荐使用的代码编辑器 — VS Code。VS Code 是一个轻量的免费跨平台代码编辑器。如果你还未安装 VS Code，可通过[其官网](https://code.visualstudio.com/)，直接下载安装。
 
 安装 VS Code 的过程也是一路点点点，记得也要勾选 `添加到PATH` 这一项。
@@ -22,7 +24,7 @@
 
 现在，我们新建一个文件夹，并在 VS Code 中打开它，现在，我们通过 `ctrl` + `N` 来新建一个文件，并按下 `ctrl` + `S` 为 `hello.py`，现在 VS Code 识别到了我们正在编辑一个 Python 文件，窗口的左下角会出现我们所使用的 Python 解释器版本号。
 
-<img src="images/setup-win-interpreter.png" style="zoom:50%;" />
+<img src="../images/setup-win-interpreter.png" style="zoom:50%;" />
 
 现在，我们尝试在 `hello.py` 文件中输入：
 
@@ -39,8 +41,10 @@ print("Hello, World!")
 ![](images/setup-win-output.png)
 
 
-## mac OS
+<br>
+## mac OS 用户请看这
 
+### Python 安装 (Windows)
 本文主要介绍三种安装 Python 的方法：
 
 1. 访问 [Python 官网](https://www.python.org/downloads/mac-osx/)，选择 Stable Releases 下的 Python 3.8.x installer 下载安装。
@@ -55,11 +59,11 @@ print("Hello, World!")
    brew install python3
    ```
 
-   由于网络环境因素，安装时间可能过长，可以考虑通过为 `Homebrew` 换源或者挂梯子等方式加速。
+   由于网络环境因素，安装时间可能过长，可以考虑通过为 `Homebrew` 换源或者挂梯子等方式加速。  
 
-   安装完成后，终端应显示如下内容（具体版本号可能有轻微不同，并不影响后续课程）。
+   安装完成后，终端应显示如下内容（具体版本号可能有轻微不同，并不影响后续课程）。  
 
-   ```
+```
    Python has been installed as
      /usr/local/opt/python@3.8/bin/python3
    
@@ -71,7 +75,7 @@ print("Hello, World!")
    See: https://docs.brew.sh/Homebrew-and-Python
    ==> Summary
    🍺  /usr/local/Cellar/python@3.8/3.8.3_1: 4,125 files, 63MB
-   ```
+```
 
    现在试试在终端中输入：
 
@@ -111,17 +115,18 @@ print("Hello, World!")
 
 接下来我们讲介绍本次课程推荐使用的代码编辑器 — VS Code。
 
-VS Code 是一个轻量的免费跨平台代码编辑器。如果你还未安装 VS Code，可通过 [其官网](https://code.visualstudio.com/)，直接下载安装。
+<br>
+### 代码编辑神器 VS Code
+VS Code 是一个轻量的免费跨平台代码编辑器。如果你还未安装 VS Code，可通过 [其官网](https://code.visualstudio.com/)，直接下载安装。  
 
 1. 安装完毕后，选择最左侧一栏中的扩展图标（1.）进入扩展商店，在搜索栏（2.）中输入 Python，点击安装（3.）来安装 VS Code 为 Python 提供的插件。
-
-   ![](images/setup-macOS-extension.png)
+![](images/setup-macOS-extension.png)
 
 2. 安装插件完毕后，我们先创建一个文件夹，并且通过 VS Code 打开这个文件夹。之后按下 `Command` + `N`，创建一个新文件，并且按下`Command` + `S`，把它保存为`hello.py`。
 
    现在，VS Code 窗口的左下角，会出现你目前使用的 Python 环境，因为 mac OS 中自带了 Python 2.7，我们需要把它手动切换成我们刚刚安装的 Python 3。
 
-   <img src="images/setup-macOS-interpreter.png" alt="" style="zoom:50%;" />
+   <img src="../images/setup-macOS-interpreter.png" alt="" style="zoom:50%;" />
 
    我们点击它，则可以选择其他 Python 解释器，因为笔者的 Mac 中有多个 Python 环境，所以这里的选项多一点，选择你刚刚安装的那个版本就好。
 
@@ -135,7 +140,7 @@ VS Code 是一个轻量的免费跨平台代码编辑器。如果你还未安装
 
    然后点一下右上角的绿色三角运行按钮。
 
-   <img src="images/setup-macOS-pycode.png" alt="" style="zoom:50%;" />
+   <img src="../images/setup-macOS-pycode.png" alt="" style="zoom:50%;" />
 
    你应该可以看到编辑器下部分的终端中，成功打印了：
 

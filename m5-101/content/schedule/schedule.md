@@ -24,7 +24,7 @@
   <tr>
     <td class="tg-svo0" rowspan="2">Week 1</td>
     <td class="tg-svo0"> Tue <br>3/23<br>20:00-22:00</td>
-    <td class="tg-svo0">IAMET<br>406-1</td>
+    <td class="tg-svo0">PMB<br>309</td>
     <td class="tg-svo0">
       <a href="../python-set-up">1. Python 开发环境搭建</a>
       <br>
@@ -33,7 +33,7 @@
       <a href="../python-basics-1">3. Python 基础: 数据类型和基本语句</a>
       <br>
     </td>
-    <td class="tg-svo0" rowspan="4"> <a href="../equation-solver">Project 1: Equation Solver 方程求解器 </td>
+    <td class="tg-svo0" rowspan="2"> <a href="../equation-solver">Project 1: Equation Solver 方程求解器 </td>
     <td class="tg-svo0">
       <a href="https://www.runoob.com/python/python-basic-syntax.html">1. 菜鸟 Python 教程</a>
       <br>
@@ -42,7 +42,7 @@
   </tr>
   <tr>
     <td class="tg-c3ow">Thur<br>3/25<br>20:00-22:00</td>
-    <td class="tg-c3ow">IAMET<br>406-1</td>
+    <td class="tg-c3ow">PMB<br>309</td>
     <td class="tg-c3ow">
       <span href="../python-basics-2">1. Python 基础：函数定义</a>
       <br>
@@ -63,6 +63,7 @@
       <span href="../debugging">3. Debugging</a>
       <br>
     </td>
+    <td class="tg-svo0" rowspan="2"> <span href="../string-processing">Project 1.5: String Processing 字符串处理</td>
     <td class="tg-svo0"></td>
   </tr>
   <tr>
