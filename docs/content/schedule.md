@@ -1,3 +1,9 @@
+# Announcements
+3/20: 第一次线下活动的时间是 3 月 22 日（周一），第二次线下活动时间是 3 月 25 日（周四）。
+
+
+第一次活动比较重要，会牵扯到后续的淘汰筛选机制，请大家务必按时前来哦！
+
 # Schedule
 
 <style type="text/css">
@@ -26,12 +32,7 @@
     <td class="tg-svo0"> Mon <br>3/22<br>20:00-22:00</td>
     <td class="tg-svo0">PMB<br>309</td>
     <td class="tg-svo0">
-      <a href="../python-set-up">1. Python 开发环境搭建</a>
-      <br>
-      <a href="../hello-world">2. Hello World</a>
-      <br>
-      <a href="../python-basics-1">3. Python 基础: 数据类型和基本语句</a>
-      <br>
+      <b> 暂无 </b></td>
     </td>
     <td class="tg-svo0" rowspan="2"> <a href="../equation-solver">Project 1: Equation Solver 方程求解器 </td>
     <td class="tg-svo0">
@@ -44,10 +45,14 @@
     <td class="tg-c3ow">Thur<br>3/25<br>20:00-22:00</td>
     <td class="tg-c3ow">PMB<br>309</td>
     <td class="tg-c3ow">
-      <span href="../python-basics-2">1. Python 基础：函数定义</a>
+
+      <a href="../python-set-up">1. Python 开发环境搭建</a>
       <br>
-      <span href="../code-style">2. 编程习惯和规范 </a>
+      <a href="../hello-world">2. Hello World</a>
       <br>
+      <a href="../python-basics-1">3. Python 基础: 数据类型和基本语句</a>
+      <br>
+
     </td>
     <td class="tg-c3ow"></td>
   </tr>
@@ -56,20 +61,24 @@
     <td class="tg-svo0">TBA</td>
     <td class="tg-svo0">TBA</td>
     <td class="tg-svo0">
+      <span href="../python-basics-2">1. Python 基础：函数定义</a>
+      <br>
+      <span href="../code-style">2. 编程习惯和规范 </a>
+      <br>
+    </td>
+    <td class="tg-svo0" rowspan="2"> <span href="../string-processing">Project 1.5: String Processing (Bonus) 字符串处理</td>
+    <td class="tg-svo0"></td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">TBA</td>
+    <td class="tg-c3ow">TBA</td>
+    <td class="tg-c3ow"> 
       <span href="../python-basics-3">1. Python 基础：用户输入与字符串处理 </a>
       <br>
       <span href="../GOP">2. GOP-面向谷歌编程</a>
       <br>
       <span href="../debugging">3. Debugging</a>
       <br>
-    </td>
-    <td class="tg-svo0" rowspan="2"> <span href="../string-processing">Project 1.5: String Processing 字符串处理</td>
-    <td class="tg-svo0"></td>
-  </tr>
-  <tr>
-    <td class="tg-c3ow">TBA</td>
-    <td class="tg-c3ow">TBA</td>
-    <td class="tg-c3ow"> <b>阶段总结</b></td>
     <td class="tg-c3ow"></td>
   </tr>
   <tr>
