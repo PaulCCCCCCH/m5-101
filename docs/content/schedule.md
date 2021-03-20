@@ -23,7 +23,7 @@
 <tbody>
   <tr>
     <td class="tg-svo0" rowspan="2">Week 1</td>
-    <td class="tg-svo0"> Tue <br>3/23<br>20:00-22:00</td>
+    <td class="tg-svo0"> Mon <br>3/22<br>20:00-22:00</td>
     <td class="tg-svo0">PMB<br>309</td>
     <td class="tg-svo0">
       <a href="../python-set-up">1. Python 开发环境搭建</a>
