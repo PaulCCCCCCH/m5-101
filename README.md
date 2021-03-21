@@ -35,6 +35,7 @@ mkdocs==1.1.2
 mkdocs-cinder==1.2.0
 mkdocs-jupyter==0.13.0
 python-markdown-math==0.8
+nbconvert==5.5
 ```
 
 ## Installation
