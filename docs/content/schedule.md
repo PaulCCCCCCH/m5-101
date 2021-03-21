@@ -61,7 +61,7 @@
     <td class="tg-svo0">TBA</td>
     <td class="tg-svo0">TBA</td>
     <td class="tg-svo0">
-      <span href="../python-basics-2">1. Python 基础：函数定义</a>
+      <span href="../python-functions">1. Python 基础：函数定义</a>
       <br>
       <span href="../code-style">2. 编程习惯和规范 </a>
       <br>
