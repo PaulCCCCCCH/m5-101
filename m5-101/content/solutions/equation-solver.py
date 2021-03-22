@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 '''
 Author: Chonghan Chen (paulcccccch@gmail.com)
 -----
@@ -15,10 +16,12 @@ def solve_linear(a, b):
     """
     求解方程　ax + b = 0
     """
-    ######################
-    ### Your code here ###
-    ######################
-    return None
+    if a == 0 and b == 0:
+        return None
+    elif a == 0:
+        return []
+    else:
+        return [-b / a]
 
 #################
 ### Section 2 ###
@@ -27,22 +30,33 @@ def solve_with_formula(a, b, c):
     """
     求解方程　ax^2 + bx + c = 0
     """
-    ######################
-    ### Your code here ###
-    ######################
-    return None
+    if a == 0:
+        return solve_linear(b, c)
+
+    delta = b ** 2 - 4 * a * c
+    if delta < 0:
+        return []
+    elif delta == 0:
+        return [-b / (2*a)]
+    else:
+        delta_sqrt = delta ** 0.5
+        return [(-b + delta_sqrt) / (2*a), (-b - delta_sqrt) / (2*a)]
 
 #################
 ### Section 3 ###
 #################
+def d(f):
+    return lambda x: (f(x + 1e-6) - f(x)) / 1e-6
+
 def solve_equation(f):
     """
     求解方程 f = 0
     """
-    ######################
-    ### Your code here ###
-    ######################
-    return None
+
+    xi = 1
+    while abs(f(xi)) > 1e-6:
+        xi = xi - f(xi)/d(f)(xi)
+    return xi
 
 
 if __name__ == "__main__":
@@ -87,4 +101,3 @@ if __name__ == "__main__":
     f = lambda x: -3 * (x ** 3) + (x ** 2) + 9
     assert(abs(solve_equation(f) - 1.5623574989) < 1e-6)
     print("Section 3 正确")
-
