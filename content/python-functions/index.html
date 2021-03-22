@@ -1785,7 +1785,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>我们目前定义的函数，都是需要<strong>数值</strong>作为参数，输出一个<strong>数值</strong>的。有时候，一个函数可以拿一个<strong>函数</strong>作为参数，或者输出一个<strong>函数</strong>。这样的函数就是高阶函数。</p>
-<p>其实在数学上，我们已经见过高阶函数。$\frac{d}{dx}$ 就是一个高阶函数。它需要拿一个函数 $f$（比如 $f(x) = x^2$）作为参数，通过 $\frac{d}{dx}f$ 的操作，输出一个新的函数 $g$（即 $g(x) = 2x$）。</p>
+<p>其实在数学上，我们已经见过高阶函数。$\frac{d}{dx}$ 就是一个高阶函数。它需要拿一个函数 $f$（比如 $f(x) = x^2$）作为参数，通过 $\frac{d}{dx}f$ 的操作，输出一个新的函数 $g$（即 $g(x) = 2x$）。计算机里的高阶函数也是如此。</p>
 <p>可能你还没有完全理解，让我们来看一下例子：</p>
 
 </div>
@@ -1843,7 +1843,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>所以，这里的 <code>make_plus_one</code>，把第二个参数，塞到地一个参数（一个函数）里，输出数值作为结果。</p>
+<p>所以，这里的 <code>make_plus_one</code>，把第二个参数，塞到第一个参数（一个函数）里，输出数值作为结果。</p>
 <p>我们也可以返回一个新的函数：</p>
 
 </div>
@@ -1908,33 +1908,66 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>我们先来实现两个函数，第一个将列表里的每个数都乘二，第二个将列表里的每个数都加上3。</p>
+<p>我们先来实现两个函数，第一个将列表里的每个数都乘二后 <code>print</code>，第二个将列表里的每个数都加上 3 后 <code>print</code>。</p>
+<p>我们先拿一个数组为例：</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 
     <div class="inner_cell">
         
         
         <div class="input_area">
-            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="k">def</span> <span class="nf">times2</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
-        <span class="n">item</span> <span class="o">*</span> <span class="mi">2</span>
-    <span class="k">return</span> <span class="n">items</span>
+            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 
-<span class="k">def</span> <span class="nf">plus3</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">times2</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
-        <span class="n">item</span> <span class="o">+</span> <span class="mi">3</span>
-    <span class="k">return</span> <span class="n">items</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">item</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">plus3</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">item</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;第一个函数：&quot;</span><span class="p">)</span>
+<span class="n">times2</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;第二个函数：&quot;</span><span class="p">)</span>
+<span class="n">plus3</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
 </pre></div>
 
         </div>
     </div>
 
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>第一个函数：
+6
+2
+8
+10
+第二个函数：
+6
+4
+7
+8
+</pre>
+</div>
+</div>
+
+</div>
 </div>
 
 </div>
@@ -1949,7 +1982,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 
     <div class="inner_cell">
         
@@ -1957,16 +1990,51 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
         <div class="input_area">
             <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="k">def</span> <span class="nf">map</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
-        <span class="n">f</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">items</span> 
+        <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">item</span><span class="p">))</span>
 
-<span class="k">def</span> <span class="nf">times2_</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span> <span class="nb">map</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">plus3_</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span> <span class="nb">map</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">times2_</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span> 
+    <span class="nb">map</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+    
+<span class="k">def</span> <span class="nf">plus3_</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span> 
+    <span class="nb">map</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;第一个函数：&quot;</span><span class="p">)</span>
+<span class="n">times2_</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;第二个函数：&quot;</span><span class="p">)</span>
+<span class="n">plus3_</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
 </pre></div>
 
         </div>
     </div>
 
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>第一个函数：
+6
+2
+8
+10
+第二个函数：
+6
+4
+7
+8
+</pre>
+</div>
+</div>
+
+</div>
 </div>
 
 </div>
