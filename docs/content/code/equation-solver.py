@@ -48,7 +48,7 @@ def solve_equation(f):
 if __name__ == "__main__":
     print("正在检查 Section 1：")
     assert(solve_linear(3, 6) == [-2])
-    assert(abs(solve_linear(3, 4)[0] + 3 / 4) < 1e-6)
+    assert(abs(solve_linear(3, 4)[0] + 4 / 3) < 1e-6)
     assert(solve_linear(0, 5) == [])
     assert(solve_linear(5, 0) == [0])
     assert(solve_linear(0, 0) == None)
@@ -59,8 +59,16 @@ if __name__ == "__main__":
     assert(solve_with_formula(3, 2, 1) == [])
 
     sol = solve_with_formula(4, 5, -6)
-    assert(sol + 5 / 4 < 1e-6)
+    # print(sol)
+    # assert(sol + 5 / 4 < 1e-6)
+    assert(abs(sol[0] + sol[1] + 5 / 4) < 1e-6)
     assert(abs(sol[0] * sol[1] + 3 / 2) < 1e-6)
+
+    sol = solve_with_formula(3, 5, 3)
+    assert(sol == [])
+    sol = solve_with_formula(-2, 4, 1)
+    assert(abs(sol[0] + sol[1] + 4 / -2) < 1e-6)
+    assert(abs(sol[0] * sol[1] + 1 / 2) < 1e-6)
 
     assert(solve_with_formula(0, 0, 5) == [])
     assert(solve_with_formula(0, 5, 0) == [0])
@@ -76,4 +84,7 @@ if __name__ == "__main__":
         abs(solve_equation(f) - (2 - math.sqrt(5))) < 1e-6 or
         abs(solve_equation(f) - (2 + math.sqrt(5))) < 1e-6
         )
+    f = lambda x: -3 * (x ** 3) + (x ** 2) + 9
+    assert(abs(solve_equation(f) - 1.5623574989) < 1e-6)
     print("Section 3 正确")
+
