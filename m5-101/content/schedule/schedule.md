@@ -1,8 +1,7 @@
 # Announcements
 3/20: 第一次线下活动的时间是 3 月 22 日（周一），第二次线下活动时间是 3 月 25 日（周四）。
 
-
-第一次活动比较重要，会牵扯到后续的淘汰筛选机制，请大家务必按时前来哦！
+3/25: 请先阅读所有能点击的 `Notes` 和 `Practice`，然后尝试 Project 1。务必积极寻求帮助。`Resources`里的菜鸟教程是当作新华字典用的，虽然上面的东西迟早都会熟悉，但是不建议新手一上来就先通读。
 
 # Schedule
 
@@ -22,6 +21,7 @@
     <th class="tg-c3ow">Date</th>
     <th class="tg-c3ow">Location</th>
     <th class="tg-c3ow">Notes</th>
+    <th class="tg-c3ow">Practice</th>
     <th class="tg-c3ow">Project</th>
     <th class="tg-c3ow">Resources</th>
   </tr>
@@ -34,7 +34,15 @@
     <td class="tg-svo0">
       <b> 暂无 </b></td>
     </td>
-    <td class="tg-svo0" rowspan="2"> <a href="../equation-solver">Project 1: Equation Solver 方程求解器 </td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-svo0" rowspan="4"> 
+        <a href="../equation-solver">Project 1: Equation Solver 方程求解器 
+        <br>
+        <br>
+        <br>
+        <br>
+        <span href="../string-processing">Project 1.5: String Processing (Bonus) 字符串处理</td>
+    </td>
     <td class="tg-svo0">
       <a href="https://www.runoob.com/python/python-basic-syntax.html">1. 菜鸟 Python 教程</a>
       <br>
@@ -50,9 +58,14 @@
       <br>
       <a href="../hello-world">2. Hello World</a>
       <br>
-      <a href="../python-basics-1">3. Python 基础: 数据类型和基本语句</a>
+      <a href="../basic-concepts">3. 基本概念</a>
+      <br>
+      <a href="../python-basics-1">4. Python 基础: 数据类型和基本语句</a>
       <br>
 
+    </td>
+    <td class="tg-c3ow">
+      <a href="../python-basics-1-practice">Python 基础练习1</a> 
     </td>
     <td class="tg-c3ow"></td>
   </tr>
@@ -61,12 +74,14 @@
     <td class="tg-svo0">TBA</td>
     <td class="tg-svo0">TBA</td>
     <td class="tg-svo0">
-      <a href="../python-functions">1. Python 基础：函数定义</a>
+      <a href="../python-basics-2">1. Python 基础：函数定义</a>
       <br>
       <span href="../code-style">2. 编程习惯和规范 </a>
       <br>
     </td>
-    <td class="tg-svo0" rowspan="2"> <span href="../string-processing">Project 1.5: String Processing (Bonus) 字符串处理</td>
+    <td class="tg-svo0">
+      <a href="../python-basics-2-practice">Python 基础练习2</a> 
+    </td>
     <td class="tg-svo0"></td>
   </tr>
   <tr>
@@ -80,6 +95,7 @@
       <span href="../debugging">3. Debugging</a>
       <br>
     <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
   </tr>
   <tr>
     <td class="tg-svo0" rowspan="2">Week 3</td>
@@ -89,6 +105,7 @@
       <span href="../abstraction">1. 抽象——人类伟大之始</a>
       <br>
     </td>
+    <td class="tg-svo0"></td>
     <td class="tg-svo0" rowspan="6"><span href="./automated-data-processing"> Project 2: Automated Data Processing <br> 自动化数据处理</a></td>
     <td class="tg-svo0"></td>
   </tr>
@@ -102,6 +119,7 @@
       <br>
     </td>
     <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
   </tr>
   <tr>
     <td class="tg-svo0" rowspan="2">Week 4</td>
@@ -112,6 +130,7 @@
       <br>
     </td>
     <td class="tg-svo0"></td>
+    <td class="tg-svo0"></td>
   </tr>
   <tr>
     <td class="tg-c3ow">TBA</td>
@@ -119,6 +138,7 @@
     <td class="tg-c3ow">
         TBA 
     </td>
+    <td class="tg-c3ow"></td>
     <td class="tg-c3ow"></td>
   </tr>
   <tr>
@@ -129,6 +149,7 @@
         TBA 
     </td>
     <td class="tg-svo0"></td>
+    <td class="tg-svo0"></td>
   </tr>
   <tr>
     <td class="tg-c3ow">TBA</td>
@@ -136,6 +157,7 @@
     <td class="tg-c3ow">
         TBA
     </td>
+    <td class="tg-c3ow"></td>
     <td class="tg-c3ow"></td>
   </tr>
   
@@ -147,23 +169,10 @@
     <td class="tg-svo0">Placeholder</td>
     <td class="tg-svo0">Placeholder</td>
     <td class="tg-svo0">Placeholder</td>
-  </tr>
-  <tr>
-    <td class="tg-c3ow">Placeholder</td>
-    <td class="tg-c3ow">Placeholder</td>
-    <td class="tg-c3ow">Placeholder</td>
-    <td class="tg-c3ow">Placeholder</td>
-    <td class="tg-c3ow">Placeholder</td>
-  </tr>
-  <tr>
-    <td class="tg-svo0" rowspan="2">Week 5</td>
-    <td class="tg-svo0">Placeholder</td>
-    <td class="tg-svo0">Placeholder</td>
-    <td class="tg-svo0">Placeholder</td>
-    <td class="tg-svo0">Placeholder</td>
     <td class="tg-svo0">Placeholder</td>
   </tr>
   <tr>
+    <td class="tg-c3ow">Placeholder</td>
     <td class="tg-c3ow">Placeholder</td>
     <td class="tg-c3ow">Placeholder</td>
     <td class="tg-c3ow">Placeholder</td>
@@ -177,23 +186,10 @@
     <td class="tg-svo0">Placeholder</td>
     <td class="tg-svo0">Placeholder</td>
     <td class="tg-svo0">Placeholder</td>
-  </tr>
-  <tr>
-    <td class="tg-c3ow">Placeholder</td>
-    <td class="tg-c3ow">Placeholder</td>
-    <td class="tg-c3ow">Placeholder</td>
-    <td class="tg-c3ow">Placeholder</td>
-    <td class="tg-c3ow">Placeholder</td>
-  </tr>
-  <tr>
-    <td class="tg-svo0" rowspan="2">Week 5</td>
-    <td class="tg-svo0">Placeholder</td>
-    <td class="tg-svo0">Placeholder</td>
-    <td class="tg-svo0">Placeholder</td>
-    <td class="tg-svo0">Placeholder</td>
     <td class="tg-svo0">Placeholder</td>
   </tr>
   <tr>
+    <td class="tg-c3ow">Placeholder</td>
     <td class="tg-c3ow">Placeholder</td>
     <td class="tg-c3ow">Placeholder</td>
     <td class="tg-c3ow">Placeholder</td>
@@ -207,23 +203,10 @@
     <td class="tg-svo0">Placeholder</td>
     <td class="tg-svo0">Placeholder</td>
     <td class="tg-svo0">Placeholder</td>
-  </tr>
-  <tr>
-    <td class="tg-c3ow">Placeholder</td>
-    <td class="tg-c3ow">Placeholder</td>
-    <td class="tg-c3ow">Placeholder</td>
-    <td class="tg-c3ow">Placeholder</td>
-    <td class="tg-c3ow">Placeholder</td>
-  </tr>
-  <tr>
-    <td class="tg-svo0" rowspan="2">Week 5</td>
-    <td class="tg-svo0">Placeholder</td>
-    <td class="tg-svo0">Placeholder</td>
-    <td class="tg-svo0">Placeholder</td>
-    <td class="tg-svo0">Placeholder</td>
     <td class="tg-svo0">Placeholder</td>
   </tr>
   <tr>
+    <td class="tg-c3ow">Placeholder</td>
     <td class="tg-c3ow">Placeholder</td>
     <td class="tg-c3ow">Placeholder</td>
     <td class="tg-c3ow">Placeholder</td>
@@ -237,23 +220,10 @@
     <td class="tg-svo0">Placeholder</td>
     <td class="tg-svo0">Placeholder</td>
     <td class="tg-svo0">Placeholder</td>
-  </tr>
-  <tr>
-    <td class="tg-c3ow">Placeholder</td>
-    <td class="tg-c3ow">Placeholder</td>
-    <td class="tg-c3ow">Placeholder</td>
-    <td class="tg-c3ow">Placeholder</td>
-    <td class="tg-c3ow">Placeholder</td>
-  </tr>
-  <tr>
-    <td class="tg-svo0" rowspan="2">Week 5</td>
-    <td class="tg-svo0">Placeholder</td>
-    <td class="tg-svo0">Placeholder</td>
-    <td class="tg-svo0">Placeholder</td>
-    <td class="tg-svo0">Placeholder</td>
     <td class="tg-svo0">Placeholder</td>
   </tr>
   <tr>
+    <td class="tg-c3ow">Placeholder</td>
     <td class="tg-c3ow">Placeholder</td>
     <td class="tg-c3ow">Placeholder</td>
     <td class="tg-c3ow">Placeholder</td>
@@ -267,8 +237,78 @@
     <td class="tg-svo0">Placeholder</td>
     <td class="tg-svo0">Placeholder</td>
     <td class="tg-svo0">Placeholder</td>
+    <td class="tg-svo0">Placeholder</td>
   </tr>
   <tr>
+    <td class="tg-c3ow">Placeholder</td>
+    <td class="tg-c3ow">Placeholder</td>
+    <td class="tg-c3ow">Placeholder</td>
+    <td class="tg-c3ow">Placeholder</td>
+    <td class="tg-c3ow">Placeholder</td>
+    <td class="tg-c3ow">Placeholder</td>
+  </tr>
+  <tr>
+    <td class="tg-svo0" rowspan="2">Week 5</td>
+    <td class="tg-svo0">Placeholder</td>
+    <td class="tg-svo0">Placeholder</td>
+    <td class="tg-svo0">Placeholder</td>
+    <td class="tg-svo0">Placeholder</td>
+    <td class="tg-svo0">Placeholder</td>
+    <td class="tg-svo0">Placeholder</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">Placeholder</td>
+    <td class="tg-c3ow">Placeholder</td>
+    <td class="tg-c3ow">Placeholder</td>
+    <td class="tg-c3ow">Placeholder</td>
+    <td class="tg-c3ow">Placeholder</td>
+    <td class="tg-c3ow">Placeholder</td>
+  </tr>
+  <tr>
+    <td class="tg-svo0" rowspan="2">Week 5</td>
+    <td class="tg-svo0">Placeholder</td>
+    <td class="tg-svo0">Placeholder</td>
+    <td class="tg-svo0">Placeholder</td>
+    <td class="tg-svo0">Placeholder</td>
+    <td class="tg-svo0">Placeholder</td>
+    <td class="tg-svo0">Placeholder</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">Placeholder</td>
+    <td class="tg-c3ow">Placeholder</td>
+    <td class="tg-c3ow">Placeholder</td>
+    <td class="tg-c3ow">Placeholder</td>
+    <td class="tg-c3ow">Placeholder</td>
+    <td class="tg-c3ow">Placeholder</td>
+  </tr>
+  <tr>
+    <td class="tg-svo0" rowspan="2">Week 5</td>
+    <td class="tg-svo0">Placeholder</td>
+    <td class="tg-svo0">Placeholder</td>
+    <td class="tg-svo0">Placeholder</td>
+    <td class="tg-svo0">Placeholder</td>
+    <td class="tg-svo0">Placeholder</td>
+    <td class="tg-svo0">Placeholder</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">Placeholder</td>
+    <td class="tg-c3ow">Placeholder</td>
+    <td class="tg-c3ow">Placeholder</td>
+    <td class="tg-c3ow">Placeholder</td>
+    <td class="tg-c3ow">Placeholder</td>
+    <td class="tg-c3ow">Placeholder</td>
+  </tr>
+  <tr>
+    <td class="tg-svo0" rowspan="2">Week 5</td>
+    <td class="tg-svo0">Placeholder</td>
+    <td class="tg-svo0">Placeholder</td>
+    <td class="tg-svo0">Placeholder</td>
+    <td class="tg-svo0">Placeholder</td>
+    <td class="tg-svo0">Placeholder</td>
+    <td class="tg-svo0">Placeholder</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">Placeholder</td>
     <td class="tg-c3ow">Placeholder</td>
     <td class="tg-c3ow">Placeholder</td>
     <td class="tg-c3ow">Placeholder</td>

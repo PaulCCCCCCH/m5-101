@@ -44,6 +44,61 @@ def solve_equation(f):
     ######################
     return None
 
+def section1_test(case):
+    args = case[0] # (a, b)
+    ans = case[1]  # correct ans
+    sol = solve_linear(args[0], args[1])
+    res = False
+    if sol == ans or (ans != None and len(ans) == 1 and sol != None and len(sol) == 1 and abs(sol[0] - ans[0]) < 1e-6):
+      res = True
+    print('Case ' + str(args[0]) + 'x^2+' + str(args[1]) + '=0: 正确结果为 ' + str(ans) + '，你的结果为 ' + str(sol) + '。')
+    if res: 
+      print('检查通过。')
+    else:   
+      print('检查失败。')
+    assert(res == True)
+
+def section2_test(case):
+    args = case[0] # [a, b, c]
+    number_of_ans = case[1]  # -1 for question with countless solutions
+    sol = solve_with_formula(args[0], args[1], args[2])
+    res = False
+    if number_of_ans == 1 and sol != None and len(sol) == 1:
+      if args[0] != 0:
+        res = abs(sol[0]+sol[0] + args[1]/args[0]) < 1e-6 and abs(sol[0]*sol[0] - args[2] / args[0]) < 1e-6
+      else:
+        res = abs(sol[0] + args[2]/args[1]) < 1e-6
+    elif number_of_ans == 2 and sol != None and len(sol) == 2:
+      res = abs(sol[0]+sol[1] + args[1]/args[0]) < 1e-6 and abs(sol[0]*sol[1] - args[2] / args[0]) < 1e-6
+    elif number_of_ans == 0 and sol != None and sol == []:
+      res = True
+    elif number_of_ans == -1 and sol == None:
+      res = True
+    print('Case ' + str(args[0]) + 'x^2+' + str(args[1]) + 'x+' + str(args[2]) + '=0: 你的结果为 ' + str(sol) + '。')
+    if res: 
+      print('结果正确。')
+    else:   
+      print('结果错误。')
+    assert(res == True)
+    
+def section3_test(case):
+    question_str = case[0] 
+    question_f = case[1]
+    ans = case[2]
+    sol = solve_equation(question_f)
+    res = False
+    for a in ans:
+      if abs(sol - a) < 1e-6:
+        res = True
+        break
+    print('Case ' + question_str + '=0: 你的结果为 ' + str(sol) + '。')
+    if res: 
+      print('结果正确。')
+    else:   
+      print('结果错误。')
+    assert(res == True)
+
+
 
 if __name__ == "__main__":
     print("正在检查 Section 1：")

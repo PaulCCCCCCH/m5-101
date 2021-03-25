@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="IceWould Training Hub">
+    <meta name="author" content="IceWould Training Team Led by Chonghan Chen">
+    <link rel="canonical" href="https://paulcccccch.github.io/content/basic-concepts/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+
+    
+    <title>基本概念 - m5-101</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/base.min.css" rel="stylesheet">
+    <link href="../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../..">m5-101</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../schedule/">Schedule</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Notes <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../introduction/">Introduction</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Notebook Pages <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../hello-world/">Hello World</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="https://github.com/PaulCCCCCCH/m5-101/edit/master/docs/content/basic-concepts.md"><i class="fab fa-github"></i> Edit on GitHub</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#_1">基本概念</a></li>
+            <li class="second-level"><a href="#_2">解释器</a></li>
+                
+            <li class="second-level"><a href="#_3">编程语言</a></li>
+                
+            <li class="second-level"><a href="#_4">编辑器</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="_1">基本概念</h1>
+<p>阅读本教程前，请先确认，你已经完成开发环境搭建（Python 和 <code>VS Code</code>的安装），并且可以使用 Python 的 <code>print</code> 函数输出 <code>Hello world</code> 了。</p>
+<h2 id="_2">解释器</h2>
+<p>我们安装了 Python，但这玩意儿到底是啥？<br />
+<br></p>
+<p>先讲答案：Python 是一个<code>解释器（interpreter）</code>。这又是啥呢？<br />
+<br></p>
+<p>我们从计算机的底层讲起。<br />
+<br></p>
+<p>计算机本质上不过是一堆用电器堆在一起（用电器嘛，就是灯啊、马达啊这些，通电就工作，不通电就不工作，电流不同，用电器不同，产生的效果不同）。所以，只有改变电流，才能直接控制计算机。<br />
+<br></p>
+<p>我们把有电流称为 <code>1</code>，没有电流称为 <code>0</code>。<br />
+<br></p>
+<p>我们最终给计算机下的一条条命令，其实长成这样：<br />
+<code>0010 0000 0010 0010 0000 0001 0101 1110</code><br />
+（这句话 32 位长的命令执行了一个加法操作）<br />
+<br></p>
+<p>我们常说的 32 位的系统，意思就是计算机的每条命令有 32 位。64 位的系统，每条命令就是 64 位。就这么简单。<br />
+<br></p>
+<p>但是，这样给计算机下命令太反人类了，如果不查表的话，谁能看懂一串 <code>0</code> 和 <code>1</code> 到底是啥。所以，我们想用人类能看懂的<strong>英语</strong>写程序，然后把它翻译过去，这样就简单多了。<br />
+<br></p>
+<p>谁来做这个翻译的工作呢？翻译也很麻烦。于是我们打算写一个程序来自动翻译。这个自动翻译的玩意儿就是 <code>解释器（interpreter）</code>。<br />
+（P.S. 其实更专业来讲，这个翻译过程还牵扯到<code>编译器（compiler）</code>，<code>链接器（linker）</code>等一众工具，但入门的话，知道<code>解释器</code>就足够啦！）<br />
+<br></p>
+<p>我们下载的 <code>Python</code> 就是这样一个 <code>解释器</code>。我们通过运行它，把我们的 <code>.py</code> 文件翻译成 <code>0</code> 和 <code>1</code> 的组成的命令，交给计算机。<br />
+<br></p>
+<h2 id="_3">编程语言</h2>
+<p>除了 Python，还有很多不同的编程语言。它们最终都会被自动翻译软件翻译成一堆 <code>0</code> 和 <code>1</code>。所以本质上，语言之间并没有什么区别。能被一种语言实现的，一定也能被另一种语言实现，只要语言是<a href="https://www.zhihu.com/question/20115374">图灵完备</a>的。<br />
+<br></p>
+<p>不过，不同语言有不同的特性。比如 Python，它的简洁让它可以胜任数据分析、测试 AI 算法等任务，但它低下的解释效率让它面对密集的信息处理时稍显疲惫。总之，语言之间没有能与不能的区分，只有适合与不适合的差异。</p>
+<h2 id="_4">编辑器</h2>
+<p>我们为什么下载 <code>VS Code</code> 呢？<br />
+<br></p>
+<p>其实，这不是必须的。你甚至可以直接用记事本写一个 <code>.py</code> 文件，然后拿去给 Python 解释、运行。<br />
+<br></p>
+<p>使用 <code>VS Code</code>，不过是让它帮你检查你的 Python 语法错误、给你一些提示和帮助，以及把你的代码变得五颜六色而已。</p></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../.."</script>
+    
+    <script src="../../js/base.js"></script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="../../assets/mathjaxhelper.js"></script>
+
+    <div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>
