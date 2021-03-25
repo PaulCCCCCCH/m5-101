@@ -7,11 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="IceWould Training Hub">
     <meta name="author" content="IceWould Training Team Led by Chonghan Chen">
-    <link rel="canonical" href="https://paulcccccch.github.io/content/python-basics-2/">
+    <link rel="canonical" href="https://paulcccccch.github.io/content/python-basics-1-practice/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
 
     
-    <title>Python basics 2 - m5-101</title>
+    <title>Python basics 1 practice - m5-101</title>
     
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
@@ -114,7 +114,7 @@
 
             <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="https://github.com/PaulCCCCCCH/m5-101/edit/master/docs/content/python-basics-2.ipynb"><i class="fab fa-github"></i> Edit on GitHub</a>
+                        <a href="https://github.com/PaulCCCCCCH/m5-101/edit/master/docs/content/python-basics-1-practice.ipynb"><i class="fab fa-github"></i> Edit on GitHub</a>
                     </li>
             </ul>
         </div>
@@ -126,18 +126,17 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#_1">函数定义</a></li>
-            <li class="second-level"><a href="#_2">函数定义</a></li>
+        <li class="first-level active"><a href="#python-1">Python 基础练习1</a></li>
+            <li class="second-level"><a href="#_1">定义与赋值——示例</a></li>
                 
-            <li class="second-level"><a href="#_3">函数调用</a></li>
+            <li class="second-level"><a href="#_2">定义与赋值——练习</a></li>
                 
-            <li class="second-level"><a href="#_4">参数传递</a></li>
+            <li class="second-level"><a href="#_3">条件判断 —— 示例</a></li>
                 
-            <li class="second-level"><a href="#_5">匿名函数</a></li>
+        <li class="first-level "><a href="#_4">条件判断——练习</a></li>
+            <li class="second-level"><a href="#_5">循环与数组——示例</a></li>
                 
-            <li class="second-level"><a href="#_6">高阶函数</a></li>
-                
-        <li class="first-level "><a href="#_7">案例</a></li>
+        <li class="first-level "><a href="#_6">循环与数组———练习</a></li>
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
@@ -1332,17 +1331,8 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="">&#20989;&#25968;&#23450;&#20041;<a class="anchor-link" href="#&#20989;&#25968;&#23450;&#20041;">&#182;</a></h1><p>本章我们将介绍编程语言中非常重要的一个概念——函数。这里的函数和我们之前在数学中所学习的函数，有一些相似点，也有些不同。</p>
-<p>相似点是，它们本质都是一段操作的复用。在数学里，假如我们有一个函数：$f(x)=3x+9$，当我们计算 $f(3)$ 或者 $f(9)$ 的时候，都是在进行 $3x+9$ 这个操作。在程序中呢，也是类似的，我们用几行代码定义了一个函数，每次调用这个函数就是重复那几段代码的操作。</p>
-<p>不同的是，在数学的函数中，我们只能定义 $f(x,y) = x^2 + xy + 3$ 这样的函数，却不能定义 $f(x,y) = x^2 + ny + m$ 这样的函数，我们不知道这里面的 $m$ 和 $n$ 是什么；我们定义的函数也不会影响到外部任何其他值或函数，假如我们在外部有一个值 $a = 3$，我们的函数 $f$ 是没有办法影响 $a$ 的值的。</p>
-<p>而在计算机科学中，我们的函数可以变得很强大，它可能在函数体中使用了定义在函数外部的值，或者悄悄改变了外部的值。</p>
-<p>这里只是关于函数在不同学科中简单异同点的介绍。本章，我们会讲解一些基本知识，比如如何定义函数，调用函数等等。在后续学习中，我们还会学到一些更高级的特性，希望你在学习过程中，能回头来思考一下，程序与数学中的函数的异同点。</p>
-<p>本章包含：</p>
-<ul>
-<li>函数定义</li>
-<li>函数调用</li>
-<li>参数传递</li>
-</ul>
+<h1 id="python-1">Python &#22522;&#30784;&#32451;&#20064;1<a class="anchor-link" href="#Python-&#22522;&#30784;&#32451;&#20064;1">&#182;</a></h1><p>请观察我们的示例，并在自己的电脑上创建 Python 文件，完成练习。<br>
+<code>#</code> 符号后面以及 <code>"""</code> 中间包裹的都是注释，只是给人阅读用的，运行的时候会被电脑无视。</p>
 
 </div>
 </div>
@@ -1350,12 +1340,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="">&#20989;&#25968;&#23450;&#20041;<a class="anchor-link" href="#&#20989;&#25968;&#23450;&#20041;">&#182;</a></h2><p>Python 中的函数，用关键字 <code>def</code> 来定义，它的语法大概长这个样子：</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">函数名</span><span class="p">(</span><span class="n">参数列表</span><span class="p">):</span>
-    <span class="n">函数体</span>
-</pre></div>
-<p>这样看起来可能还是有点晦涩，让我们通过一个简单的例子来看看如何定义函数。</p>
-
+<h2 id="">&#23450;&#20041;&#19982;&#36171;&#20540;&#8212;&#8212;&#31034;&#20363;<a class="anchor-link" href="#&#23450;&#20041;&#19982;&#36171;&#20540;&#8212;&#8212;&#31034;&#20363;">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -1367,11 +1352,11 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
         
         
         <div class="input_area">
-            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="k">def</span> <span class="nf">max</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">a</span> 
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">b</span>
+            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="c1"># 定义数值变量和运算</span>
+<span class="n">variable_1</span> <span class="o">=</span> <span class="mi">55</span>
+<span class="n">variable_2</span> <span class="o">=</span> <span class="mi">46</span>
+<span class="n">total</span> <span class="o">=</span> <span class="n">variable_1</span> <span class="o">+</span> <span class="n">variable_2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
 </pre></div>
 
         </div>
@@ -1379,22 +1364,24 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>101
+</pre>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>可以看到我们很简单的就定义了一个返回最大值的函数。注意代码中的 <code>(</code> <code>)</code> 与 <code>:</code>，它们都是半角符号。值得注意的是关键字 <code>return</code>，它用来设置这个函数的返回值，如果我们不写 <code>return</code> 的话，函数的返回值默认为 <code>None</code>。</p>
+</div>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="">&#20989;&#25968;&#35843;&#29992;<a class="anchor-link" href="#&#20989;&#25968;&#35843;&#29992;">&#182;</a></h2><p>我们其实已经在之前的课程中调用过函数了，就是我们在课程一开始使用的 <code>print</code>，我们现在来试试调用 <code>max</code>。</p>
 
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -1404,7 +1391,9 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
         
         
         <div class="input_area">
-            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="c1"># 定义字符串 </span>
+<span class="n">some_string</span> <span class="o">=</span> <span class="s1">&#39;m5-&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">some_string</span><span class="p">)</span>
 </pre></div>
 
         </div>
@@ -1422,7 +1411,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>10
+<pre>m5-
 </pre>
 </div>
 </div>
@@ -1430,22 +1419,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>是不是还挺简单的？接下来我们来看一点有意思的东西。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="">&#21442;&#25968;&#20256;&#36882;<a class="anchor-link" href="#&#21442;&#25968;&#20256;&#36882;">&#182;</a></h2><p>下面是一段代码，先别着急运行它，猜测一下它会打印出什么结果。</p>
-
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -1455,14 +1428,8 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
         
         
         <div class="input_area">
-            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">3</span>
-
-<span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
-    <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="n">a</span>
-
-<span class="n">foo</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="c1"># 不能把字符串和数字相加，会报错</span>
+<span class="n">camp_code</span> <span class="o">=</span> <span class="n">some_string</span> <span class="o">+</span> <span class="n">total</span>
 </pre></div>
 
         </div>
@@ -1479,24 +1446,21 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
     <div class="prompt"></div>
 
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>3
-</pre>
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">----------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-3-4b41dc9a36dd&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg"># 不能把字符串和数字相加，会报错</span>
+<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>camp_code <span class="ansi-blue-fg">=</span> some_string <span class="ansi-blue-fg">+</span> total
+
+<span class="ansi-red-fg">TypeError</span>: must be str, not int</pre>
 </div>
 </div>
 
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>结果是 <code>3</code>，不知道你猜对了没？你可能也会误以为结果是 <code>4</code>，明明我们在 <code>foo</code> 这个函数里给 <code>a</code> 赋了一个新的值呀，为什么打印出来的 <code>a</code> 还是 <code>3</code> 呢？</p>
-<p>其原因是，<code>a</code> 在传进函数后，其实是复制了一个新的 <code>a</code> 出来进行之后的操作，我们修改这个新的 <code>a</code>，并不会对函数外部的 <code>a</code> 造成影响。我们也可以简单的修改一下代码，达成另一种效果。</p>
-
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -1506,8 +1470,8 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
         
         
         <div class="input_area">
-            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">foo</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="c1"># str 可以把数字变成字符串，于是可以相加，结果是把两个字符串相连</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">some_string</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">total</span><span class="p">))</span>
 </pre></div>
 
         </div>
@@ -1525,7 +1489,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>4
+<pre>m5-101
 </pre>
 </div>
 </div>
@@ -1537,9 +1501,26 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>我们可以看到这时候输出的结果就是 <code>4</code> 了。</p>
-<p>现在让我们换一个例子，还是先别执行下面的代码哦，猜猜会打印出什么？</p>
+<h2 id="">&#23450;&#20041;&#19982;&#36171;&#20540;&#8212;&#8212;&#32451;&#20064;<a class="anchor-link" href="#&#23450;&#20041;&#19982;&#36171;&#20540;&#8212;&#8212;&#32451;&#20064;">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ol>
+<li>打印 123456 除以 7 的余数 （使用 % 运算符），结果是 4</li>
+<li>打印 3.14 的五次方（使用 ** 运算符），结果是 305.2447761824001</li>
+<li>把前两个输出拼起来输出，结果是 4305.2447761824001</li>
+</ol>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="-">&#26465;&#20214;&#21028;&#26029; &#8212;&#8212; &#31034;&#20363;<a class="anchor-link" href="#&#26465;&#20214;&#21028;&#26029;-&#8212;&#8212;-&#31034;&#20363;">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -1551,14 +1532,10 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
         
         
         <div class="input_area">
-            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
-
-<span class="k">def</span> <span class="nf">mutate</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
-    <span class="n">l</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
-    <span class="k">return</span>
-
-<span class="n">mutate</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="kc">True</span> <span class="ow">and</span> <span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="kc">True</span> <span class="ow">and</span> <span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="kc">False</span> <span class="ow">and</span> <span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="kc">False</span> <span class="ow">and</span> <span class="kc">False</span><span class="p">)</span>
 </pre></div>
 
         </div>
@@ -1576,7 +1553,10 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>10
+<pre>True
+False
+False
+False
 </pre>
 </div>
 </div>
@@ -1584,29 +1564,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>结果是 <code>10</code>！是不是和你想象的不一样？明明我们之前说参数传进函数之后，会复制出一个新的来进行操作呀？</p>
-<p>这其实和我们传进去的东西有关。在 Python 中，有些对象，是不可修改的，而有些是可修改的，这是什么意思呢？</p>
-<p>像是 <code>Number</code> 和 <code>String</code>，它们都属于不可变的数据类型，每当它们被传进一个函数时，都是生成了一个它的复制品传进去。</p>
-<p>而像 <code>List</code>，它属于可变数据类型，当我们向函数传递一个列表时，所传递的是其本身，当我们在函数内部对其进行修改后，外部的它，也会受到影响！</p>
-<p>还记得我们一开始说的这句话吗？</p>
-<blockquote><p>我们的函数可以变得很强大，它可能在函数体中使用了定义在函数外部的值，或者悄悄改变了外部的值。</p>
-</blockquote>
-<p>函数 <code>mutate</code> 就是一个例子，在写这样的函数时，一定要注意对外部值的修改，小心造成不可思议的事情...</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>现在，让我们结合之前学过的知识，试着计算一个列表中数字的和。</p>
-
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -1616,13 +1573,10 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
         
         
         <div class="input_area">
-            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="k">def</span> <span class="nf">sum</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
-    <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
-        <span class="n">res</span> <span class="o">=</span> <span class="n">res</span> <span class="o">+</span> <span class="n">item</span>
-    <span class="k">return</span> <span class="n">res</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">l</span><span class="p">))</span>
+            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="kc">True</span> <span class="ow">or</span> <span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="kc">True</span> <span class="ow">or</span> <span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="kc">False</span> <span class="ow">or</span> <span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="kc">False</span> <span class="ow">or</span> <span class="kc">False</span><span class="p">)</span>
 </pre></div>
 
         </div>
@@ -1640,7 +1594,10 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>17
+<pre>True
+True
+True
+False
 </pre>
 </div>
 </div>
@@ -1648,15 +1605,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="">&#21311;&#21517;&#20989;&#25968;<a class="anchor-link" href="#&#21311;&#21517;&#20989;&#25968;">&#182;</a></h2><p>接下来我们来介绍一下匿名函数，顾名思义，匿名函数，就是没有名字的函数。从语义上来讲，它其实和普通函数没有区别，只是不需要显式地定义函数名。</p>
-<p>我们来随意定义一个匿名函数试试：</p>
-
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -1666,10 +1614,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
         
         
         <div class="input_area">
-            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="n">square</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">square</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">square</span><span class="p">(</span><span class="mi">9</span><span class="p">))</span>
+            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 
         </div>
@@ -1687,8 +1632,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>4
-81
+<pre>True
 </pre>
 </div>
 </div>
@@ -1696,15 +1640,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>在上面的代码中，我们定义了一个匿名函数，它取一个参数，并计算它的平方。你可以把 <code>lambda x: x * x</code> 看作是数学中的$f(x) = x^2$，而当你把它赋值给 <code>square</code> 并调用 <code>square(2)</code> 的时候，它实际上在运算 $f(2)$，于是便输出 <code>4</code>。</p>
-<p>其实，用 <code>lambda</code> 表达式定义函数，与下面这样定义完全没有区别：</p>
-
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -1714,8 +1649,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
         
         
         <div class="input_area">
-            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
+            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">or</span> <span class="mi">200</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">100</span><span class="p">)</span>
 </pre></div>
 
         </div>
@@ -1723,14 +1657,24 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>True
+</pre>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>有意思的是，在数学上，一个函数可以被看作一个变量。比如，当你定义 $f(x) = x + 1$，并声明 $g = f$，那么就有 $f(1) = g(1)$，$f(2) = g(2)$, ..., $f(n) = g(n)$。在编程时，同样也能如此。你可以把你定义好的函数赋值给变量。</p>
+</div>
 
 </div>
 </div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -1740,11 +1684,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
         
         
         <div class="input_area">
-            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="n">another_square</span> <span class="o">=</span> <span class="n">square</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">another_square</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">square</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">another_square</span><span class="p">(</span><span class="mi">9</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">square</span><span class="p">(</span><span class="mi">9</span><span class="p">))</span>
+            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="kc">False</span> <span class="ow">or</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="ow">and</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">4</span><span class="p">))</span>
 </pre></div>
 
         </div>
@@ -1762,10 +1702,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>4
-4
-81
-81
+<pre>True
 </pre>
 </div>
 </div>
@@ -1773,23 +1710,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="">&#39640;&#38454;&#20989;&#25968;<a class="anchor-link" href="#&#39640;&#38454;&#20989;&#25968;">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>我们目前定义的函数，都是需要<strong>数值</strong>作为参数，输出一个<strong>数值</strong>的。有时候，一个函数可以拿一个<strong>函数</strong>作为参数，或者输出一个<strong>函数</strong>。这样的函数就是高阶函数。</p>
-<p>其实在数学上，我们已经见过高阶函数。$\frac{d}{dx}$ 就是一个高阶函数。它需要拿一个函数 $f$（比如 $f(x) = x^2$）作为参数，通过 $\frac{d}{dx}f$ 的操作，输出一个新的函数 $g$（即 $g(x) = 2x$）。计算机里的高阶函数也是如此。</p>
-<p>可能你还没有完全理解，让我们来看一下例子：</p>
-
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -1799,20 +1719,21 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
         
         
         <div class="input_area">
-            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="c1"># 定义一个平方函数</span>
-<span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
-
-<span class="c1"># 定义一个立方函数</span>
-<span class="k">def</span> <span class="nf">cubic</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
-
-<span class="c1"># 定义一个高阶函数</span>
-<span class="k">def</span> <span class="nf">make_plus_one</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">make_plus_one</span><span class="p">(</span><span class="n">square</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">make_plus_one</span><span class="p">(</span><span class="n">cubic</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="n">average_score</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="k">if</span> <span class="n">average_score</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;您就是大佬本佬&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">average_score</span> <span class="o">&gt;=</span> <span class="mi">80</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;拿个奖学金啥的没问题吧&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">average_score</span> <span class="o">&gt;=</span> <span class="mi">70</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;GPA 4.0&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">average_score</span> <span class="o">&gt;=</span> <span class="mi">65</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;二等一学位&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">average_score</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;二等二学位&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">average_score</span> <span class="o">&gt;=</span> <span class="mi">40</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;其它学位&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;再来一年&quot;</span><span class="p">)</span>
 </pre></div>
 
         </div>
@@ -1830,8 +1751,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>82
-28
+<pre>其它学位
 </pre>
 </div>
 </div>
@@ -1843,9 +1763,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>所以，这里的 <code>make_plus_one</code>，把第二个参数，塞到第一个参数（一个函数）里，输出数值作为结果。</p>
-<p>我们也可以返回一个新的函数：</p>
-
+<h1 id="">&#26465;&#20214;&#21028;&#26029;&#8212;&#8212;&#32451;&#20064;<a class="anchor-link" href="#&#26465;&#20214;&#21028;&#26029;&#8212;&#8212;&#32451;&#20064;">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -1857,13 +1775,11 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
         
         
         <div class="input_area">
-            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="k">def</span> <span class="nf">make_plus_one_function</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">new_function</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="n">new_function</span>
-
-<span class="n">f</span> <span class="o">=</span> <span class="n">make_plus_one_function</span><span class="p">(</span><span class="n">square</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mi">9</span><span class="p">))</span>
+            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="c1"># 补充完下列函数</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">14</span>
+<span class="k">while</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="c1"># 如果 x 是偶数，就把 x 除以 ２，不然的话，把 x 乘以 3，然后打印当前数值</span>
+    <span class="k">break</span> <span class="c1"># 补充完之后记得把 break 这行删掉</span>
 </pre></div>
 
         </div>
@@ -1871,71 +1787,25 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>82
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>你可能觉得有一点点绕，不过没关系，实在搞不懂的话可以先跳过。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="">&#26696;&#20363;<a class="anchor-link" href="#&#26696;&#20363;">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>我们先来实现两个函数，第一个将列表里的每个数都乘二后 <code>print</code>，第二个将列表里的每个数都加上 3 后 <code>print</code>。</p>
-<p>我们先拿一个数组为例：</p>
-
+<h2 id="">&#24490;&#29615;&#19982;&#25968;&#32452;&#8212;&#8212;&#31034;&#20363;<a class="anchor-link" href="#&#24490;&#29615;&#19982;&#25968;&#32452;&#8212;&#8212;&#31034;&#20363;">&#182;</a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 
     <div class="inner_cell">
         
         
         <div class="input_area">
-            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-
-<span class="k">def</span> <span class="nf">times2</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">item</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">plus3</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">item</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;第一个函数：&quot;</span><span class="p">)</span>
-<span class="n">times2</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;第二个函数：&quot;</span><span class="p">)</span>
-<span class="n">plus3</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="c1"># 打印从 0 到 10</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </pre></div>
 
         </div>
@@ -1953,15 +1823,105 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>第一个函数：
-6
+<pre>0
+1
 2
-8
-10
-第二个函数：
-6
+3
 4
+5
+6
 7
+8
+9
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+
+    <div class="inner_cell">
+        
+        
+        <div class="input_area">
+            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="c1"># 打印从 0 到 10 的第二种方法</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1"># 注意与 for 循环不同，这里需要手动更新 i 的值，不然会造成死循环。</span>
+</pre></div>
+
+        </div>
+    </div>
+
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+
+    <div class="inner_cell">
+        
+        
+        <div class="input_area">
+            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="c1"># 打印从 0 到 10 中间所有的偶数</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+
+        </div>
+    </div>
+
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0
+2
+4
+6
 8
 </pre>
 </div>
@@ -1974,35 +1934,26 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>有没有感觉它们实在是太像了！除了 <code>* 2</code> 和 <code>+ 3</code> 不一样，其他地方完全没区别嘛！</p>
-<p>这时，我们可以使用高阶函数！让我们改写一下之前的 <code>times2</code> 与 <code>plus3</code>。</p>
-
+<h1 id="">&#24490;&#29615;&#19982;&#25968;&#32452;&#8212;&#8212;&#8212;&#32451;&#20064;<a class="anchor-link" href="#&#24490;&#29615;&#19982;&#25968;&#32452;&#8212;&#8212;&#8212;&#32451;&#20064;">&#182;</a></h1>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 
     <div class="inner_cell">
         
         
         <div class="input_area">
-            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="k">def</span> <span class="nf">map</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">item</span><span class="p">))</span>
+            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="c1"># 给定一个整数 x，请输出它的阶乘，即 x!</span>
+    <span class="c1"># 比如 factorial(4) = 4 * 3 * 2 * 1</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">return</span> <span class="mi">0</span>
 
-
-<span class="k">def</span> <span class="nf">times2_</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span> 
-    <span class="nb">map</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
-    
-<span class="k">def</span> <span class="nf">plus3_</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span> 
-    <span class="nb">map</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span>
-    
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;第一个函数：&quot;</span><span class="p">)</span>
-<span class="n">times2_</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;第二个函数：&quot;</span><span class="p">)</span>
-<span class="n">plus3_</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;4 的阶乘是&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">factorial</span><span class="p">(</span><span class="mi">4</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;10 的阶乘是&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">factorial</span><span class="p">(</span><span class="mi">10</span><span class="p">)))</span>
 </pre></div>
 
         </div>
@@ -2020,16 +1971,8 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>第一个函数：
-6
-2
-8
-10
-第二个函数：
-6
-4
-7
-8
+<pre>4 的阶乘是0
+10 的阶乘是0
 </pre>
 </div>
 </div>
@@ -2038,14 +1981,52 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>我们先定义了一个函数 <code>map</code>，它取一个列表与一个函数，并且对列表中的每个元素都应用它。之后，我们定义了全新版本的 <code>times2</code> 与 <code>plus3</code>。</p>
-<p>在这里，<code>map</code> 就是一个高阶函数，看看 <code>times2_</code> 与 <code>plus3_</code> 的定义，有没有感觉很方便？</p>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+
+    <div class="inner_cell">
+        
+        
+        <div class="input_area">
+            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="k">def</span> <span class="nf">isPrime</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="c1"># 对于任意的 x，判断它是不是素数。如果是，请执行 return &quot;是&quot;，否则请执行 return &quot;不是&quot;</span>
+    <span class="k">if</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;是&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;不是&quot;</span>
+        
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;7&quot;</span> <span class="o">+</span> <span class="n">isPrime</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;素数&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;41&quot;</span> <span class="o">+</span> <span class="n">isPrime</span><span class="p">(</span><span class="mi">41</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;素数&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;42&quot;</span> <span class="o">+</span> <span class="n">isPrime</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;素数&quot;</span><span class="p">)</span>
+</pre></div>
+
+        </div>
+    </div>
+
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>7是素数
+41是素数
+42是素数
+</pre>
+</div>
+</div>
 
 </div>
 </div>
+
 </div>
  
 
