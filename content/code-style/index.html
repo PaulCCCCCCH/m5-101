@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="IceWould Training Hub">
+    <meta name="author" content="IceWould Training Team Led by Chonghan Chen">
+    <link rel="canonical" href="https://paulcccccch.github.io/content/code-style/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+
+    
+    <title>编程规范和习惯 - m5-101</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/base.min.css" rel="stylesheet">
+    <link href="../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../..">m5-101</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../schedule/">Schedule</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Notes <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../introduction/">Introduction</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Notebook Pages <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../hello-world/">Hello World</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="https://github.com/PaulCCCCCCH/m5-101/edit/master/docs/content/code-style.md"><i class="fab fa-github"></i> Edit on GitHub</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#_1">编程规范和习惯</a></li>
+            <li class="second-level"><a href="#_2">程序一</a></li>
+                
+            <li class="second-level"><a href="#_3">程序二</a></li>
+                
+            <li class="second-level"><a href="#_4">变量的命名</a></li>
+                
+            <li class="second-level"><a href="#_5">格式的问题</a></li>
+                
+            <li class="second-level"><a href="#_6">易于更改的问题</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="_1">编程规范和习惯</h1>
+<blockquote>
+<p>几乎所有会写代码的人都认为，编程和写诗一样，是一门艺术。<br />
+<br>
+Source: Dude trust me.  </p>
+</blockquote>
+<p>其实，能够写出实现需求的程序，只是编程能力中的一小块。很多时候更重要的事情，是代码本身。<br />
+<br></p>
+<p>毕竟程序是给人看的，我们要尽可能地让自己的代码简介明了，前后一致，而且，更重要的是，改起来方便。<br />
+<br></p>
+<p>我们以下面两段程序为例来分析。<br />
+<br></p>
+<h2 id="_2">程序一</h2>
+<pre><code class="language-python">
+a=&quot;小王&quot;
+b=69
+print(a+&quot;的得分是: &quot;  +b)
+
+a =&quot;小红&quot;
+b= 80
+print (a +&quot;的得分是: &quot; + b)
+
+a=&quot;小明&quot;
+b = 73
+print (a+ &quot;的得分是: &quot;+ b)
+</code></pre>
+<h2 id="_3">程序二</h2>
+<pre><code class="language-python">
+def printScore(student_name, student_score):
+    print(student_name + &quot;的得分是: &quot; + str(student_score))
+
+
+for n, s in [(&quot;小王&quot;, 69), (&quot;小红&quot;, 80), (&quot;小明&quot;, 73)]:
+    printScore(n, s)
+
+</code></pre>
+<p>同样是打印三个学生的成绩，我们希望你书写第二种程序。我们会从三个角度分析。<br />
+<br></p>
+<h2 id="_4">变量的命名</h2>
+<p><code>程序一</code>中，我们看到了两个变量 <code>a</code> 和 <code>b</code>。在稍微长一点的程序里，这样的变量就会让人疑惑：这个变量是干啥的？<br />
+<br></p>
+<p>于是，这个人要通过理解代码来猜测变量的用途，而这是相当费事的过程，在一些情况下，甚至是几乎不可能做到的。<br />
+<br></p>
+<p>事实上，很多人会故意把变量名都变成 <code>a</code>，<code>b</code> 之类没有意义的东西，以防止自己的程序被人理解，然后被抄袭或者盗用。然而，这也不需要你手动这样做，有很多 <code>代码混淆</code> 工具可以自动做到这件事。<br />
+<br></p>
+<p>所以，只要你在写程序，请尽量取好变量名，让人一看就知道它是干啥的。就像 <code>程序二</code> 那样，大家一看就知道 <code>student_name</code> 和 <code>student_score</code> 是啥意思。<br />
+<br></p>
+<h2 id="_5">格式的问题</h2>
+<p>每个人可能有不同的 <code>style</code>，但务必做到前后一致。比如，你如果你习惯在等号、加号等符号两边加一个空格（笔者建议这么做），那么请在你的程序里从头到尾都这么做。<br />
+<br></p>
+<h2 id="_6">易于更改的问题</h2>
+<p>很少有程序，一经写出，就再也不用修改。比如上述程序，一个很可能的修改是，我们需要 <code>print</code> 第四个第五个学生
+<br></p>
+<p>所以，我们在写的时候，就要让程序尽量容易修改。<br />
+<br></p>
+<p>在入门阶段，一个 99% 的情况下都可以提升程序可修改性</p></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../.."</script>
+    
+    <script src="../../js/base.js"></script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="../../assets/mathjaxhelper.js"></script>
+
+    <div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>
