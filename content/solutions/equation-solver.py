@@ -20,8 +20,7 @@ def solve_linear(a, b):
         return None
     elif a == 0:
         return []
-    else:
-        return [-b / a]
+    else: return [-b / a]
 
 #################
 ### Section 2 ###
@@ -60,6 +59,10 @@ def solve_equation(f):
 
 
 if __name__ == "__main__":
+    import math
+    f = lambda x: math.exp(1) ** (60 * x) - 1000 * x - 1
+    print(solve_equation(f))
+
     print("正在检查 Section 1：")
     assert(solve_linear(3, 6) == [-2])
     assert(abs(solve_linear(3, 4)[0] + 4 / 3) < 1e-6)
