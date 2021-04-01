@@ -7,11 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="IceWould Training Hub">
     <meta name="author" content="IceWould Training Team Led by Chonghan Chen">
-    <link rel="canonical" href="https://paulcccccch.github.io/content/python-basics-2-practice/">
+    <link rel="canonical" href="https://paulcccccch.github.io/content/python-basics-3-practice/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
 
     
-    <title>Python basics 2 practice - m5-101</title>
+    <title>Python basics 3 practice - m5-101</title>
     
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
@@ -114,7 +114,7 @@
 
             <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="https://github.com/PaulCCCCCCH/m5-101/edit/master/docs/content/python-basics-2-practice.ipynb"><i class="fab fa-github"></i> Edit on GitHub</a>
+                        <a href="https://github.com/PaulCCCCCCH/m5-101/edit/master/docs/content/python-basics-3-practice.ipynb"><i class="fab fa-github"></i> Edit on GitHub</a>
                     </li>
             </ul>
         </div>
@@ -126,15 +126,25 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#python-2">Python 基础练习2</a></li>
-            <li class="second-level"><a href="#_1">函数定义——示例</a></li>
+        <li class="first-level active"><a href="#python-3">Python 基础练习3</a></li>
+            <li class="second-level"><a href="#_1">用户输入——示例</a></li>
                 
-            <li class="second-level"><a href="#_2">函数定义——练习</a></li>
+            <li class="second-level"><a href="#_2">正则表达式——示例</a></li>
                 
-            <li class="second-level"><a href="#_3">高阶函数——示例</a></li>
+            <li class="second-level"><a href="#_3">正则表达式——练习</a></li>
                 
-            <li class="second-level"><a href="#_4">高阶函数——练习</a></li>
+            <li class="second-level"><a href="#_4">用户输入和正则匹配——练习</a></li>
                 
+            <li class="second-level"><a href="#_5">字典——示例</a></li>
+                
+            <li class="second-level"><a href="#_6">文本处理——示例</a></li>
+                
+            <li class="second-level"><a href="#_7">文本处理——练习</a></li>
+                
+                <li class="third-level"><a href="#1">练习1</a></li>
+                <li class="third-level"><a href="#2">练习2</a></li>
+                <li class="third-level"><a href="#3">练习 3</a></li>
+                <li class="third-level"><a href="#4">练习 4</a></li>
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
@@ -1329,14 +1339,22 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="python-2">Python &#22522;&#30784;&#32451;&#20064;2<a class="anchor-link" href="#Python-&#22522;&#30784;&#32451;&#20064;2">&#182;</a></h1>
+<h1 id="python-3">Python &#22522;&#30784;&#32451;&#20064;3<a class="anchor-link" href="#Python-&#22522;&#30784;&#32451;&#20064;3">&#182;</a></h1>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="">&#20989;&#25968;&#23450;&#20041;&#8212;&#8212;&#31034;&#20363;<a class="anchor-link" href="#&#20989;&#25968;&#23450;&#20041;&#8212;&#8212;&#31034;&#20363;">&#182;</a></h2>
+<h2 id="">&#29992;&#25143;&#36755;&#20837;&#8212;&#8212;&#31034;&#20363;<a class="anchor-link" href="#&#29992;&#25143;&#36755;&#20837;&#8212;&#8212;&#31034;&#20363;">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>请把最后一行 <code>run_adder</code> 从注释拿出来，这样才能运行这段代码。</p>
+
 </div>
 </div>
 </div>
@@ -1348,16 +1366,19 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
         
         
         <div class="input_area">
-            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="c1"># 定义函数</span>
-
-<span class="k">def</span> <span class="nf">myAdd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
-
-<span class="k">def</span> <span class="nf">myMultiply</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">myAdd</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">myMultiply</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="c1"># 我们定义一个加法计算器</span>
+<span class="k">def</span> <span class="nf">run_adder</span><span class="p">():</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">user_input</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;请输入下一个数。输入 &#39;stop&#39; 停止。&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">user_input</span> <span class="o">==</span> <span class="s2">&quot;stop&quot;</span><span class="p">:</span>
+            <span class="k">break</span>           <span class="c1"># break 语句会退出当前的循环（如果是多层循环的话只会跳出一层循环）</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">user_input</span><span class="p">)</span> <span class="c1"># 这一句可能会导致问题，比如当用户的输入包含字母</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="n">total</span> <span class="o">+</span> <span class="n">x</span>
+        
+    <span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+    
+<span class="c1"># run_adder()</span>
 </pre></div>
 
         </div>
@@ -1365,25 +1386,32 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>3
-24
-</pre>
 </div>
-</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>你会发现，好不容易输入了一大堆数字，一不小心输入一个字母，程序就崩溃，之前累加的数值就全白费了。<br>
+<br></p>
+<p>所以需要在 <code>float(user_input)</code> 这一句之前，判断一下用户输入到底能不能被转换成数字。</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="">&#27491;&#21017;&#34920;&#36798;&#24335;&#8212;&#8212;&#31034;&#20363;<a class="anchor-link" href="#&#27491;&#21017;&#34920;&#36798;&#24335;&#8212;&#8212;&#31034;&#20363;">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>注意，我们会用 <code>\</code> 来对一些特殊字符进行 <code>转义</code>，来去掉它们的特殊含义。<br>
+比如 <code>.</code> 在表达式中是 <code>通配符</code> 的意思，会匹配任何字符。加上斜杠后，就退化成字面上的 <code>.</code>。</p>
 
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -1393,25 +1421,20 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
         
         
         <div class="input_area">
-            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">myMultiply</span><span class="p">(</span><span class="n">myAdd</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="mi">4</span><span class="p">)</span>
-<span class="c1"># 想想　result 是多少呢？</span>
-</pre></div>
+            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
 
-        </div>
-    </div>
+<span class="n">third_decimals</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;3.142&quot;</span><span class="p">,</span> <span class="s2">&quot;123.456&quot;</span><span class="p">,</span> <span class="s2">&quot;125135316235623.123&quot;</span><span class="p">,</span> <span class="s2">&quot;0.456&quot;</span><span class="p">]</span> <span class="c1"># 精确到三位小数的数字</span>
+<span class="n">non_third_decimals</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;12&quot;</span><span class="p">,</span> <span class="s2">&quot;1.234567&quot;</span><span class="p">,</span> <span class="s2">&quot;abc&quot;</span><span class="p">,</span> <span class="s2">&quot;123a.133&quot;</span><span class="p">,</span> <span class="s2">&quot;ba12&quot;</span><span class="p">]</span> <span class="c1"># 所有其它的字符串</span>
 
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
-
-    <div class="inner_cell">
-        
-        
-        <div class="input_area">
-            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="n">expression</span> <span class="o">=</span> <span class="s2">&quot;^[0-9]*\.[0-9]</span><span class="si">{3}</span><span class="s2">$&quot;</span> <span class="c1"># 注意 &#39;*&#39; 后面的 &#39;\.&#39;这个斜杠是必要的，因为 `.` 是一个有特殊含义的字符，就和 `[` 一样</span>
+                                  <span class="c1"># 不是真的去匹配 `[` 这个字符。这种有特殊含义的字符前面需要加上斜杠来进行 `转义`。</span>
+<span class="k">for</span> <span class="n">string</span> <span class="ow">in</span> <span class="n">third_decimals</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">expression</span><span class="p">,</span> <span class="n">string</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;以上全部为 True&quot;</span><span class="p">)</span>
+    
+<span class="k">for</span> <span class="n">string</span> <span class="ow">in</span> <span class="n">non_third_decimals</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">expression</span><span class="p">,</span> <span class="n">string</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;以上全部为 False&quot;</span><span class="p">)</span>
 </pre></div>
 
         </div>
@@ -1429,7 +1452,17 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>12
+<pre>True
+True
+True
+True
+以上全部为 True
+False
+False
+False
+False
+False
+以上全部为 False
 </pre>
 </div>
 </div>
@@ -1441,7 +1474,53 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="">&#20989;&#25968;&#23450;&#20041;&#8212;&#8212;&#32451;&#20064;<a class="anchor-link" href="#&#20989;&#25968;&#23450;&#20041;&#8212;&#8212;&#32451;&#20064;">&#182;</a></h2>
+<p>请把最后一行 <code>run_adder_safe</code> 从注释拿出来，这样才能运行这段代码。</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+
+    <div class="inner_cell">
+        
+        
+        <div class="input_area">
+            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="c1"># 我们定义一个安全的加法计算器</span>
+
+<span class="n">integer_expression</span> <span class="o">=</span> <span class="s2">&quot;^[0-9]{1,}$&quot;</span>
+
+<span class="k">def</span> <span class="nf">run_adder_safe</span><span class="p">():</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">user_input</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;请输入下一个数。输入 &#39;stop&#39; 停止。&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">user_input</span> <span class="o">==</span> <span class="s2">&quot;stop&quot;</span><span class="p">:</span>
+            <span class="k">break</span>
+        
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">integer_expression</span><span class="p">,</span> <span class="n">user_input</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;输入不合法！&quot;</span><span class="p">)</span>
+            <span class="k">continue</span>    <span class="c1"># continue 可以直接结束当前这一轮的循环，进入下一轮。</span>
+                        <span class="c1"># 因为输入不合法，所以直接重新来一轮循环，从而跳过了下面那句会出错的句子。</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">user_input</span><span class="p">)</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="n">total</span> <span class="o">+</span> <span class="n">x</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;当前总和： &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">total</span><span class="p">))</span>
+        
+    <span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+    
+<span class="c1"># run_adder_safe()</span>
+</pre></div>
+
+        </div>
+    </div>
+
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="">&#27491;&#21017;&#34920;&#36798;&#24335;&#8212;&#8212;&#32451;&#20064;<a class="anchor-link" href="#&#27491;&#21017;&#34920;&#36798;&#24335;&#8212;&#8212;&#32451;&#20064;">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -1453,9 +1532,18 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
         
         
         <div class="input_area">
-            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="c1"># 定义一个函数，计算平面直角坐标系里面两个点(x1, y1), (x2, y2)之间的距离</span>
-<span class="k">def</span> <span class="nf">calculateDistance</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">):</span>
-    <span class="k">return</span> <span class="kc">None</span>
+            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="n">valid_sort_code</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;24-12-45&quot;</span><span class="p">,</span> <span class="s2">&quot;55-34-12&quot;</span><span class="p">,</span> <span class="s2">&quot;00-00-11&quot;</span><span class="p">,</span> <span class="s2">&quot;55-66-77&quot;</span><span class="p">]</span> <span class="c1"># 合法的 sort code（英国银行卡上用的）</span>
+<span class="n">invalid_sort_code</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;aa-22-33&quot;</span><span class="p">,</span> <span class="s2">&quot;11 22 33&quot;</span><span class="p">,</span> <span class="s2">&quot;15t23g&quot;</span><span class="p">,</span> <span class="s2">&quot;314159&quot;</span><span class="p">,</span> <span class="s2">&quot;a1-b2-c3&quot;</span><span class="p">]</span> <span class="c1"># 所有其它的字符串</span>
+
+<span class="n">expression</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1"># 在这里写表达式！</span>
+ 
+<span class="k">for</span> <span class="n">string</span> <span class="ow">in</span> <span class="n">valid_sort_code</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">expression</span><span class="p">,</span> <span class="n">string</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;以上全部为 True&quot;</span><span class="p">)</span>
+    
+<span class="k">for</span> <span class="n">string</span> <span class="ow">in</span> <span class="n">invalid_sort_code</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">expression</span><span class="p">,</span> <span class="n">string</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;以上全部为 False&quot;</span><span class="p">)</span>
 </pre></div>
 
         </div>
@@ -1463,6 +1551,49 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>True
+True
+True
+True
+以上全部为 True
+True
+True
+True
+True
+True
+以上全部为 False
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>更多练习请点击<a href="https://regex.sketchengine.co.uk/">这里</a>！</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="">&#29992;&#25143;&#36755;&#20837;&#21644;&#27491;&#21017;&#21305;&#37197;&#8212;&#8212;&#32451;&#20064;<a class="anchor-link" href="#&#29992;&#25143;&#36755;&#20837;&#21644;&#27491;&#21017;&#21305;&#37197;&#8212;&#8212;&#32451;&#20064;">&#182;</a></h2>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -1472,10 +1603,24 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
         
         
         <div class="input_area">
-            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="c1"># 计算 fibonacci（斐波那契）数列的第 n 个数</span>
-<span class="c1"># fibonacci 数列的前几个是 1, 1, 2, 3, 5, 8, 13...</span>
-<span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="kc">None</span>
+            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="c1"># 先读取用户输入数字，再读取 &#39;+&#39;, &#39;-&#39;, &#39;*&#39;, &#39;/&#39; 四种字符中的一个</span>
+<span class="c1"># 然后像计算器那样进行运算，直到用户输入 `stop`</span>
+<span class="c1"># 注意使用正则表达式检查用户输入是否合法</span>
+<span class="c1"># 如果觉得困难，就只允许整数。喜欢挑战的话可以尝试一下匹配浮点数。</span>
+
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="k">def</span> <span class="nf">run_calculator</span><span class="p">():</span>
+    <span class="k">while</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    
+<span class="k">def</span> <span class="nf">isValidNumber</span><span class="p">(</span><span class="n">user_input</span><span class="p">):</span>
+    <span class="k">return</span> <span class="kc">False</span>
+    
+<span class="k">def</span> <span class="nf">isValidOp</span><span class="p">(</span><span class="n">user_input</span><span class="p">):</span>
+    <span class="k">return</span> <span class="kc">False</span>
+
+<span class="n">run_calculator</span><span class="p">()</span>
 </pre></div>
 
         </div>
@@ -1487,7 +1632,174 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="">&#39640;&#38454;&#20989;&#25968;&#8212;&#8212;&#31034;&#20363;<a class="anchor-link" href="#&#39640;&#38454;&#20989;&#25968;&#8212;&#8212;&#31034;&#20363;">&#182;</a></h2>
+<h2 id="">&#23383;&#20856;&#8212;&#8212;&#31034;&#20363;<a class="anchor-link" href="#&#23383;&#20856;&#8212;&#8212;&#31034;&#20363;">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
+
+    <div class="inner_cell">
+        
+        
+        <div class="input_area">
+            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="n">x</span><span class="p">[</span><span class="s2">&quot;abc&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">x</span><span class="p">[</span><span class="s2">&quot;bcd&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">x</span><span class="p">[</span><span class="s2">&quot;cde&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">30</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+</pre></div>
+
+        </div>
+    </div>
+
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>dict_keys([&#39;abc&#39;, &#39;bcd&#39;, &#39;cde&#39;])
+dict_values([10, 20, 30])
+dict_items([(&#39;abc&#39;, 10), (&#39;bcd&#39;, 20), (&#39;cde&#39;, 30)])
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
+
+    <div class="inner_cell">
+        
+        
+        <div class="input_area">
+            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;abc&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+</pre></div>
+
+        </div>
+    </div>
+
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>dict_values([100, 20, 30])
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
+
+    <div class="inner_cell">
+        
+        
+        <div class="input_area">
+            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">20</span> <span class="ow">in</span> <span class="n">x</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">200</span> <span class="ow">in</span> <span class="n">x</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+</pre></div>
+
+        </div>
+    </div>
+
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>True
+False
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
+
+    <div class="inner_cell">
+        
+        
+        <div class="input_area">
+            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;abcd&quot;</span> <span class="ow">in</span> <span class="n">x</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</pre></div>
+
+        </div>
+    </div>
+
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>False
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="">&#25991;&#26412;&#22788;&#29702;&#8212;&#8212;&#31034;&#20363;<a class="anchor-link" href="#&#25991;&#26412;&#22788;&#29702;&#8212;&#8212;&#31034;&#20363;">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>我们先下载一下《红楼梦》这本书。下面的代码之后要求大家都会写，现在可以先跳过。</p>
+
 </div>
 </div>
 </div>
@@ -1499,40 +1811,34 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
         
         
         <div class="input_area">
-            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="c1"># 定义一个函数，返回这个数的三倍</span>
-<span class="k">def</span> <span class="nf">multiply_by_three</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">3</span>
+            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="c1"># 这一段代码请复制到本地运行，拿到我们需要处理的文本。</span>
+<span class="c1"># 有兴趣的同学可以研究一下它做了啥。</span>
+<span class="c1"># 不想看的同学可以先跳过。</span>
+<span class="c1"># 不过这种代码之后要求会写的。</span>
 
-<span class="c1"># 定义一个函数，返回这个数加二</span>
-<span class="k">def</span> <span class="nf">add_two</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="c1"># 总之就是自动从服务器下载了一个 txt 文件。</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">multiply_by_three</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">add_two</span><span class="p">(</span><span class="mi">9</span><span class="p">))</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">dir_path</span> <span class="o">=</span> <span class="s1">&#39;txt_files&#39;</span>
+<span class="n">file_name</span> <span class="o">=</span> <span class="s1">&#39;hongloumeng.txt&#39;</span>
+<span class="n">full_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dir_path</span><span class="p">,</span> <span class="n">file_name</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">dir_path</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">dir_path</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">full_path</span><span class="p">):</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://icewould.com/m5-101/hongloumeng&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;正在下载文件...&quot;</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">full_path</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;下载完成&quot;</span><span class="p">)</span>
 </pre></div>
 
         </div>
     </div>
 
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>30
-11
-</pre>
-</div>
-</div>
-
-</div>
 </div>
 
 </div>
@@ -1544,36 +1850,15 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
         
         
         <div class="input_area">
-            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="c1"># 定义一个函数，把给定的函数运用两遍到给定的数字上</span>
-<span class="k">def</span> <span class="nf">twice</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">twice</span><span class="p">(</span><span class="n">multiply_by_three</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">add_two</span><span class="p">(</span><span class="mi">9</span><span class="p">))</span>
+            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="c1"># 读取文件</span>
+<span class="n">lines</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./txt_files/hongloumeng.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
 </pre></div>
 
         </div>
     </div>
 
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>90
-11
-</pre>
-</div>
-</div>
-
-</div>
 </div>
 
 </div>
@@ -1585,16 +1870,11 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
         
         
         <div class="input_area">
-            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="c1"># 定义一个函数，返回一个新的函数，相当于把原来的函数的效果翻倍。</span>
-<span class="k">def</span> <span class="nf">twice_v2</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">new_f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">new_f</span>
-
-<span class="n">add_four</span> <span class="o">=</span> <span class="n">twice_v2</span><span class="p">(</span><span class="n">add_two</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">add_four</span><span class="p">(</span><span class="mi">9</span><span class="p">))</span>
-<span class="n">multiply_by_nine</span> <span class="o">=</span> <span class="n">twice_v2</span><span class="p">(</span><span class="n">multiply_by_three</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">multiply_by_nine</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">lines</span><span class="p">[:</span><span class="mi">3</span><span class="p">])</span> <span class="c1"># 看一下前 3 个段落</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;全书一共 &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot; 个段落&quot;</span><span class="p">)</span> <span class="c1"># 看一下全书一共有多少段落</span>
+<span class="n">content</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span> <span class="c1"># lines 是一个数组，每一个元素是一个段落。现在把它完整拼起来，成为一整个字符串，存放在 content 变量里。</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;全书一共 &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">content</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot; 个字符&quot;</span><span class="p">)</span>
 </pre></div>
 
         </div>
@@ -1612,8 +1892,10 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>13
-90
+<pre>[&#39;\ufeff 第一回\u3000甄士隐梦幻识通灵\u3000贾雨村风尘怀闺秀\n&#39;, &#39;\n&#39;, &#39;    此开卷第一回也。作者自云：因曾历过一番梦幻之后，故将真事隐去，而借“通灵”之说，撰此《石头记》一书也。故曰“甄士隐”云云。但书中所记何事何人？自又云：“今风尘碌碌，一事无成，忽念及当日所有之女子，一一细考较去，觉其行止见识皆出于我之上。何我堂堂须眉，诚不若彼裙钗哉？实愧则有馀，悔又无益之大无可如何之日也！当此，则自欲将已往所赖天恩祖德，锦衣纨袴之时，饫甘餍肥之日，背父兄教育之恩，负师友规训之德，以至今日一技无成，半生潦倒之罪，编述一集，以告天下人：我之罪固不免，然闺阁中本自历历有人，万不可因我之不肖，自护己短，一并使其泯灭也。虽今日之茅椽蓬牖，瓦灶绳床，其晨夕风露，阶柳庭花，亦未有妨我之襟怀笔墨者。虽我未学，下笔无文，又何妨用假语村言，敷演出一段故事来，亦可使闺阁昭传，复可悦世之目，破人愁闷，不亦宜乎？”故曰“贾雨村云云。\n&#39;]
+
+全书一共 6233 个段落
+全书一共 882432 个字符
 </pre>
 </div>
 </div>
@@ -1625,7 +1907,9 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="">&#39640;&#38454;&#20989;&#25968;&#8212;&#8212;&#32451;&#20064;<a class="anchor-link" href="#&#39640;&#38454;&#20989;&#25968;&#8212;&#8212;&#32451;&#20064;">&#182;</a></h2>
+<p>通过字典，我们来统计一下，每一个字出现的次数。<br>
+大家可以把最后的 <code>print</code> 从注释里拿出来，打印一下看看。</p>
+
 </div>
 </div>
 </div>
@@ -1637,13 +1921,49 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
         
         
         <div class="input_area">
-            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="c1"># 定义一个函数，把两个给定的函数 (f 和 g）按照顺序运用到给定的数字上，即 f(g(x))</span>
-<span class="k">def</span> <span class="nf">compose</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="kc">None</span>
+            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="n">counter</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">character</span> <span class="ow">in</span> <span class="n">content</span><span class="p">:</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">character</span> <span class="ow">in</span> <span class="n">counter</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="n">counter</span><span class="p">[</span><span class="n">character</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">counter</span><span class="p">[</span><span class="n">character</span><span class="p">]</span> <span class="o">=</span> <span class="n">counter</span><span class="p">[</span><span class="n">character</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="c1"># print(counter)</span>
+</pre></div>
 
+        </div>
+    </div>
 
-<span class="c1"># 这样调用的话，需要等于 21，(5 + 2) * 3 = 21</span>
-<span class="n">compose</span><span class="p">(</span><span class="n">multiply_by_three</span><span class="p">,</span> <span class="n">add_two</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="mi">21</span>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>其实，可以直接使用 <code>Python</code> 自带的 <code>Counter</code> 进行统计，但是为了让大家熟练掌握 <code>Dictionary</code> 的用法，还是建议大家先自己手写。</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>然后，我们看看《红楼梦》中，<code>贾xx</code> 或者 <code>贾x</code> 字符串共出现了多少次。</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+
+    <div class="inner_cell">
+        
+        
+        <div class="input_area">
+            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+<span class="n">expression</span> <span class="o">=</span> <span class="s2">&quot;贾[</span><span class="se">\u4e00</span><span class="s2">-</span><span class="se">\u9fa5</span><span class="s2">]{1,2}&quot;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">expression</span><span class="p">,</span> <span class="n">content</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
 </pre></div>
 
         </div>
@@ -1657,36 +1977,36 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[9]:</div>
+    <div class="prompt"></div>
 
 
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>False</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>5113
+</pre>
 </div>
-
 </div>
 
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>好奇它们都是啥么？我们打印出前几个看一下。</p>
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 
     <div class="inner_cell">
         
         
         <div class="input_area">
-            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="c1"># 定义一个函数，把数组里所有的数字经过函数运算后输出</span>
-<span class="k">def</span> <span class="nf">print_all</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">numbers</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">number</span><span class="p">))</span>
-        
-<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
-<span class="c1"># 请定义一个函数，然后使用 print_all，打印出 2,4,6,8,10</span>
+            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">[:</span><span class="mi">100</span><span class="p">])</span>
 </pre></div>
 
         </div>
@@ -1694,6 +2014,201 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[&#39;贾雨村&#39;, &#39;贾雨村&#39;, &#39;贾名化&#39;, &#39;贾雨村&#39;, &#39;贾雨村&#39;, &#39;贾爷今&#39;, &#39;贾夫人&#39;, &#39;贾名化&#39;, &#39;贾氏生&#39;, &#39;贾氏夫&#39;, &#39;贾府中&#39;, &#39;贾复以&#39;, &#39;贾代化&#39;, &#39;贾敷&#39;, &#39;贾敬袭&#39;, &#39;贾珍&#39;, &#39;贾蓉&#39;, &#39;贾代善&#39;, &#39;贾赦&#39;, &#39;贾政&#39;, &#39;贾赦袭&#39;, &#39;贾政&#39;, &#39;贾珠&#39;, &#39;贾府就&#39;, &#39;贾府中&#39;, &#39;贾府亦&#39;, &#39;贾敏&#39;, &#39;贾琏&#39;, &#39;贾雨村&#39;, &#39;贾政&#39;, &#39;贾政已&#39;, &#39;贾政最&#39;, &#39;贾政&#39;, &#39;贾赦贾&#39;, &#39;贾母一&#39;, &#39;贾母又&#39;, &#39;贾母又&#39;, &#39;贾母道&#39;, &#39;贾母笑&#39;, &#39;贾赦之&#39;, &#39;贾琏&#39;, &#39;贾母身&#39;, &#39;贾母笑&#39;, &#39;贾母命&#39;, &#39;贾赦之&#39;, &#39;贾母笑&#39;, &#39;贾赦&#39;, &#39;贾母处&#39;, &#39;贾源&#39;, &#39;贾政之&#39;, &#39;贾母的&#39;, &#39;贾珠之&#39;, &#39;贾母正&#39;, &#39;贾母笑&#39;, &#39;贾母命&#39;, &#39;贾母便&#39;, &#39;贾母因&#39;, &#39;贾母道&#39;, &#39;贾母请&#39;, &#39;贾母便&#39;, &#39;贾母因&#39;, &#39;贾母笑&#39;, &#39;贾母笑&#39;, &#39;贾母急&#39;, &#39;贾母忙&#39;, &#39;贾母说&#39;, &#39;贾母想&#39;, &#39;贾母见&#39;, &#39;贾母之&#39;, &#39;贾母因&#39;, &#39;贾母&#39;, &#39;贾母时&#39;, &#39;贾母&#39;, &#39;贾母&#39;, &#39;贾珠之&#39;, &#39;贾兰&#39;, &#39;贾不假&#39;, &#39;贾府王&#39;, &#39;贾府之&#39;, &#39;贾府王&#39;, &#39;贾政并&#39;, &#39;贾政的&#39;, &#39;贾家姨&#39;, &#39;贾雨村&#39;, &#39;贾母&#39;, &#39;贾政&#39;, &#39;贾琏又&#39;, &#39;贾赦&#39;, &#39;贾珍等&#39;, &#39;贾政便&#39;, &#39;贾母也&#39;, &#39;贾母闲&#39;, &#39;贾宅居&#39;, &#39;贾宅族&#39;, &#39;贾政训&#39;, &#39;贾珍&#39;, &#39;贾母万&#39;, &#39;贾母一&#39;, &#39;贾珍之&#39;, &#39;贾母&#39;]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>注意，这些不都是人名哦，比如 <code>贾政便</code>。<br>
+要提取出姓贾的人名，可能需要一番功夫了。<br>
+<br></p>
+<p>此外，我们可以把重复的删去。这里要用到 <code>set</code> 这个数据结构，有兴趣的同学可以去搜一下 <code>python set</code>。<code>set</code> 其实就是数学里的 <code>集合</code>，它不允许有重复的元素。</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+
+    <div class="inner_cell">
+        
+        
+        <div class="input_area">
+            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">result</span><span class="p">[:</span><span class="mi">100</span><span class="p">]))</span>
+</pre></div>
+
+        </div>
+    </div>
+
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>{&#39;贾夫人&#39;, &#39;贾府就&#39;, &#39;贾母因&#39;, &#39;贾兰&#39;, &#39;贾珍等&#39;, &#39;贾政训&#39;, &#39;贾母笑&#39;, &#39;贾珠之&#39;, &#39;贾政并&#39;, &#39;贾赦袭&#39;, &#39;贾爷今&#39;, &#39;贾母处&#39;, &#39;贾政的&#39;, &#39;贾代善&#39;, &#39;贾母正&#39;, &#39;贾宅族&#39;, &#39;贾政之&#39;, &#39;贾赦&#39;, &#39;贾赦之&#39;, &#39;贾政&#39;, &#39;贾母说&#39;, &#39;贾府之&#39;, &#39;贾敷&#39;, &#39;贾母一&#39;, &#39;贾母闲&#39;, &#39;贾母的&#39;, &#39;贾母身&#39;, &#39;贾母急&#39;, &#39;贾敏&#39;, &#39;贾敬袭&#39;, &#39;贾政已&#39;, &#39;贾宅居&#39;, &#39;贾氏夫&#39;, &#39;贾名化&#39;, &#39;贾氏生&#39;, &#39;贾代化&#39;, &#39;贾母想&#39;, &#39;贾母便&#39;, &#39;贾琏又&#39;, &#39;贾家姨&#39;, &#39;贾珠&#39;, &#39;贾政最&#39;, &#39;贾母&#39;, &#39;贾母万&#39;, &#39;贾府亦&#39;, &#39;贾珍之&#39;, &#39;贾府王&#39;, &#39;贾政便&#39;, &#39;贾母之&#39;, &#39;贾赦贾&#39;, &#39;贾母命&#39;, &#39;贾母又&#39;, &#39;贾母忙&#39;, &#39;贾雨村&#39;, &#39;贾珍&#39;, &#39;贾府中&#39;, &#39;贾琏&#39;, &#39;贾母请&#39;, &#39;贾母时&#39;, &#39;贾复以&#39;, &#39;贾蓉&#39;, &#39;贾母也&#39;, &#39;贾源&#39;, &#39;贾母见&#39;, &#39;贾母道&#39;, &#39;贾不假&#39;}
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>一共有多少个不重复的呢？</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+
+    <div class="inner_cell">
+        
+        
+        <div class="input_area">
+            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">result</span><span class="p">)))</span>
+</pre></div>
+
+        </div>
+    </div>
+
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1471
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="">&#25991;&#26412;&#22788;&#29702;&#8212;&#8212;&#32451;&#20064;<a class="anchor-link" href="#&#25991;&#26412;&#22788;&#29702;&#8212;&#8212;&#32451;&#20064;">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="1">&#32451;&#20064;1<a class="anchor-link" href="#&#32451;&#20064;1">&#182;</a></h3><p>请把我们的《红楼梦》文本中所有不是汉字的东西去掉</p>
+<p>匹配所有<strong>非</strong>汉字的正则表达式是：<br>
+<code>[^\u4e00-\u9fa5]</code></p>
+<p>匹配所有汉字的正则表达式是：<br>
+<code>[\u4e00-\u9fa5]</code></p>
+<p>请先不要看以下代码，自己尝试一下。提示，使用 <code>re.sub</code> 函数以及 <code>""</code>（空字符串）来替换，达到删除的效果。</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+
+    <div class="inner_cell">
+        
+        
+        <div class="input_area">
+            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="c1"># 请遮住以下代码，自己先写</span>
+
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="k">def</span> <span class="nf">clear_content</span><span class="p">(</span><span class="n">content</span><span class="p">):</span>
+    <span class="n">expression</span> <span class="o">=</span> <span class="s1">&#39;[^</span><span class="se">\u4e00</span><span class="s1">-</span><span class="se">\u9fa5</span><span class="s1">]&#39;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">expression</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">content</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">clear_content</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">[:</span><span class="mi">300</span><span class="p">])</span> <span class="c1"># 展示处理完毕后的前 300 个字</span>
+</pre></div>
+
+        </div>
+    </div>
+
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>第一回甄士隐梦幻识通灵贾雨村风尘怀闺秀此开卷第一回也作者自云因曾历过一番梦幻之后故将真事隐去而借通灵之说撰此石头记一书也故曰甄士隐云云但书中所记何事何人自又云今风尘碌碌一事无成忽念及当日所有之女子一一细考较去觉其行止见识皆出于我之上何我堂堂须眉诚不若彼裙钗哉实愧则有馀悔又无益之大无可如何之日也当此则自欲将已往所赖天恩祖德锦衣纨袴之时饫甘餍肥之日背父兄教育之恩负师友规训之德以至今日一技无成半生潦倒之罪编述一集以告天下人我之罪固不免然闺阁中本自历历有人万不可因我之不肖自护己短一并使其泯灭也虽今日之茅椽蓬牖瓦灶绳床其晨夕风露阶柳庭花亦未有妨我之襟怀笔墨者虽我未学下笔无文又何妨用假语村言敷演出一段故事
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2">&#32451;&#20064;2<a class="anchor-link" href="#&#32451;&#20064;2">&#182;</a></h3><p>请统计《红楼梦》中出现次数最多的汉字（注意，请先把标点符号去除掉）</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="-3">&#32451;&#20064; 3<a class="anchor-link" href="#&#32451;&#20064;-3">&#182;</a></h3><p>请统计《红楼梦》中出现次数最多的前三个汉字。</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="-4">&#32451;&#20064; 4<a class="anchor-link" href="#&#32451;&#20064;-4">&#182;</a></h3><p>请统计《红楼梦》中，黛玉与宝玉两个人名在相隔 20 字内同时出现的次数。</p>
+
+</div>
+</div>
 </div>
  
 
