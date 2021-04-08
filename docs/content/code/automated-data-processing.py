@@ -23,6 +23,9 @@ def read_csv(filename):
 
 
 def main():  # 这个 python 文件的主函数
+
+    startDownload()
+
     csv_content = read_csv('./sales.csv')
     lines = []
     for line in csv_content:
@@ -30,11 +33,10 @@ def main():  # 这个 python 文件的主函数
     print(lines[0])  # 之后可以注释掉。打印表头。
     print(lines[1:4])  # 之后可以注释掉。打印数据的前几行。
 
-    revenue = calculateRevenue()
-    reduction = calculateStockReduction()
-    slowedUsers = getSlowedDelivery()
-    # sendEmails()
-    autoDownload()
+    revenue = calculateRevenue(lines)
+    reduction = calculateStockReduction(lines)
+    slowedUsers = getSlowedDelivery(lines)
+    # sendEmails(revenue, reduction, slowedUsers)
 
 #### Section 1 Ends ####
 ########################
@@ -42,17 +44,41 @@ def main():  # 这个 python 文件的主函数
 
 ########################
 ### Section 2 Starts ###
-def calculateRevenue():
+def calculateRevenue(lines):
 
     ########################
     ### YOUR CODE STARTS ###
+
     return None
 
     #### YOUR CODE ENDS ####
     ########################
 
-def calculateStockReduction():
-    
+def calculateStockReduction(lines):
+    giftContent = {
+        '2101': {
+            '舟山带鱼': 2,
+            '舟山黄鱼': 2,
+            '野生竹节虾': 2
+        },
+        '2102': {
+            '舟山带鱼': 2,
+            '舟山黄鱼': 2,
+            '野生竹节虾': 2,
+            '舟山米鱼': 2,
+            '红果鲤': 1,
+            '舟山乌贼': 2
+        },
+        '2110': {
+            '舟山带鱼': 2,
+            '野生小黄鱼': 2,
+            '野生竹节虾': 2,
+            '舟山米鱼': 2,
+            '红果鲤': 1,
+            '舟山乌贼': 2
+        }
+    }    
+
     ########################
     ### YOUR CODE STARTS ###
     return None
@@ -66,7 +92,7 @@ def calculateStockReduction():
 
 ########################
 ### Section 3 Starts ###
-def getSlowedDelivery():
+def getSlowedDelivery(lines):
 
     ######################## 
     ### YOUR CODE STARTS ###
@@ -82,22 +108,22 @@ def getSlowedDelivery():
 ########################
 ### Section 4 Starts ###
 
-import smtplib  # Python 自带的用于发送邮件的库
+# 引入一些 Python 自带的用于发送邮件的库
+import smtplib  
 from email.mime.text import MIMEText
 
-def sendEmails():
-
+def sendEmails(revenue, reduction, slowedUsers):
     ########################
     ### YOUR CODE STARTS ###
 
     # 在这里填写邮件的题目
     subject = "销售数据汇总"
 
-    # 在这里填写你的邮箱地址
-    sender = '576140292@qq.com'
+    # 在这里填写你的 QQ 邮箱地址
+    sender = 'XXXXX@qq.com'
 
     # 在这里填写所有收件人
-    receivers = ['2658715614@qq.com', "zy22098@nottingham.edu.cn"]
+    receivers = ['abcd@qq.com', "eeee@nottingham.edu.cn"]
 
     # 在这里组装你的邮件内容
     content = "这是测试邮件的内容"
@@ -111,8 +137,9 @@ def sendEmails():
     msg["From"] = sender
     msg["To"] = str(receivers)
 
+    # 请自行搜索 Python try except 语法，然后理解以下代码
     try:
-        connection = smtplib.SMTP_SSL("smtp.qq.com", 465)
+        connection = smtplib.SMTP_SSL("smtp.qq.com", 465) # 腾讯的邮件服务器，使用 465 端口
         connection.login(sender, code)
         connection.sendmail(sender, receivers, msg.as_string())
         print("发送成功")
@@ -135,7 +162,7 @@ def sendEmails():
 import requests
 import datetime
 
-def autoDownload():
+def startDownload():
     url = 'https://icewould.com/m5-101/sales-data'
     print(str(datetime.datetime.now()) + ": 正在下载最新销售数据...")
     ########################
@@ -147,15 +174,26 @@ def autoDownload():
         print(str(datetime.datetime.now()) + ": 数据下载完成！")
 
     return None
+    #### YOUR CODE ENDS ####
+    ########################
+
+
+def autoRun():
+    import time
+
+    ########################
+    ### YOUR CODE STARTS ###
+
+    # 在这里使用 while True 循环，以及 time.sleep 函数，实现每过一段时间
+    # 自动运行 main 函数
+    main()
 
     #### YOUR CODE ENDS ####
     ########################
+
 
 #### Section 5 Ends ####
 ########################
 
 if __name__ == "__main__":
-    import time
-    while True:
-        main()
-        time.sleep(30)
+    autoRun()
