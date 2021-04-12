@@ -7,11 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="IceWould Training Hub">
     <meta name="author" content="IceWould Training Team Led by Chonghan Chen">
-    <link rel="canonical" href="https://paulcccccch.github.io/content/introduction/">
+    <link rel="canonical" href="https://paulcccccch.github.io/content/libraries/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
 
     
-    <title>Introduction - m5-101</title>
+    <title>第三方库 - m5-101</title>
     
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
@@ -81,13 +81,13 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Notes <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
-<li class="active">
-    <a href="./">Introduction</a>
+<li >
+    <a href="../introduction/">Introduction</a>
 </li>
 
                         
@@ -113,18 +113,8 @@
                 </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                    <li >
-                        <a rel="prev" href="../..">
-                            <i class="fas fa-arrow-left"></i> Previous
-                        </a>
-                    </li>
-                    <li >
-                        <a rel="next" href="../hello-world/">
-                            Next <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </li>
                     <li>
-                        <a href="https://github.com/PaulCCCCCCH/m5-101/edit/master/docs/content/introduction.md"><i class="fab fa-github"></i> Edit on GitHub</a>
+                        <a href="https://github.com/PaulCCCCCCH/m5-101/edit/master/docs/content/libraries.md"><i class="fab fa-github"></i> Edit on GitHub</a>
                     </li>
             </ul>
         </div>
@@ -136,12 +126,31 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#introduction-to-m5-101">Introduction to m5-101</a></li>
+        <li class="first-level active"><a href="#_1">第三方库</a></li>
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h1 id="introduction-to-m5-101">Introduction to m5-101</h1></div>
+<h1 id="_1">第三方库</h1>
+<p>写程序的时候，我们可以使用别人写好的代码来加快我们的开发进度。只需要使用 <code>import</code>，将对应的<code>库 (library)</code>引用到代码里，就可以调用<code>库</code>里定义好的函数和变量。<br />
+<br></p>
+<p>我们已经用过 <code>import math</code> 和 <code>import re</code>。<code>math</code> 和 <code>re</code> 都是 <code>Python</code> 自带的<code>库</code>。这些只是所有你能使用的<code>库</code>的一小部分。成千上万大大小小的贡献者会写自己的<code>库</code>，并将它发布到网上，供大家下载。我们管这些<code>库</code>叫<code>第三方库</code>（不是<code>Python</code> 官方库，也不是用户自己写的，所以叫第三方）。<br />
+<br></p>
+<p>要使用 <code>第三方库</code>，首先要进行安装。<code>Python</code> 有一个非常好用的工具，叫作 <code>pip</code> (<code>Package Installer for Python</code>)。通过它，可以很方便地安装、卸载<code>第三方库</code>。<br />
+<br></p>
+<p>举个例子，假设你想写一个网页爬虫，你需要使用 <code>Python</code> 模拟浏览器的行为。这样，你就需要向网页发送 <code>HTTP</code> 请求（不懂的话没有关系，我们第三个项目开始会接触这个东西）。这当然可以自己从头到尾用 <code>Python</code> 实现，但是这可能很麻烦。有人已经开发过了一个叫 <code>requests</code> 的库，你可以直接下载下来，使用。<br />
+<br></p>
+<p>你需要打开命令行，输入 <code>pip install requests</code>。它会自动帮你下载并安装好。然后，在运行 <code>Python</code> 的时候，你就可以 <code>import requests</code>，然后使用 <code>requests.&lt;函数名&gt;</code>，调用其它人写好的函数了。<br />
+<br></p>
+<p>如果要卸载这个库，你可以使用 <code>pip uninstall requests</code>。<br />
+<br></p>
+<p>有人会问：我怎么知道要用什么库呢？<br />
+<br></p>
+<p>你当然可以去 <a href="https://pypi.org/">PyPI(The Python Package Index)</a> 网站上，搜索你可能需要的库，但这个太慢了。更好的方法是，直接动用<code>面向谷歌编程</code>的思想，把想要实现的功能输入到搜索引擎，然后让出现的信息告诉你需要用哪个库。 <br />
+<br></p>
+<p>比如，如果你想发送一个 <code>HTTP</code> 请求，你可以直接搜索 <code>Python send http</code>。<br />
+<br></p>
+<p>对于一些你感觉可能比较常用的功能，请尽量先去搜索有没有可以使用的<code>库</code>，不推荐一上来就一顿写（当然，学习阶段除外，因为这可能是一个很好的练习机会）。</p></div>
         
         
     </div>
