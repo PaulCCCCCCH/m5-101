@@ -7,6 +7,9 @@
 周一（4/5）Lab 照常，会公布并讲解第一个 Project 的答案。除此之外不会安排新内容。大家可以继续完成之前的基础练习。
 
 
+# Utils
+请从 `icewould.com:8888` 使用我们的 `jupyter notebook`。
+
 # Schedule
 
 <style type="text/css">
@@ -142,20 +145,20 @@
   </tr>
   <tr>
     <td class="tg-svo0" rowspan="2">Week 4</td>
-    <td class="tg-svo0">TBA</td>
-    <td class="tg-svo0">TBA</td>
+    <td class="tg-svo0">Mon<br>4/12<br>20:00-22:00</td>
+    <td class="tg-svo0">PMB<br>309</td>
     <td class="tg-svo0">
-      <span href="./content/libraries">1. 第三方库</a>
+      <a href="./content/abstraction">1. 抽象——人类伟大之始</a>
       <br>
-      <span href="./content/abstraction">2. 抽象——人类伟大之始</a>
+      <a href="./content/libraries">2. 第三方库</a>
       <br>
     </td>
     <td class="tg-svo0"></td>
     <td class="tg-svo0"></td>
   </tr>
   <tr>
-    <td class="tg-c3ow">TBA</td>
-    <td class="tg-c3ow">TBA</td>
+    <td class="tg-c3ow">Thur<br>4/15<br>20:00-22:00</td>
+    <td class="tg-c3ow">PMB<br>309</td>
     <td class="tg-c3ow">
         TBA 
     </td>
