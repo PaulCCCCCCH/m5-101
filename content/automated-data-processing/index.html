@@ -214,6 +214,13 @@
 <br></p>
 <p>作为例子，我们需要各位使用自己的 <code>QQ</code> 邮箱，发送邮件到自己的学校邮箱。<br />
 <br></p>
+<p>由于我们在使用 <code>QQ</code> 邮箱的邮件服务器，我们需要拿到 <code>QQ</code> 邮箱的授权码。具体操作如下：<br />
+1. 登录网页版 <code>QQ</code> 邮箱
+2. 点击最上方的 <code>设置</code>
+3. 点击邮箱设置下的 <code>账户</code> 标签
+4. 下拉到 <code>POP3/IMAP/SMTP/Exchange/CardDAV/CalDAV服务</code> 标签
+5. 点击 <code>POP3/SMTP服务</code> 后面的 <code>开启</code>
+6. 把出现的授权码复制给代码中的 <code>code</code> 变量。</p>
 <p>完成这个 <code>Section</code> 之后，记得把 <code>main</code> 函数里的 <code>sendEmails()</code> 函数调用这一行从注释里拿出来，并且确认自己确实收到了邮件。<br />
 <br></p>
 <h2 id="section-5">Section 5: 定时自动下载和处理</h2>
