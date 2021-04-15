@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="IceWould Training Hub">
+    <meta name="author" content="IceWould Training Team Led by Chonghan Chen">
+    <link rel="canonical" href="https://paulcccccch.github.io/content/file-management/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+
+    
+    <title>文件管理 - m5-101</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/base.min.css" rel="stylesheet">
+    <link href="../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../..">m5-101</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../home/">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../..">Schedule</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Notes <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../introduction/">Introduction</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Notebook Pages <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../hello-world/">Hello World</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="https://github.com/PaulCCCCCCH/m5-101/edit/master/docs/content/file-management.md"><i class="fab fa-github"></i> Edit on GitHub</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#_1">文件管理</a></li>
+            <li class="second-level"><a href="#_2">引言</a></li>
+                
+            <li class="second-level"><a href="#_3">绝对路径和相对路径</a></li>
+                
+            <li class="second-level"><a href="#_4">常用操作</a></li>
+                
+                <li class="third-level"><a href="#_5">获取目录和文件夹</a></li>
+                <li class="third-level"><a href="#_6">创建或删除文件</a></li>
+                <li class="third-level"><a href="#_7">创建或删除文件夹</a></li>
+                <li class="third-level"><a href="#_8">文件或文件夹改名</a></li>
+                <li class="third-level"><a href="#_9">文件的移动和复制</a></li>
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="_1">文件管理</h1>
+<h2 id="_2">引言</h2>
+<p>通过 <code>Python</code> 脚本，我们可以很方便地批量管理自己电脑中的文件。<br />
+<br></p>
+<p>先回忆一下我们在 <code>Python 基础练习 3</code> 中的操作：  </p>
+<pre><code class="language-python">dir_path = 'txt_files'
+file_name = 'hongloumeng.txt'
+full_path = os.path.join(dir_path, file_name) 
+# full_path 是 'txt_files/hongloumeng.txt' 或 'txt_files\\hongloumeng.txt
+# 取决于你的操作系统是 Windows 还是 MacOS / Linux
+
+if not os.path.exists(dir_path): # 如果文件夹不存在，就创建文件夹
+    os.mkdir(dir_path) # mkdir 是 make directory，即创建文件夹
+
+if not os.path.exists(full_path): # 如果文件不存在，就下载文件
+    url = &quot;http://icewould.com/m5-101/hongloumeng&quot;
+    print(&quot;正在下载文件...&quot;)
+    result = requests.get(url)
+    with open(full_path, &quot;wb&quot;) as f:
+        f.write(result.content)
+        print(&quot;下载完成&quot;)
+
+</code></pre>
+<p>这段代码，会自动下载文件并创建文件夹，非常方便。<br />
+<br></p>
+<p>文件操作都是在 <code>os</code> 包中的，使用的时候，要先 <code>import os</code>。<br />
+（<code>os</code> 是 <code>Operating System</code>，即操作系统的缩写。非技术人员比较常用的是 <code>Windows</code> 和 <code>MacOS</code>。）<br />
+<br></p>
+<h2 id="_3">绝对路径和相对路径</h2>
+<p>操作文件的时候，这个概念非常重要。<br />
+<br></p>
+<p>比如，你当前的目录是 <code>D:\python\project2</code>。在这个目录下，你有一个 <code>experiment3</code> 文件夹，其中有一个 <code>result.txt</code> 文件。于是，这个文件的绝对路径就是 <code>D:\python\project2\experiment3\result.txt</code>，但它的相对路径（相对你当前的路径）就是 <code>.\experiment3\result.txt</code>。其中，最开始的 <code>.</code> 代表当前目录。<br />
+<br></p>
+<p>你也可以使用 <code>..</code> 在相对路径中访问上级目录：<br />
+<code>D:\python\project1\experiment1\result.txt</code> 与 <code>..\project1\experiment1\result.txt</code>是一样的。<br />
+<br></p>
+<h2 id="_4">常用操作</h2>
+<p>我们列出几个比较常用的方法。各位下次遇到需要创建文件夹、移动文件等操作的时候，可以试试用 <code>Python</code> 去进行。<br />
+<br></p>
+<h3 id="_5">获取目录和文件夹</h3>
+<ul>
+<li>使用 <code>os.getcwd()</code> 获得当前目录的完整路径 (<code>getcwd</code>: get current working directory)。</li>
+<li>使用 <code>os.listdir(path)</code> 获得 <code>path</code> 目录下的所有文件和文件夹名字。</li>
+</ul>
+<h3 id="_6">创建或删除文件</h3>
+<ul>
+<li>使用 <code>os.remove(path)</code> 删除某个文件。  </li>
+</ul>
+<h3 id="_7">创建或删除文件夹</h3>
+<ul>
+<li>使用 <code>os.mkdir(path)</code> 创建一个文件夹。</li>
+<li>
+<p>使用 <code>os.makedirs(path)</code> 沿着 <code>path</code> 一路从浅到深连续创建文件夹。
+<br></p>
+</li>
+<li>
+<p>使用 <code>os.rmdir(path)</code> 删除一个文件夹。</p>
+</li>
+<li>使用 <code>os.removedirs(path)</code> 沿着 <code>path</code> 一路从深到浅连续删除文件夹。
+<br></li>
+</ul>
+<p>注意，在删除文件夹的时候，如果文件夹不是空的，就会删除失败。所以删除之前要先清空文件。</p>
+<h3 id="_8">文件或文件夹改名</h3>
+<ul>
+<li>使用 <code>os.rename(src, dst)</code> 把名字是 <code>src</code> 的文件名字改成 <code>dst</code>。<br />
+<br></li>
+</ul>
+<p>注意，如果 <code>src</code> 是一个路径，那么 <code>dst</code> 也得是一个路径。</p>
+<h3 id="_9">文件的移动和复制</h3>
+<p>我们需要先 <code>import shutil</code> <br />
+<br></p>
+<ul>
+<li>使用 <code>shutil.copyfile(src, dst)</code> 把路径为 <code>src</code> 的文件复制到 <code>dst</code> 去。</li>
+<li>使用 <code>shutil.move(src, dst)</code> 把路径为 <code>src</code> 的文件移动到 <code>dst</code> 去。</li>
+</ul></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../.."</script>
+    
+    <script src="../../js/base.js"></script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="../../assets/mathjaxhelper.js"></script>
+
+    <div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>
