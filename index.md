@@ -185,7 +185,9 @@
     <td class="tg-svo0" rowspan="2">
       <a href="./content/web-basics-practice"> Web 实验 <br></a>
     </td>
-    <td class="tg-svo0"></td>
+    <td class="tg-svo0">
+      <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc.zh/"> 1. Beautiful Soup 4 中文文档 </a>
+    </td>
   </tr>
   <tr>
     <td class="tg-c3ow">Thur<br>4/22<br>20:00-22:00</td>

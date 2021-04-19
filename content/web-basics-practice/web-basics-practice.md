@@ -36,11 +36,12 @@ with open("./website.html", "w") as f:
 然后，你可以双击打开这个 `html`。它就在你的本地打开了（只不过排版有点点不对）。  
 <br>
 
-用之前的销售记录 `sales.csv`，把页面里每个电影的名字换成 `sales.csv` 数据里的人名（用前50个人名就行），效果如图所示。  
+请用之前的销售记录 `sales.csv`，把页面里每个电影的名字换成 `sales.csv` 数据里的人名（用前50个人名就行），效果如图所示。  
 <br>
 
 <img src="../images/web-basics-practice-douban-demo.png">
 
+请搜索 `beautiful soup`，并阅读文档。这是一个非常好用的处理 `HTML` 文件的第三方库。可以使用 `pip install beautifulsoup4` 进行安装。
 
 ## 信息汇总
 请把电影的信息汇总成一个 `csv` 或者 `excel` 表格。
