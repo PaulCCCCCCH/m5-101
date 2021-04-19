@@ -180,12 +180,10 @@
     <td class="tg-svo0">Mon<br>4/19<br>20:00-22:00</td>
     <td class="tg-svo0">PMB<br>309</td>
     <td class="tg-svo0" rowspan="2">
-      <span href="./content/network">1. 网络原理</a>
-      <br>
-      <span href="./content/network">2. Web 基础 <br>(link to m5-201)</a>
+      <a href="https://paulcccccch.github.io/m5-201/content/web-basics/">1. Web 基础 <br>(link to m5-201)</a>
     </td>
     <td class="tg-svo0" rowspan="2">
-      <span href="./content/network"> Web 练习 <br>(link to m5-201)</a>
+      <a href="./content/web-basics-practice"> Web 实验 <br></a>
     </td>
     <td class="tg-svo0"></td>
   </tr>
