@@ -7,11 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="IceWould Training Hub">
     <meta name="author" content="IceWould Training Team Led by Chonghan Chen">
-    <link rel="canonical" href="https://paulcccccch.github.io/content/code-style/">
+    <link rel="canonical" href="https://paulcccccch.github.io/content/html-parsing/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
 
     
-    <title>编程规范和习惯 - m5-101</title>
+    <title>网页信息提取 - m5-101</title>
     
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
@@ -114,7 +114,7 @@
 
             <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="https://github.com/PaulCCCCCCH/m5-101/edit/master/docs/content/code-style.md"><i class="fab fa-github"></i> Edit on GitHub</a>
+                        <a href="https://github.com/PaulCCCCCCH/m5-101/edit/master/docs/content/html-parsing.md"><i class="fab fa-github"></i> Edit on GitHub</a>
                     </li>
             </ul>
         </div>
@@ -126,76 +126,65 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#_1">编程规范和习惯</a></li>
-            <li class="second-level"><a href="#_2">程序一</a></li>
+        <li class="first-level active"><a href="#_1">网页信息提取</a></li>
+            <li class="second-level"><a href="#html">HTML</a></li>
                 
-            <li class="second-level"><a href="#_3">程序二</a></li>
+            <li class="second-level"><a href="#_2">提取文本</a></li>
                 
-            <li class="second-level"><a href="#_4">变量的命名</a></li>
-                
-            <li class="second-level"><a href="#_5">格式的问题</a></li>
-                
-            <li class="second-level"><a href="#_6">易于更改的问题</a></li>
+            <li class="second-level"><a href="#_3">提取图片</a></li>
                 
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h1 id="_1">编程规范和习惯</h1>
-<blockquote>
-<p>几乎所有会写代码的人都认为，编程和写诗一样，是一门艺术。<br />
-<br>
-Source: Dude trust me.  </p>
-</blockquote>
-<p>其实，能够写出实现需求的程序，只是编程能力中的一小块。很多时候更重要的事情，是代码本身。<br />
+<h1 id="_1">网页信息提取</h1>
+<p>爬虫最基础的功能，是从服务器发送给你的 <code>HTML</code> 文件里提取信息。只要是 <code>HTML</code> 页面上写的东西，都有办法可以程序自动地、批量地获取。我们就从这一步开始。<br />
 <br></p>
-<p>毕竟程序是给人看的，我们要尽可能地让自己的代码简介明了，前后一致，而且，更重要的是，改起来方便。<br />
-<br></p>
-<p>我们以下面两段程序为例来分析。<br />
-<br></p>
-<h2 id="_2">程序一</h2>
-<pre><code class="language-python">
-a=&quot;小王&quot;
-b=69
-print(a+&quot;的得分是: &quot;  +b)
-
-a =&quot;小红&quot;
-b= 80
-print (a +&quot;的得分是: &quot; + b)
-
-a=&quot;小明&quot;
-b = 73
-print (a+ &quot;的得分是: &quot;+ b)
+<h2 id="html"><code>HTML</code></h2>
+<p><code>HTML</code> 由一系列标签组成。标签一般都是成对出现的，被标签包裹的文字，究竟以何种形式展示给用户，是被标签定义的，像这样：  </p>
+<pre><code class="language-html">&lt;h1&gt; 一号字体的标题 &lt;/h1&gt;
+&lt;div&gt; 
+    &lt;h2&gt; 二号字体的标题 &lt;/h2&gt;
+    &lt;p&gt; 一小段文字 &lt;/p&gt;
+&lt;/div&gt;
+&lt;div&gt;
+    &lt;h2&gt; 第二个标题 &lt;/h2&gt;
+    &lt;p&gt; 另一小段文字 &lt;/p&gt;
+&lt;div&gt;
 </code></pre>
-<h2 id="_3">程序二</h2>
-<pre><code class="language-python">
-def printScore(student_name, student_score):
-    print(student_name + &quot;的得分是: &quot; + str(student_score))
+<p>可以暂时不需要知道每个标签对应的意思，只要知道，一般情况下，你要爬取的数据会有规律地出现在标签上，标签中间或标签附近。  </p>
+<h2 id="_2">提取文本</h2>
+<p>大部分情况下，我们会爬取文本，也就是直接把 <code>HTML</code> 标签包裹的东西拿过来，并保存。
+我们可以使用 <code>BeautifulSoup</code> 获取标签后，直接使用 <code>get_text</code>，获得文字内容。比如上面那段 <code>HTML</code> 代码，想从中提取第一个 <code>&lt;p&gt;</code> 标签中的内容（<code>一小段文字</code>），可以这样：</p>
+<pre><code class="language-python">from bs4 import BeautifulSoup
 
+# html 需要转化成字符串，才能进行处理
+html = '&lt;h1&gt; 一号字体的标题 &lt;/h1&gt; &lt;div&gt; &lt;h2&gt; 二号字体的标题 &lt;/h2&gt; &lt;p&gt; 一小段文字 &lt;/p&gt; &lt;/div&gt; &lt;p&gt; 另一小段文字 &lt;/p&gt;'
 
-for n, s in [(&quot;小王&quot;, 69), (&quot;小红&quot;, 80), (&quot;小明&quot;, 73)]:
-    printScore(n, s)
+soup = BeautifulSoup(html)
+div_tag = soup.findAll('div')[1] # 获取第二个 &lt;div&gt; 标签及其全部内容
+p = div_tag.p # 获得 &lt;div&gt; 标签下的 &lt;p&gt; 标签
 
+print(p.get_text) # 会打印“另一小段文字”
 </code></pre>
-<p>同样是打印三个学生的成绩，我们希望你书写第二种程序。我们会从三个角度分析。<br />
-<br></p>
-<h2 id="_4">变量的命名</h2>
-<p><code>程序一</code>中，我们看到了两个变量 <code>a</code> 和 <code>b</code>。在稍微长一点的程序里，这样的变量就会让人疑惑：这个变量是干啥的？<br />
-<br></p>
-<p>于是，这个人要通过理解代码来猜测变量的用途，而这是相当费事的过程，在一些情况下，甚至是几乎不可能做到的。<br />
-<br></p>
-<p>事实上，很多人会故意把变量名都变成 <code>a</code>，<code>b</code> 之类没有意义的东西，以防止自己的程序被人理解，然后被抄袭或者盗用。然而，这也不需要你手动这样做，有很多 <code>代码混淆</code> 工具可以自动做到这件事。<br />
-<br></p>
-<p>所以，只要你在写程序，请尽量取好变量名，让人一看就知道它是干啥的。就像 <code>程序二</code> 那样，大家一看就知道 <code>student_name</code> 和 <code>student_score</code> 是啥意思。<br />
-<br></p>
-<h2 id="_5">格式的问题</h2>
-<p>每个人可能有不同的 <code>style</code>，但务必做到前后一致。比如，你如果你习惯在等号、加号等符号两边加一个空格（笔者建议这么做），那么请在你的程序里从头到尾都这么做。<br />
-<br></p>
-<h2 id="_6">易于更改的问题</h2>
-<p>很少有程序，一经写出，就再也不用修改。比如上述程序，一个很可能的修改是，我们需要 <code>print</code> 第四个第五个学生。
-<br></p>
-<p>所以，我们在写的时候，就要让程序尽量容易修改。<br />
-<br></p></div>
+<h2 id="_3">提取图片</h2>
+<p>与文字不同，图片一般会写在标签里，像这样：  </p>
+<pre><code class="language-html">&lt;img src=&quot;url_to_image&quot;&gt;&lt;/img&gt;
+</code></pre>
+<p><code>src</code> 属性里头的 <code>url_to_image</code> 会指向图片的链接。我们需要提取这个链接，然后下载这个链接的内容，像这样：  </p>
+<pre><code class="language-python"># 假设已经获得了名为 `html` 的字符串变量，用 BeautifulSoup 预处理
+soup = BeautifulSoup(html)
+
+# 获得标签上的 `src` 属性的内容，即图片链接
+image_url = soup.img.get('src')
+
+# 向对应的链接发送请求，获得数据
+data = requests.get(image_url)
+
+# 把数据保存到本地文件（也就是图片）
+with open(&quot;image.jpg&quot;, &quot;wb&quot;) as f:
+    f.write(data.content)
+</code></pre></div>
         
         
     </div>

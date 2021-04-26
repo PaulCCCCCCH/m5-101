@@ -200,15 +200,15 @@
     <td class="tg-svo0">Mon<br>4/26<br>20:00-22:00</td>
     <td class="tg-svo0">PMB<br>309</td>
     <td class="tg-svo0">
-      <span href="./content/network">1. JSON——超时空胶囊</a>
+      <a href="./content/json">1. JSON——超时空胶囊</a>
       <br>
-      <span href="./content/network">2. 网页信息提取</a>
+      <a href="./content/html-parsing">2. 网页信息提取</a>
     </td>
     <td class="tg-svo0" rowspan="2">
-      <span href="./content/network">1. 信息提取练习</a>
+      <a href="./content/html-parsing-practice">1. 信息提取练习</a>
     </td>
     <td class="tg-svo0" rowspan="6">
-      <span href="./content/network">Project 3: Web Crawler 网络爬虫</a>
+      <span href="./content/web-crawler">Project 3: Web Crawler 网络爬虫</a>
     </td>
     <td class="tg-svo0"></td>
   </tr>

@@ -7,11 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="IceWould Training Hub">
     <meta name="author" content="IceWould Training Team Led by Chonghan Chen">
-    <link rel="canonical" href="https://paulcccccch.github.io/content/code-style/">
+    <link rel="canonical" href="https://paulcccccch.github.io/content/html-parsing-practice/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
 
     
-    <title>编程规范和习惯 - m5-101</title>
+    <title>信息提取练习 - m5-101</title>
     
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
@@ -114,7 +114,7 @@
 
             <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="https://github.com/PaulCCCCCCH/m5-101/edit/master/docs/content/code-style.md"><i class="fab fa-github"></i> Edit on GitHub</a>
+                        <a href="https://github.com/PaulCCCCCCH/m5-101/edit/master/docs/content/html-parsing-practice.md"><i class="fab fa-github"></i> Edit on GitHub</a>
                     </li>
             </ul>
         </div>
@@ -126,75 +126,47 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#_1">编程规范和习惯</a></li>
-            <li class="second-level"><a href="#_2">程序一</a></li>
+        <li class="first-level active"><a href="#_1">信息提取练习</a></li>
+            <li class="second-level"><a href="#1">1</a></li>
                 
-            <li class="second-level"><a href="#_3">程序二</a></li>
+            <li class="second-level"><a href="#2">2</a></li>
                 
-            <li class="second-level"><a href="#_4">变量的命名</a></li>
+            <li class="second-level"><a href="#3">3</a></li>
                 
-            <li class="second-level"><a href="#_5">格式的问题</a></li>
-                
-            <li class="second-level"><a href="#_6">易于更改的问题</a></li>
+            <li class="second-level"><a href="#4">4（挑战）</a></li>
                 
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h1 id="_1">编程规范和习惯</h1>
-<blockquote>
-<p>几乎所有会写代码的人都认为，编程和写诗一样，是一门艺术。<br />
-<br>
-Source: Dude trust me.  </p>
-</blockquote>
-<p>其实，能够写出实现需求的程序，只是编程能力中的一小块。很多时候更重要的事情，是代码本身。<br />
-<br></p>
-<p>毕竟程序是给人看的，我们要尽可能地让自己的代码简介明了，前后一致，而且，更重要的是，改起来方便。<br />
-<br></p>
-<p>我们以下面两段程序为例来分析。<br />
-<br></p>
-<h2 id="_2">程序一</h2>
-<pre><code class="language-python">
-a=&quot;小王&quot;
-b=69
-print(a+&quot;的得分是: &quot;  +b)
-
-a =&quot;小红&quot;
-b= 80
-print (a +&quot;的得分是: &quot; + b)
-
-a=&quot;小明&quot;
-b = 73
-print (a+ &quot;的得分是: &quot;+ b)
+<h1 id="_1">信息提取练习</h1>
+<h2 id="1">1</h2>
+<p>每 3 秒钟向 http://icewould.com:5201/getProduct?id=1 发送请求，将获得的消息以如下格式打印出来：</p>
+<pre><code class="language-python">名字： Kobe的按摩椅
+价格： 12415261$
+店铺： Kobe代言的聚像
+店铺主人： KobeNorris
+商品参数： green 172cm 52kg
+地址： 837 Zboncak Vista
 </code></pre>
-<h2 id="_3">程序二</h2>
-<pre><code class="language-python">
-def printScore(student_name, student_score):
-    print(student_name + &quot;的得分是: &quot; + str(student_score))
-
-
-for n, s in [(&quot;小王&quot;, 69), (&quot;小红&quot;, 80), (&quot;小明&quot;, 73)]:
-    printScore(n, s)
-
-</code></pre>
-<p>同样是打印三个学生的成绩，我们希望你书写第二种程序。我们会从三个角度分析。<br />
+<p>注意观察并提取符合要求的 <code>key</code> 哦。</p>
+<p>提示：使用 <code>requests.get("some_url").json()</code> 来获取 <code>json</code>，然后把它当作<code>字典</code>一样用就行。</p>
+<h2 id="2">2</h2>
+<p>前往 <code>http://www.nmc.cn/publish/marine/forecast.htm</code>。这个页面是官方的天气预报，每几个小时都会更新。<br />
 <br></p>
-<h2 id="_4">变量的命名</h2>
-<p><code>程序一</code>中，我们看到了两个变量 <code>a</code> 和 <code>b</code>。在稍微长一点的程序里，这样的变量就会让人疑惑：这个变量是干啥的？<br />
+<p>请写一个脚本，每当运行时，会自动把这个页面的全部文字保存在 <code>weather.txt</code><br />
 <br></p>
-<p>于是，这个人要通过理解代码来猜测变量的用途，而这是相当费事的过程，在一些情况下，甚至是几乎不可能做到的。<br />
+<h2 id="3">3</h2>
+<p>请把上述网站的图片内容保存在 <code>img1.png</code>, <code>img2.png</code> ... <code>imgk.png</code>(假设一共有 <code>k</code> 张图片)。注意，你事先是不知道他一共有多少张图片的，每次更新，图片的数量都会不一样。<br />
 <br></p>
-<p>事实上，很多人会故意把变量名都变成 <code>a</code>，<code>b</code> 之类没有意义的东西，以防止自己的程序被人理解，然后被抄袭或者盗用。然而，这也不需要你手动这样做，有很多 <code>代码混淆</code> 工具可以自动做到这件事。<br />
+<p>这一步做完后，请把整个脚本打包成 <code>.exe</code>，双击运行后，会自动爬取文字和图片。<br />
 <br></p>
-<p>所以，只要你在写程序，请尽量取好变量名，让人一看就知道它是干啥的。就像 <code>程序二</code> 那样，大家一看就知道 <code>student_name</code> 和 <code>student_score</code> 是啥意思。<br />
+<h2 id="4">4（挑战）</h2>
+<p>请前往 <code>https://movie.douban.com/top250</code> （豆瓣电影 Top 250），爬取全部的 250 部电影，并且统计，所有演职员的上榜次数，然后进行排名。<br />
 <br></p>
-<h2 id="_5">格式的问题</h2>
-<p>每个人可能有不同的 <code>style</code>，但务必做到前后一致。比如，你如果你习惯在等号、加号等符号两边加一个空格（笔者建议这么做），那么请在你的程序里从头到尾都这么做。<br />
+<p>提示 1：比如，要爬取<a href="https://movie.douban.com/subject/1292052/">肖申克的救赎</a>的演职员，需要先电影列表页面对应标签的 <code>src</code> 获取链接，进入电影页面，用同样方法进入演职员表右上角的 <code>全部</code> 链接，然后更新统计数据。需要写一个循环，对每个电影都进行这个操作。<br />
 <br></p>
-<h2 id="_6">易于更改的问题</h2>
-<p>很少有程序，一经写出，就再也不用修改。比如上述程序，一个很可能的修改是，我们需要 <code>print</code> 第四个第五个学生。
-<br></p>
-<p>所以，我们在写的时候，就要让程序尽量容易修改。<br />
+<p>提示 2：电影列表可以翻页，但是它们的 <code>url</code> 是有规律的。<br />
 <br></p></div>
         
         
