@@ -1,0 +1,3378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="IceWould Training Hub">
+    <meta name="author" content="IceWould Training Team Led by Chonghan Chen">
+    <link rel="canonical" href="https://paulcccccch.github.io/content/examples/douban-parser/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+    
+    <title>Douban parser - m5-101</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../../css/base.min.css" rel="stylesheet">
+    <link href="../../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../../..">m5-101</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../../home/">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../..">Schedule</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Notes <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../introduction/">Introduction</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Notebook Pages <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../hello-world/">Hello World</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="https://github.com/PaulCCCCCCH/m5-101/edit/master/docs/content/examples/douban-parser.ipynb"><i class="fab fa-github"></i> Edit on GitHub</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+
+<div class="notebook-content">
+<style type="text/css">/*!
+*
+* IPython notebook
+*
+*/
+/* CSS font colors for translated ANSI escape sequences */
+/* The color values are a mix of
+   http://www.xcolors.net/dl/baskerville-ivorylight and
+   http://www.xcolors.net/dl/euphrasia */
+.ansi-black-fg {
+  color: #3E424D;
+}
+.ansi-black-bg {
+  background-color: #3E424D;
+}
+.ansi-black-intense-fg {
+  color: #282C36;
+}
+.ansi-black-intense-bg {
+  background-color: #282C36;
+}
+.ansi-red-fg {
+  color: #E75C58;
+}
+.ansi-red-bg {
+  background-color: #E75C58;
+}
+.ansi-red-intense-fg {
+  color: #B22B31;
+}
+.ansi-red-intense-bg {
+  background-color: #B22B31;
+}
+.ansi-green-fg {
+  color: #00A250;
+}
+.ansi-green-bg {
+  background-color: #00A250;
+}
+.ansi-green-intense-fg {
+  color: #007427;
+}
+.ansi-green-intense-bg {
+  background-color: #007427;
+}
+.ansi-yellow-fg {
+  color: #DDB62B;
+}
+.ansi-yellow-bg {
+  background-color: #DDB62B;
+}
+.ansi-yellow-intense-fg {
+  color: #B27D12;
+}
+.ansi-yellow-intense-bg {
+  background-color: #B27D12;
+}
+.ansi-blue-fg {
+  color: #208FFB;
+}
+.ansi-blue-bg {
+  background-color: #208FFB;
+}
+.ansi-blue-intense-fg {
+  color: #0065CA;
+}
+.ansi-blue-intense-bg {
+  background-color: #0065CA;
+}
+.ansi-magenta-fg {
+  color: #D160C4;
+}
+.ansi-magenta-bg {
+  background-color: #D160C4;
+}
+.ansi-magenta-intense-fg {
+  color: #A03196;
+}
+.ansi-magenta-intense-bg {
+  background-color: #A03196;
+}
+.ansi-cyan-fg {
+  color: #60C6C8;
+}
+.ansi-cyan-bg {
+  background-color: #60C6C8;
+}
+.ansi-cyan-intense-fg {
+  color: #258F8F;
+}
+.ansi-cyan-intense-bg {
+  background-color: #258F8F;
+}
+.ansi-white-fg {
+  color: #C5C1B4;
+}
+.ansi-white-bg {
+  background-color: #C5C1B4;
+}
+.ansi-white-intense-fg {
+  color: #A1A6B2;
+}
+.ansi-white-intense-bg {
+  background-color: #A1A6B2;
+}
+.ansi-default-inverse-fg {
+  color: #FFFFFF;
+}
+.ansi-default-inverse-bg {
+  background-color: #000000;
+}
+.ansi-bold {
+  font-weight: bold;
+}
+.ansi-underline {
+  text-decoration: underline;
+}
+/* The following styles are deprecated an will be removed in a future version */
+.ansibold {
+  font-weight: bold;
+}
+.ansi-inverse {
+  outline: 0.5px dotted;
+}
+/* use dark versions for foreground, to improve visibility */
+.ansiblack {
+  color: black;
+}
+.ansired {
+  color: darkred;
+}
+.ansigreen {
+  color: darkgreen;
+}
+.ansiyellow {
+  color: #c4a000;
+}
+.ansiblue {
+  color: darkblue;
+}
+.ansipurple {
+  color: darkviolet;
+}
+.ansicyan {
+  color: steelblue;
+}
+.ansigray {
+  color: gray;
+}
+/* and light for background, for the same reason */
+.ansibgblack {
+  background-color: black;
+}
+.ansibgred {
+  background-color: red;
+}
+.ansibggreen {
+  background-color: green;
+}
+.ansibgyellow {
+  background-color: yellow;
+}
+.ansibgblue {
+  background-color: blue;
+}
+.ansibgpurple {
+  background-color: magenta;
+}
+.ansibgcyan {
+  background-color: cyan;
+}
+.ansibggray {
+  background-color: gray;
+}
+div.cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border-radius: 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  width: 100%;
+  padding: 5px;
+  /* This acts as a spacer between cells, that is outside the border */
+  margin: 0px;
+  outline: none;
+  position: relative;
+  overflow: visible;
+}
+div.cell:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: transparent;
+}
+div.cell.jupyter-soft-selected {
+  border-left-color: #E3F2FD;
+  border-left-width: 1px;
+  padding-left: 5px;
+  border-right-color: #E3F2FD;
+  border-right-width: 1px;
+  background: #E3F2FD;
+}
+@media print {
+  div.cell.jupyter-soft-selected {
+    border-color: transparent;
+  }
+}
+div.cell.selected,
+div.cell.selected.jupyter-soft-selected {
+  border-color: #ababab;
+}
+div.cell.selected:before,
+div.cell.selected.jupyter-soft-selected:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: #42A5F5;
+}
+@media print {
+  div.cell.selected,
+  div.cell.selected.jupyter-soft-selected {
+    border-color: transparent;
+  }
+}
+.edit_mode div.cell.selected {
+  border-color: #66BB6A;
+}
+.edit_mode div.cell.selected:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: #66BB6A;
+}
+@media print {
+  .edit_mode div.cell.selected {
+    border-color: transparent;
+  }
+}
+.prompt {
+  /* This needs to be wide enough for 3 digit prompt numbers: In[100]: */
+  min-width: 14ex;
+  /* This padding is tuned to match the padding on the CodeMirror editor. */
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace;
+  text-align: right;
+  /* This has to match that of the the CodeMirror class line-height below */
+  line-height: 1.21429em;
+  /* Don't highlight prompt number selection */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* Use default cursor */
+  cursor: default;
+}
+@media (max-width: 540px) {
+  .prompt {
+    text-align: left;
+  }
+}
+div.inner_cell {
+  min-width: 0;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  /* Old browsers */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  /* Modern browsers */
+  flex: 1;
+}
+/* input_area and input_prompt must match in top border and margin for alignment */
+div.input_area {
+  border: 1px solid #cfcfcf;
+  border-radius: 2px;
+  background: #f7f7f7;
+  line-height: 1.21429em;
+}
+/* This is needed so that empty prompt areas can collapse to zero height when there
+   is no content in the output_subarea and the prompt. The main purpose of this is
+   to make sure that empty JavaScript output_subareas have no height. */
+div.prompt:empty {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+div.unrecognized_cell {
+  padding: 5px 5px 5px 0px;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+div.unrecognized_cell .inner_cell {
+  border-radius: 2px;
+  padding: 5px;
+  font-weight: bold;
+  color: red;
+  border: 1px solid #cfcfcf;
+  background: #eaeaea;
+}
+div.unrecognized_cell .inner_cell a {
+  color: inherit;
+  text-decoration: none;
+}
+div.unrecognized_cell .inner_cell a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+@media (max-width: 540px) {
+  div.unrecognized_cell > div.prompt {
+    display: none;
+  }
+}
+div.code_cell {
+  /* avoid page breaking on code cells when printing */
+}
+@media print {
+  div.code_cell {
+    page-break-inside: avoid;
+  }
+}
+/* any special styling for code cells that are currently running goes here */
+div.input {
+  page-break-inside: avoid;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.input {
+    /* Old browsers */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+/* input_area and input_prompt must match in top border and margin for alignment */
+div.input_prompt {
+  color: #303F9F;
+  border-top: 1px solid transparent;
+}
+div.input_area > div.highlight {
+  margin: 0.4em;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+}
+div.input_area > div.highlight > pre {
+  margin: 0px;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+}
+/* The following gets added to the <head> if it is detected that the user has a
+ * monospace font with inconsistent normal/bold/italic height.  See
+ * notebookmain.js.  Such fonts will have keywords vertically offset with
+ * respect to the rest of the text.  The user should select a better font.
+ * See: https://github.com/ipython/ipython/issues/1503
+ *
+ * .CodeMirror span {
+ *      vertical-align: bottom;
+ * }
+ */
+.CodeMirror {
+  line-height: 1.21429em;
+  /* Changed from 1em to our global default */
+  font-size: 14px;
+  height: auto;
+  /* Changed to auto to autogrow */
+  background: none;
+  /* Changed from white to allow our bg to show through */
+}
+.CodeMirror-scroll {
+  /*  The CodeMirror docs are a bit fuzzy on if overflow-y should be hidden or visible.*/
+  /*  We have found that if it is visible, vertical scrollbars appear with font size changes.*/
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+.CodeMirror-lines {
+  /* In CM2, this used to be 0.4em, but in CM3 it went to 4px. We need the em value because */
+  /* we have set a different line-height and want this to scale with that. */
+  /* Note that this should set vertical padding only, since CodeMirror assumes
+       that horizontal padding will be set on CodeMirror pre */
+  padding: 0.4em 0;
+}
+.CodeMirror-linenumber {
+  padding: 0 8px 0 4px;
+}
+.CodeMirror-gutters {
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px;
+}
+.CodeMirror pre {
+  /* In CM3 this went to 4px from 0 in CM2. This sets horizontal padding only,
+    use .CodeMirror-lines for vertical */
+  padding: 0 0.4em;
+  border: 0;
+  border-radius: 0;
+}
+.CodeMirror-cursor {
+  border-left: 1.4px solid black;
+}
+@media screen and (min-width: 2138px) and (max-width: 4319px) {
+  .CodeMirror-cursor {
+    border-left: 2px solid black;
+  }
+}
+@media screen and (min-width: 4320px) {
+  .CodeMirror-cursor {
+    border-left: 4px solid black;
+  }
+}
+/*
+
+Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
+Adapted from GitHub theme
+
+*/
+.highlight-base {
+  color: #000;
+}
+.highlight-variable {
+  color: #000;
+}
+.highlight-variable-2 {
+  color: #1a1a1a;
+}
+.highlight-variable-3 {
+  color: #333333;
+}
+.highlight-string {
+  color: #BA2121;
+}
+.highlight-comment {
+  color: #408080;
+  font-style: italic;
+}
+.highlight-number {
+  color: #080;
+}
+.highlight-atom {
+  color: #88F;
+}
+.highlight-keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.highlight-builtin {
+  color: #008000;
+}
+.highlight-error {
+  color: #f00;
+}
+.highlight-operator {
+  color: #AA22FF;
+  font-weight: bold;
+}
+.highlight-meta {
+  color: #AA22FF;
+}
+/* previously not defined, copying from default codemirror */
+.highlight-def {
+  color: #00f;
+}
+.highlight-string-2 {
+  color: #f50;
+}
+.highlight-qualifier {
+  color: #555;
+}
+.highlight-bracket {
+  color: #997;
+}
+.highlight-tag {
+  color: #170;
+}
+.highlight-attribute {
+  color: #00c;
+}
+.highlight-header {
+  color: blue;
+}
+.highlight-quote {
+  color: #090;
+}
+.highlight-link {
+  color: #00c;
+}
+/* apply the same style to codemirror */
+.cm-s-ipython span.cm-keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.cm-s-ipython span.cm-atom {
+  color: #88F;
+}
+.cm-s-ipython span.cm-number {
+  color: #080;
+}
+.cm-s-ipython span.cm-def {
+  color: #00f;
+}
+.cm-s-ipython span.cm-variable {
+  color: #000;
+}
+.cm-s-ipython span.cm-operator {
+  color: #AA22FF;
+  font-weight: bold;
+}
+.cm-s-ipython span.cm-variable-2 {
+  color: #1a1a1a;
+}
+.cm-s-ipython span.cm-variable-3 {
+  color: #333333;
+}
+.cm-s-ipython span.cm-comment {
+  color: #408080;
+  font-style: italic;
+}
+.cm-s-ipython span.cm-string {
+  color: #BA2121;
+}
+.cm-s-ipython span.cm-string-2 {
+  color: #f50;
+}
+.cm-s-ipython span.cm-meta {
+  color: #AA22FF;
+}
+.cm-s-ipython span.cm-qualifier {
+  color: #555;
+}
+.cm-s-ipython span.cm-builtin {
+  color: #008000;
+}
+.cm-s-ipython span.cm-bracket {
+  color: #997;
+}
+.cm-s-ipython span.cm-tag {
+  color: #170;
+}
+.cm-s-ipython span.cm-attribute {
+  color: #00c;
+}
+.cm-s-ipython span.cm-header {
+  color: blue;
+}
+.cm-s-ipython span.cm-quote {
+  color: #090;
+}
+.cm-s-ipython span.cm-link {
+  color: #00c;
+}
+.cm-s-ipython span.cm-error {
+  color: #f00;
+}
+.cm-s-ipython span.cm-tab {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAMCAYAAAAkuj5RAAAAAXNSR0IArs4c6QAAAGFJREFUSMft1LsRQFAQheHPowAKoACx3IgEKtaEHujDjORSgWTH/ZOdnZOcM/sgk/kFFWY0qV8foQwS4MKBCS3qR6ixBJvElOobYAtivseIE120FaowJPN75GMu8j/LfMwNjh4HUpwg4LUAAAAASUVORK5CYII=);
+  background-position: right;
+  background-repeat: no-repeat;
+}
+div.output_wrapper {
+  /* this position must be relative to enable descendents to be absolute within it */
+  position: relative;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  z-index: 1;
+}
+/* class for the output area when it should be height-limited */
+div.output_scroll {
+  /* ideally, this would be max-height, but FF barfs all over that */
+  height: 24em;
+  /* FF needs this *and the wrapper* to specify full width, or it will shrinkwrap */
+  width: 100%;
+  overflow: auto;
+  border-radius: 2px;
+  -webkit-box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+  display: block;
+}
+/* output div while it is collapsed */
+div.output_collapsed {
+  margin: 0px;
+  padding: 0px;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+div.out_prompt_overlay {
+  height: 100%;
+  padding: 0px 0.4em;
+  position: absolute;
+  border-radius: 2px;
+}
+div.out_prompt_overlay:hover {
+  /* use inner shadow to get border that is computed the same on WebKit/FF */
+  -webkit-box-shadow: inset 0 0 1px #000;
+  box-shadow: inset 0 0 1px #000;
+  background: rgba(240, 240, 240, 0.5);
+}
+div.output_prompt {
+  color: #D84315;
+}
+/* This class is the outer container of all output sections. */
+div.output_area {
+  padding: 0px;
+  page-break-inside: avoid;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+div.output_area .MathJax_Display {
+  text-align: left !important;
+}
+div.output_area 
+div.output_area 
+div.output_area img,
+div.output_area svg {
+  max-width: 100%;
+  height: auto;
+}
+div.output_area img.unconfined,
+div.output_area svg.unconfined {
+  max-width: none;
+}
+div.output_area .mglyph > img {
+  max-width: none;
+}
+/* This is needed to protect the pre formating from global settings such
+   as that of bootstrap */
+.output {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.output_area {
+    /* Old browsers */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+div.output_area pre {
+  margin: 0;
+  padding: 1px 0 1px 0;
+  border: 0;
+  vertical-align: baseline;
+  color: black;
+  background-color: transparent;
+  border-radius: 0;
+}
+/* This class is for the output subarea inside the output_area and after
+   the prompt div. */
+div.output_subarea {
+  overflow-x: auto;
+  padding: 0.4em;
+  /* Old browsers */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  /* Modern browsers */
+  flex: 1;
+  max-width: calc(100% - 14ex);
+}
+div.output_scroll div.output_subarea {
+  overflow-x: visible;
+}
+/* The rest of the output_* classes are for special styling of the different
+   output types */
+/* all text output has this class: */
+div.output_text {
+  text-align: left;
+  color: #000;
+  /* This has to match that of the the CodeMirror class line-height below */
+  line-height: 1.21429em;
+}
+/* stdout/stderr are 'text' as well as 'stream', but execute_result/error are *not* streams */
+div.output_stderr {
+  background: #fdd;
+  /* very light red background for stderr */
+}
+div.output_latex {
+  text-align: left;
+}
+/* Empty output_javascript divs should have no height */
+div.output_javascript:empty {
+  padding: 0;
+}
+.js-error {
+  color: darkred;
+}
+/* raw_input styles */
+div.raw_input_container {
+  line-height: 1.21429em;
+  padding-top: 5px;
+}
+pre.raw_input_prompt {
+  /* nothing needed here. */
+}
+input.raw_input {
+  font-family: monospace;
+  font-size: inherit;
+  color: inherit;
+  width: auto;
+  /* make sure input baseline aligns with prompt */
+  vertical-align: baseline;
+  /* padding + margin = 0.5em between prompt and cursor */
+  padding: 0em 0.25em;
+  margin: 0em 0.25em;
+}
+input.raw_input:focus {
+  box-shadow: none;
+}
+p.p-space {
+  margin-bottom: 10px;
+}
+div.output_unrecognized {
+  padding: 5px;
+  font-weight: bold;
+  color: red;
+}
+div.output_unrecognized a {
+  color: inherit;
+  text-decoration: none;
+}
+div.output_unrecognized a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+.rendered_html {
+  color: #000;
+  /* any extras will just be numbers: */
+}
+
+
+
+.rendered_html :link {
+  text-decoration: underline;
+}
+.rendered_html :visited {
+  text-decoration: underline;
+}
+
+
+
+
+
+
+.rendered_html h1:first-child {
+  margin-top: 0.538em;
+}
+.rendered_html h2:first-child {
+  margin-top: 0.636em;
+}
+.rendered_html h3:first-child {
+  margin-top: 0.777em;
+}
+.rendered_html h4:first-child {
+  margin-top: 1em;
+}
+.rendered_html h5:first-child {
+  margin-top: 1em;
+}
+.rendered_html h6:first-child {
+  margin-top: 1em;
+}
+.rendered_html ul:not(.list-inline),
+.rendered_html ol:not(.list-inline) {
+  padding-left: 2em;
+}
+
+
+
+
+
+
+
+
+.rendered_html * + ul {
+  margin-top: 1em;
+}
+.rendered_html * + ol {
+  margin-top: 1em;
+}
+
+
+
+
+
+.rendered_html pre,
+
+
+
+
+.rendered_html tr,
+.rendered_html th,
+
+
+.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+.rendered_html * + table {
+  margin-top: 1em;
+}
+
+.rendered_html * + p {
+  margin-top: 1em;
+}
+
+.rendered_html * + img {
+  margin-top: 1em;
+}
+.rendered_html img,
+
+.rendered_html img.unconfined,
+
+
+.rendered_html * + .alert {
+  margin-top: 1em;
+}
+[dir="rtl"] 
+div.text_cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.text_cell > div.prompt {
+    display: none;
+  }
+}
+div.text_cell_render {
+  /*font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;*/
+  outline: none;
+  resize: none;
+  width: inherit;
+  border-style: none;
+  padding: 0.5em 0.5em 0.5em 0.4em;
+  color: #000;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+a.anchor-link:link {
+  text-decoration: none;
+  padding: 0px 20px;
+  visibility: hidden;
+}
+h1:hover .anchor-link,
+h2:hover .anchor-link,
+h3:hover .anchor-link,
+h4:hover .anchor-link,
+h5:hover .anchor-link,
+h6:hover .anchor-link {
+  visibility: visible;
+}
+.text_cell.rendered .input_area {
+  display: none;
+}
+.text_cell.rendered 
+.text_cell.rendered .rendered_html tr,
+.text_cell.rendered .rendered_html th,
+.text_cell.rendered 
+.text_cell.unrendered .text_cell_render {
+  display: none;
+}
+.text_cell .dropzone .input_area {
+  border: 2px dashed #bababa;
+  margin: -1px;
+}
+.cm-header-1,
+.cm-header-2,
+.cm-header-3,
+.cm-header-4,
+.cm-header-5,
+.cm-header-6 {
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.cm-header-1 {
+  font-size: 185.7%;
+}
+.cm-header-2 {
+  font-size: 157.1%;
+}
+.cm-header-3 {
+  font-size: 128.6%;
+}
+.cm-header-4 {
+  font-size: 110%;
+}
+.cm-header-5 {
+  font-size: 100%;
+  font-style: italic;
+}
+.cm-header-6 {
+  font-size: 100%;
+  font-style: italic;
+}
+</style>
+<style type="text/css">pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight-ipynb .hll { background-color: #ffffcc }
+.highlight-ipynb { background: #f8f8f8; }
+.highlight-ipynb .c { color: #408080; font-style: italic } /* Comment */
+.highlight-ipynb .err { border: 1px solid #FF0000 } /* Error */
+.highlight-ipynb .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight-ipynb .o { color: #666666 } /* Operator */
+.highlight-ipynb .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.highlight-ipynb .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight-ipynb .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight-ipynb .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.highlight-ipynb .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight-ipynb .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight-ipynb .gd { color: #A00000 } /* Generic.Deleted */
+.highlight-ipynb .ge { font-style: italic } /* Generic.Emph */
+.highlight-ipynb .gr { color: #FF0000 } /* Generic.Error */
+.highlight-ipynb .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight-ipynb .gi { color: #00A000 } /* Generic.Inserted */
+.highlight-ipynb .go { color: #888888 } /* Generic.Output */
+.highlight-ipynb .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight-ipynb .gs { font-weight: bold } /* Generic.Strong */
+.highlight-ipynb .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight-ipynb .gt { color: #0044DD } /* Generic.Traceback */
+.highlight-ipynb .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight-ipynb .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight-ipynb .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight-ipynb .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight-ipynb .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight-ipynb .kt { color: #B00040 } /* Keyword.Type */
+.highlight-ipynb .m { color: #666666 } /* Literal.Number */
+.highlight-ipynb .s { color: #BA2121 } /* Literal.String */
+.highlight-ipynb .na { color: #7D9029 } /* Name.Attribute */
+.highlight-ipynb .nb { color: #008000 } /* Name.Builtin */
+.highlight-ipynb .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight-ipynb .no { color: #880000 } /* Name.Constant */
+.highlight-ipynb .nd { color: #AA22FF } /* Name.Decorator */
+.highlight-ipynb .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight-ipynb .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight-ipynb .nf { color: #0000FF } /* Name.Function */
+.highlight-ipynb .nl { color: #A0A000 } /* Name.Label */
+.highlight-ipynb .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight-ipynb .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight-ipynb .nv { color: #19177C } /* Name.Variable */
+.highlight-ipynb .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight-ipynb .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight-ipynb .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight-ipynb .mf { color: #666666 } /* Literal.Number.Float */
+.highlight-ipynb .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight-ipynb .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight-ipynb .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight-ipynb .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight-ipynb .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight-ipynb .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight-ipynb .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight-ipynb .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight-ipynb .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight-ipynb .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight-ipynb .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight-ipynb .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight-ipynb .sx { color: #008000 } /* Literal.String.Other */
+.highlight-ipynb .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight-ipynb .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight-ipynb .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight-ipynb .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight-ipynb .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight-ipynb .vc { color: #19177C } /* Name.Variable.Class */
+.highlight-ipynb .vg { color: #19177C } /* Name.Variable.Global */
+.highlight-ipynb .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight-ipynb .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight-ipynb .il { color: #666666 } /* Literal.Number.Integer.Long */</style>
+<style type="text/css">
+/* Temporary definitions which will become obsolete with Notebook release 5.0 */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-bold { font-weight: bold; }
+</style><style type="text/css">
+    .rendered_html a{text-decoration:inherit !important}.rendered_html :link{text-decoration:inherit !important}.rendered_html :visited{text-decoration:inherit !important}pre code{background-color:inherit !important}.highlight{color:#000000}.highlight code{color:#000000}.highlight .n{color:#333333}.highlight .p{color:#000000}.text_cell .prompt{display:none !important}div.input_prompt{padding:0.2em 0.4em}div.output_prompt{padding:0.4em}.text_cell{margin:0 !important;padding:0 !important;border:none !important}.text_cell_render{margin:0 !important;padding:0 !important;border:none !important}.rendered_html *+p{margin-top:inherit !important}.anchor-link{display:none !important}.code_cell{margin:0 !important;padding:5px 0 !important;border:none !important}.celltoolbar{border:thin solid #CFCFCF;border-bottom:none;background:#EEE;border-radius:2px 2px 0px 0px;width:100%;height:29px;padding-right:4px;box-orient:horizontal;box-align:stretch;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:stretch;-ms-flex-align:stretch;align-items:stretch;box-pack:end;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;display:-webkit-flex}.celltoolbar .tags_button_container{display:-webkit-box;display:-ms-flexbox;display:flex}.celltoolbar .tags_button_container .tag-container{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1;overflow:hidden;position:relative}.celltoolbar .tags_button_container .tag-container .cell-tag{background-color:#fff;white-space:nowrap;margin:3px 4px;padding:0 4px;border-radius:1px;border:1px solid #ccc;-webkit-box-shadow:none;box-shadow:none;width:inherit;font-size:13px;font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;height:22px;line-height:22px;display:inline-block}div.input_area>div.highlight{margin:0.25em 0.4em !important}.code_cell pre{font-size:12px !important}.output_html table.dataframe{font-family:Arial, sans-serif;font-size:13px;line-height:20px}.output_html table.dataframe th,td{padding:4px;text-align:left}.bk-plot-wrapper tbody tr{background:none !important}.bk-plot-wrapper tbody tr:hover{background:none !important}
+/*# sourceMappingURL=jupyter-fixes.min.css.map */
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+
+<!-- Loading mathjax macro -->
+<!-- Load mathjax -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+    </script>
+    <!-- End of mathjax configuration -->
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+
+    <div class="inner_cell">
+        
+        
+        <div class="input_area">
+            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+</pre></div>
+
+        </div>
+    </div>
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+
+    <div class="inner_cell">
+        
+        
+        <div class="input_area">
+            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./douban.html&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+
+        </div>
+    </div>
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+
+    <div class="inner_cell">
+        
+        
+        <div class="input_area">
+            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">prettify</span><span class="p">())</span>
+</pre></div>
+
+        </div>
+    </div>
+
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html class=&#34;ua-linux ua-webkit&#34; lang=&#34;zh-CN&#34;&gt;
+ &lt;head&gt;
+  &lt;meta content=&#34;text/html; charset=utf-8&#34; http-equiv=&#34;Content-Type&#34;/&gt;
+  &lt;meta content=&#34;webkit&#34; name=&#34;renderer&#34;/&gt;
+  &lt;meta content=&#34;always&#34; name=&#34;referrer&#34;/&gt;
+  &lt;meta content=&#34;ok0wCgT20tBBgo9_zat2iAcimtN4Ftf5ccsh092Xeyw&#34; name=&#34;google-site-verification&#34;/&gt;
+  &lt;title&gt;
+   豆瓣电影 Top 250
+  &lt;/title&gt;
+  &lt;meta content=&#34;cZdR4xxR7RxmM4zE&#34; name=&#34;baidu-site-verification&#34;/&gt;
+  &lt;meta content=&#34;no-cache&#34; http-equiv=&#34;Pragma&#34;/&gt;
+  &lt;meta content=&#34;Sun, 6 Mar 2005 01:00:00 GMT&#34; http-equiv=&#34;Expires&#34;/&gt;
+  &lt;link href=&#34;https://img3.doubanio.com/f/movie/d59b2715fdea4968a450ee5f6c95c7d7a2030065/pics/movie/apple-touch-icon.png&#34; rel=&#34;apple-touch-icon&#34;/&gt;
+  &lt;link href=&#34;https://img3.doubanio.com/f/shire/6522c42d2aba9757aeefa0c35cc0cefc9229747c/css/douban.css&#34; rel=&#34;stylesheet&#34; type=&#34;text/css&#34;/&gt;
+  &lt;link href=&#34;https://img3.doubanio.com/f/shire/db02bd3a4c78de56425ddeedd748a6804af60ee9/css/separation/_all.css&#34; rel=&#34;stylesheet&#34; type=&#34;text/css&#34;/&gt;
+  &lt;link href=&#34;https://img3.doubanio.com/f/movie/252bef058b97005c6a41e8f1b9f7b06b84bc71b3/css/movie/base/init.css&#34; rel=&#34;stylesheet&#34;/&gt;
+  &lt;script type=&#34;text/javascript&#34;&gt;
+   var _head_start = new Date();
+  &lt;/script&gt;
+  &lt;script src=&#34;https://img3.doubanio.com/f/movie/0495cb173e298c28593766009c7b0a953246c5b5/js/movie/lib/jquery.js&#34; type=&#34;text/javascript&#34;&gt;
+  &lt;/script&gt;
+  &lt;script src=&#34;https://img3.doubanio.com/f/shire/5ecaf46d6954d5a30bc7d99be86ae34031646e00/js/douban.js&#34; type=&#34;text/javascript&#34;&gt;
+  &lt;/script&gt;
+  &lt;script src=&#34;https://img3.doubanio.com/f/shire/b0d3faaf7a432605add54908e39e17746824d6cc/js/separation/_all.js&#34; type=&#34;text/javascript&#34;&gt;
+  &lt;/script&gt;
+  &lt;link href=&#34;https://img3.doubanio.com/f/movie/2c95f768ea74284b900c04c0209b0a44f0a0de52/css/movie/top_movies.css&#34; rel=&#34;stylesheet&#34; type=&#34;text/css&#34;/&gt;
+  &lt;script data-cfg-autoload=&#34;false&#34; src=&#34;https://img3.doubanio.com/f/shire/2c0c1c6b83f9a457b0f38c38a32fc43a42ec9bad/js/do.js&#34; type=&#34;text/javascript&#34;&gt;
+  &lt;/script&gt;
+  &lt;script type=&#34;text/javascript&#34;&gt;
+   Do.ready(function(){
+            $(&#34;#mine-selector input[type=&#39;checkbox&#39;]&#34;).click(function(){
+                var val = $(this).is(&#34;:checked&#34;)?$(this).val():&#34;&#34;;
+                window.location.href = &#39;/top250?filter=&#39; + val;
+            })
+    })
+  &lt;/script&gt;
+  &lt;style type=&#34;text/css&#34;&gt;
+   .site-nav-logo img{margin-bottom:0;}
+  &lt;/style&gt;
+  &lt;style type=&#34;text/css&#34;&gt;
+   img { max-width: 100%; }
+  &lt;/style&gt;
+  &lt;script type=&#34;text/javascript&#34;&gt;
+  &lt;/script&gt;
+  &lt;link href=&#34;https://img3.doubanio.com/misc/mixed_static/562925b5e3824700.css&#34; rel=&#34;stylesheet&#34;/&gt;
+  &lt;link href=&#34;https://img3.doubanio.com/favicon.ico&#34; rel=&#34;shortcut icon&#34; type=&#34;image/x-icon&#34;/&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+  &lt;script type=&#34;text/javascript&#34;&gt;
+   var _body_start = new Date();
+  &lt;/script&gt;
+  &lt;link href=&#34;//img3.doubanio.com/dae/accounts/resources/d3e2921/shire/bundle.css&#34; rel=&#34;stylesheet&#34; type=&#34;text/css&#34;/&gt;
+  &lt;div class=&#34;global-nav&#34; id=&#34;db-global-nav&#34;&gt;
+   &lt;div class=&#34;bd&#34;&gt;
+    &lt;div class=&#34;top-nav-info&#34;&gt;
+     &lt;a class=&#34;nav-login&#34; href=&#34;https://accounts.douban.com/passport/login?source=movie&#34; rel=&#34;nofollow&#34;&gt;
+      登录/注册
+     &lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;top-nav-doubanapp&#34;&gt;
+     &lt;a class=&#34;lnk-doubanapp&#34; href=&#34;https://www.douban.com/doubanapp/app?channel=top-nav&#34;&gt;
+      下载豆瓣客户端
+     &lt;/a&gt;
+     &lt;div id=&#34;doubanapp-tip&#34;&gt;
+      &lt;a class=&#34;tip-link&#34; href=&#34;https://www.douban.com/doubanapp/app?channel=qipao&#34;&gt;
+       豆瓣
+       &lt;span class=&#34;version&#34;&gt;
+        6.0
+       &lt;/span&gt;
+       全新发布
+      &lt;/a&gt;
+      &lt;a class=&#34;tip-close&#34; href=&#34;javascript: void 0;&#34;&gt;
+       ×
+      &lt;/a&gt;
+     &lt;/div&gt;
+     &lt;div class=&#34;more-items&#34; id=&#34;top-nav-appintro&#34;&gt;
+      &lt;p class=&#34;appintro-title&#34;&gt;
+       豆瓣
+      &lt;/p&gt;
+      &lt;p class=&#34;qrcode&#34;&gt;
+       扫码直接下载
+      &lt;/p&gt;
+      &lt;div class=&#34;download&#34;&gt;
+       &lt;a href=&#34;https://www.douban.com/doubanapp/redirect?channel=top-nav&amp;amp;direct_dl=1&amp;amp;download=iOS&#34;&gt;
+        iPhone
+       &lt;/a&gt;
+       &lt;span&gt;
+        ·
+       &lt;/span&gt;
+       &lt;a class=&#34;download-android&#34; href=&#34;https://www.douban.com/doubanapp/redirect?channel=top-nav&amp;amp;direct_dl=1&amp;amp;download=Android&#34;&gt;
+        Android
+       &lt;/a&gt;
+      &lt;/div&gt;
+     &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;global-nav-items&#34;&gt;
+     &lt;ul&gt;
+      &lt;li class=&#34;&#34;&gt;
+       &lt;a data-moreurl-dict=&#39;{&#34;from&#34;:&#34;top-nav-click-main&#34;,&#34;uid&#34;:&#34;0&#34;}&#39; href=&#34;https://www.douban.com&#34; target=&#34;_blank&#34;&gt;
+        豆瓣
+       &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li class=&#34;&#34;&gt;
+       &lt;a data-moreurl-dict=&#39;{&#34;from&#34;:&#34;top-nav-click-book&#34;,&#34;uid&#34;:&#34;0&#34;}&#39; href=&#34;https://book.douban.com&#34; target=&#34;_blank&#34;&gt;
+        读书
+       &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li class=&#34;on&#34;&gt;
+       &lt;a data-moreurl-dict=&#39;{&#34;from&#34;:&#34;top-nav-click-movie&#34;,&#34;uid&#34;:&#34;0&#34;}&#39; href=&#34;https://movie.douban.com&#34;&gt;
+        电影
+       &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li class=&#34;&#34;&gt;
+       &lt;a data-moreurl-dict=&#39;{&#34;from&#34;:&#34;top-nav-click-music&#34;,&#34;uid&#34;:&#34;0&#34;}&#39; href=&#34;https://music.douban.com&#34; target=&#34;_blank&#34;&gt;
+        音乐
+       &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li class=&#34;&#34;&gt;
+       &lt;a data-moreurl-dict=&#39;{&#34;from&#34;:&#34;top-nav-click-location&#34;,&#34;uid&#34;:&#34;0&#34;}&#39; href=&#34;https://www.douban.com/location&#34; target=&#34;_blank&#34;&gt;
+        同城
+       &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li class=&#34;&#34;&gt;
+       &lt;a data-moreurl-dict=&#39;{&#34;from&#34;:&#34;top-nav-click-group&#34;,&#34;uid&#34;:&#34;0&#34;}&#39; href=&#34;https://www.douban.com/group&#34; target=&#34;_blank&#34;&gt;
+        小组
+       &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li class=&#34;&#34;&gt;
+       &lt;a data-moreurl-dict=&#39;{&#34;from&#34;:&#34;top-nav-click-read&#34;,&#34;uid&#34;:&#34;0&#34;}&#39; href=&#34;https://read.douban.com/?dcs=top-nav&amp;amp;dcm=douban&#34; target=&#34;_blank&#34;&gt;
+        阅读
+       &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li class=&#34;&#34;&gt;
+       &lt;a data-moreurl-dict=&#39;{&#34;from&#34;:&#34;top-nav-click-fm&#34;,&#34;uid&#34;:&#34;0&#34;}&#39; href=&#34;https://douban.fm/?from_=shire_top_nav&#34; target=&#34;_blank&#34;&gt;
+        FM
+       &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li class=&#34;&#34;&gt;
+       &lt;a data-moreurl-dict=&#39;{&#34;from&#34;:&#34;top-nav-click-time&#34;,&#34;uid&#34;:&#34;0&#34;}&#39; href=&#34;https://time.douban.com/?dt_time_source=douban-web_top_nav&#34; target=&#34;_blank&#34;&gt;
+        时间
+       &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li class=&#34;&#34;&gt;
+       &lt;a data-moreurl-dict=&#39;{&#34;from&#34;:&#34;top-nav-click-market&#34;,&#34;uid&#34;:&#34;0&#34;}&#39; href=&#34;https://market.douban.com/?utm_campaign=douban_top_nav&amp;amp;utm_source=douban&amp;amp;utm_medium=pc_web&#34; target=&#34;_blank&#34;&gt;
+        豆品
+       &lt;/a&gt;
+      &lt;/li&gt;
+     &lt;/ul&gt;
+    &lt;/div&gt;
+   &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;script&gt;
+   ;window._GLOBAL_NAV = {
+    DOUBAN_URL: &#34;https://www.douban.com&#34;,
+    N_NEW_NOTIS: 0,
+    N_NEW_DOUMAIL: 0
+  };
+  &lt;/script&gt;
+  &lt;script defer=&#34;defer&#34; src=&#34;//img3.doubanio.com/dae/accounts/resources/d3e2921/shire/bundle.js&#34;&gt;
+  &lt;/script&gt;
+  &lt;link href=&#34;//img3.doubanio.com/dae/accounts/resources/d3e2921/movie/bundle.css&#34; rel=&#34;stylesheet&#34; type=&#34;text/css&#34;/&gt;
+  &lt;div class=&#34;nav&#34; id=&#34;db-nav-movie&#34;&gt;
+   &lt;div class=&#34;nav-wrap&#34;&gt;
+    &lt;div class=&#34;nav-primary&#34;&gt;
+     &lt;div class=&#34;nav-logo&#34;&gt;
+      &lt;a href=&#34;https://movie.douban.com&#34;&gt;
+       豆瓣电影
+      &lt;/a&gt;
+     &lt;/div&gt;
+     &lt;div class=&#34;nav-search&#34;&gt;
+      &lt;form action=&#34;https://search.douban.com/movie/subject_search&#34; method=&#34;get&#34;&gt;
+       &lt;fieldset&gt;
+        &lt;legend&gt;
+         搜索：
+        &lt;/legend&gt;
+        &lt;label for=&#34;inp-query&#34;&gt;
+        &lt;/label&gt;
+        &lt;div class=&#34;inp&#34;&gt;
+         &lt;input id=&#34;inp-query&#34; maxlength=&#34;60&#34; name=&#34;search_text&#34; placeholder=&#34;搜索电影、电视剧、综艺、影人&#34; size=&#34;22&#34; value=&#34;&#34;/&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;inp-btn&#34;&gt;
+         &lt;input type=&#34;submit&#34; value=&#34;搜索&#34;/&gt;
+        &lt;/div&gt;
+        &lt;input name=&#34;cat&#34; type=&#34;hidden&#34; value=&#34;1002&#34;/&gt;
+       &lt;/fieldset&gt;
+      &lt;/form&gt;
+     &lt;/div&gt;
+    &lt;/div&gt;
+   &lt;/div&gt;
+   &lt;div class=&#34;nav-secondary&#34;&gt;
+    &lt;div class=&#34;nav-items&#34;&gt;
+     &lt;ul&gt;
+      &lt;li&gt;
+       &lt;a href=&#34;https://movie.douban.com/cinema/nowplaying/&#34;&gt;
+        影讯&amp;amp;购票
+       &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+       &lt;a href=&#34;https://movie.douban.com/explore&#34;&gt;
+        选电影
+       &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+       &lt;a href=&#34;https://movie.douban.com/tv/&#34;&gt;
+        电视剧
+       &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+       &lt;a href=&#34;https://movie.douban.com/chart&#34;&gt;
+        排行榜
+       &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+       &lt;a href=&#34;https://movie.douban.com/tag/&#34;&gt;
+        分类
+       &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+       &lt;a href=&#34;https://movie.douban.com/review/best/&#34;&gt;
+        影评
+       &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+       &lt;a href=&#34;https://movie.douban.com/annual/2020?source=navigation&#34;&gt;
+        2020年度榜单
+       &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+       &lt;a href=&#34;https://www.douban.com/standbyme/2020?fullscreen=true&amp;amp;hidenav=true&amp;amp;autorotate=false&amp;amp;source=movie_navigation&#34; target=&#34;_blank&#34;&gt;
+        2020书影音报告
+       &lt;/a&gt;
+      &lt;/li&gt;
+     &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;a class=&#34;movieannual&#34; href=&#34;https://movie.douban.com/annual/2020?source=movie_navigation&#34;&gt;
+    &lt;/a&gt;
+   &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;script id=&#34;suggResult&#34; type=&#34;text/x-jquery-tmpl&#34;&gt;
+   &lt;li data-link=&#34;{{= url}}&#34;&gt;
+            &lt;a href=&#34;{{= url}}&#34; onclick=&#34;moreurl(this, {from:&#39;movie_search_sugg&#39;, query:&#39;{{= keyword }}&#39;, subject_id:&#39;{{= id}}&#39;, i: &#39;{{= index}}&#39;, type: &#39;{{= type}}&#39;})&#34;&gt;
+            &lt;img src=&#34;{{= img}}&#34; width=&#34;40&#34; /&gt;
+            &lt;p&gt;
+                &lt;em&gt;{{= title}}&lt;/em&gt;
+                {{if year}}
+                    &lt;span&gt;{{= year}}&lt;/span&gt;
+                {{/if}}
+                {{if sub_title}}
+                    &lt;br /&gt;&lt;span&gt;{{= sub_title}}&lt;/span&gt;
+                {{/if}}
+                {{if address}}
+                    &lt;br /&gt;&lt;span&gt;{{= address}}&lt;/span&gt;
+                {{/if}}
+                {{if episode}}
+                    {{if episode==&#34;unknow&#34;}}
+                        &lt;br /&gt;&lt;span&gt;集数未知&lt;/span&gt;
+                    {{else}}
+                        &lt;br /&gt;&lt;span&gt;共{{= episode}}集&lt;/span&gt;
+                    {{/if}}
+                {{/if}}
+            &lt;/p&gt;
+        &lt;/a&gt;
+        &lt;/li&gt;
+  &lt;/script&gt;
+  &lt;script defer=&#34;defer&#34; src=&#34;//img3.doubanio.com/dae/accounts/resources/d3e2921/movie/bundle.js&#34;&gt;
+  &lt;/script&gt;
+  &lt;div id=&#34;wrapper&#34;&gt;
+   &lt;div id=&#34;content&#34;&gt;
+    &lt;h1&gt;
+     豆瓣电影 Top 250
+    &lt;/h1&gt;
+    &lt;div class=&#34;grid-16-8 clearfix&#34;&gt;
+     &lt;div class=&#34;article&#34;&gt;
+      &lt;div class=&#34;opt mod&#34;&gt;
+       &lt;div class=&#34;tabs&#34;&gt;
+       &lt;/div&gt;
+       &lt;span id=&#34;mine-selector&#34;&gt;
+        &lt;input type=&#34;checkbox&#34; value=&#34;unwatched&#34;/&gt;
+        我没看过的
+       &lt;/span&gt;
+      &lt;/div&gt;
+      &lt;ol class=&#34;grid_view&#34;&gt;
+       &lt;li&gt;
+        &lt;div class=&#34;item&#34;&gt;
+         &lt;div class=&#34;pic&#34;&gt;
+          &lt;em class=&#34;&#34;&gt;
+           51
+          &lt;/em&gt;
+          &lt;a href=&#34;https://movie.douban.com/subject/1296736/&#34;&gt;
+           &lt;img alt=&#34;钢琴家&#34; class=&#34;&#34; src=&#34;https://img2.doubanio.com/view/photo/s_ratio_poster/public/p792376093.jpg&#34; width=&#34;100&#34;/&gt;
+          &lt;/a&gt;
+         &lt;/div&gt;
+         &lt;div class=&#34;info&#34;&gt;
+          &lt;div class=&#34;hd&#34;&gt;
+           &lt;a class=&#34;&#34; href=&#34;https://movie.douban.com/subject/1296736/&#34;&gt;
+            &lt;span class=&#34;title&#34;&gt;
+             王金凤
+            &lt;/span&gt;
+            &lt;span class=&#34;title&#34;&gt;
+             / The Pianist
+            &lt;/span&gt;
+            &lt;span class=&#34;other&#34;&gt;
+             / 钢琴战曲(港)  /  战地琴人(台)
+            &lt;/span&gt;
+           &lt;/a&gt;
+           &lt;span class=&#34;playable&#34;&gt;
+            [可播放]
+           &lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class=&#34;bd&#34;&gt;
+           &lt;p class=&#34;&#34;&gt;
+            导演: 罗曼·波兰斯基 Roman Polanski   主演: 艾德里安·布洛迪 Adrien Brod...
+            &lt;br/&gt;
+            2002 / 英国 法国 波兰 德国 美国 / 剧情 传记 战争 音乐
+           &lt;/p&gt;
+           &lt;div class=&#34;star&#34;&gt;
+            &lt;span class=&#34;rating45-t&#34;&gt;
+            &lt;/span&gt;
+            &lt;span class=&#34;rating_num&#34; property=&#34;v:average&#34;&gt;
+             9.2
+            &lt;/span&gt;
+            &lt;span content=&#34;10.0&#34; property=&#34;v:best&#34;&gt;
+            &lt;/span&gt;
+            &lt;span&gt;
+             448124人评价
+            &lt;/span&gt;
+           &lt;/div&gt;
+           &lt;p class=&#34;quote&#34;&gt;
+            &lt;span class=&#34;inq&#34;&gt;
+             音乐能化解仇恨。
+            &lt;/span&gt;
+           &lt;/p&gt;
+          &lt;/div&gt;
+         &lt;/div&gt;
+        &lt;/div&gt;
+       &lt;/li&gt;
+       &lt;li&gt;
+        &lt;div class=&#34;item&#34;&gt;
+         &lt;div class=&#34;pic&#34;&gt;
+          &lt;em class=&#34;&#34;&gt;
+           52
+          &lt;/em&gt;
+          &lt;a href=&#34;https://movie.douban.com/subject/1291572/&#34;&gt;
+           &lt;img alt=&#34;指环王2：双塔奇兵&#34; class=&#34;&#34; src=&#34;https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2640236255.jpg&#34; width=&#34;100&#34;/&gt;
+          &lt;/a&gt;
+         &lt;/div&gt;
+         &lt;div class=&#34;info&#34;&gt;
+          &lt;div class=&#34;hd&#34;&gt;
+           &lt;a class=&#34;&#34; href=&#34;https://movie.douban.com/subject/1291572/&#34;&gt;
+            &lt;span class=&#34;title&#34;&gt;
+             詹军
+            &lt;/span&gt;
+            &lt;span class=&#34;title&#34;&gt;
+             / The Lord of the Rings: The Two Towers
+            &lt;/span&gt;
+            &lt;span class=&#34;other&#34;&gt;
+             / 魔戒二部曲：双城奇谋  /  指环王II：双塔
+            &lt;/span&gt;
+           &lt;/a&gt;
+          &lt;/div&gt;
+          &lt;div class=&#34;bd&#34;&gt;
+           &lt;p class=&#34;&#34;&gt;
+            导演: 彼得·杰克逊 Peter Jackson   主演: 伊利亚·伍德 Elijah Wood / 西恩...
+            &lt;br/&gt;
+            2002 / 美国 新西兰 / 剧情 动作 奇幻 冒险
+           &lt;/p&gt;
+           &lt;div class=&#34;star&#34;&gt;
+            &lt;span class=&#34;rating45-t&#34;&gt;
+            &lt;/span&gt;
+            &lt;span class=&#34;rating_num&#34; property=&#34;v:average&#34;&gt;
+             9.1
+            &lt;/span&gt;
+            &lt;span content=&#34;10.0&#34; property=&#34;v:best&#34;&gt;
+            &lt;/span&gt;
+            &lt;span&gt;
+             564955人评价
+            &lt;/span&gt;
+           &lt;/div&gt;
+           &lt;p class=&#34;quote&#34;&gt;
+            &lt;span class=&#34;inq&#34;&gt;
+             承前启后的史诗篇章。
+            &lt;/span&gt;
+           &lt;/p&gt;
+          &lt;/div&gt;
+         &lt;/div&gt;
+        &lt;/div&gt;
+       &lt;/li&gt;
+       &lt;li&gt;
+        &lt;div class=&#34;item&#34;&gt;
+         &lt;div class=&#34;pic&#34;&gt;
+          &lt;em class=&#34;&#34;&gt;
+           53
+          &lt;/em&gt;
+          &lt;a href=&#34;https://movie.douban.com/subject/1299131/&#34;&gt;
+           &lt;img alt=&#34;教父2&#34; class=&#34;&#34; src=&#34;https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2194138787.jpg&#34; width=&#34;100&#34;/&gt;
+          &lt;/a&gt;
+         &lt;/div&gt;
+         &lt;div class=&#34;info&#34;&gt;
+          &lt;div class=&#34;hd&#34;&gt;
+           &lt;a class=&#34;&#34; href=&#34;https://movie.douban.com/subject/1299131/&#34;&gt;
+            &lt;span class=&#34;title&#34;&gt;
+             李志强
+            &lt;/span&gt;
+            &lt;span class=&#34;title&#34;&gt;
+             / The Godfather: Part Ⅱ
+            &lt;/span&gt;
+            &lt;span class=&#34;other&#34;&gt;
+             / 教父续集(港)  /  教父II
+            &lt;/span&gt;
+           &lt;/a&gt;
+           &lt;span class=&#34;playable&#34;&gt;
+            [可播放]
+           &lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class=&#34;bd&#34;&gt;
+           &lt;p class=&#34;&#34;&gt;
+            导演: 弗朗西斯·福特·科波拉 Francis Ford Coppola   主演: 阿尔·帕西诺 A...
+            &lt;br/&gt;
+            1974 / 美国 / 剧情 犯罪
+           &lt;/p&gt;
+           &lt;div class=&#34;star&#34;&gt;
+            &lt;span class=&#34;rating45-t&#34;&gt;
+            &lt;/span&gt;
+            &lt;span class=&#34;rating_num&#34; property=&#34;v:average&#34;&gt;
+             9.2
+            &lt;/span&gt;
+            &lt;span content=&#34;10.0&#34; property=&#34;v:best&#34;&gt;
+            &lt;/span&gt;
+            &lt;span&gt;
+             427452人评价
+            &lt;/span&gt;
+           &lt;/div&gt;
+           &lt;p class=&#34;quote&#34;&gt;
+            &lt;span class=&#34;inq&#34;&gt;
+             优雅的孤独。
+            &lt;/span&gt;
+           &lt;/p&gt;
+          &lt;/div&gt;
+         &lt;/div&gt;
+        &lt;/div&gt;
+       &lt;/li&gt;
+       &lt;li&gt;
+        &lt;div class=&#34;item&#34;&gt;
+         &lt;div class=&#34;pic&#34;&gt;
+          &lt;em class=&#34;&#34;&gt;
+           54
+          &lt;/em&gt;
+          &lt;a href=&#34;https://movie.douban.com/subject/1301753/&#34;&gt;
+           &lt;img alt=&#34;狮子王&#34; class=&#34;&#34; src=&#34;https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2277799019.jpg&#34; width=&#34;100&#34;/&gt;
+          &lt;/a&gt;
+         &lt;/div&gt;
+         &lt;div class=&#34;info&#34;&gt;
+          &lt;div class=&#34;hd&#34;&gt;
+           &lt;a class=&#34;&#34; href=&#34;https://movie.douban.com/subject/1301753/&#34;&gt;
+            &lt;span class=&#34;title&#34;&gt;
+             马丹
+            &lt;/span&gt;
+            &lt;span class=&#34;title&#34;&gt;
+             / The Lion King
+            &lt;/span&gt;
+            &lt;span class=&#34;other&#34;&gt;
+             / 狮子王3D
+            &lt;/span&gt;
+           &lt;/a&gt;
+           &lt;span class=&#34;playable&#34;&gt;
+            [可播放]
+           &lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class=&#34;bd&#34;&gt;
+           &lt;p class=&#34;&#34;&gt;
+            导演: Roger Allers / 罗伯·明可夫 Rob Minkoff   主演: 乔纳森·泰勒·托马...
+            &lt;br/&gt;
+            1994 / 美国 / 动画 冒险 歌舞
+           &lt;/p&gt;
+           &lt;div class=&#34;star&#34;&gt;
+            &lt;span class=&#34;rating45-t&#34;&gt;
+            &lt;/span&gt;
+            &lt;span class=&#34;rating_num&#34; property=&#34;v:average&#34;&gt;
+             9.0
+            &lt;/span&gt;
+            &lt;span content=&#34;10.0&#34; property=&#34;v:best&#34;&gt;
+            &lt;/span&gt;
+            &lt;span&gt;
+             669542人评价
+            &lt;/span&gt;
+           &lt;/div&gt;
+           &lt;p class=&#34;quote&#34;&gt;
+            &lt;span class=&#34;inq&#34;&gt;
+             动物版《哈姆雷特》。
+            &lt;/span&gt;
+           &lt;/p&gt;
+          &lt;/div&gt;
+         &lt;/div&gt;
+        &lt;/div&gt;
+       &lt;/li&gt;
+       &lt;li&gt;
+        &lt;div class=&#34;item&#34;&gt;
+         &lt;div class=&#34;pic&#34;&gt;
+          &lt;em class=&#34;&#34;&gt;
+           55
+          &lt;/em&gt;
+          &lt;a href=&#34;https://movie.douban.com/subject/1292000/&#34;&gt;
+           &lt;img alt=&#34;搏击俱乐部&#34; class=&#34;&#34; src=&#34;https://img1.doubanio.com/view/photo/s_ratio_poster/public/p1910926158.jpg&#34; width=&#34;100&#34;/&gt;
+          &lt;/a&gt;
+         &lt;/div&gt;
+         &lt;div class=&#34;info&#34;&gt;
+          &lt;div class=&#34;hd&#34;&gt;
+           &lt;a class=&#34;&#34; href=&#34;https://movie.douban.com/subject/1292000/&#34;&gt;
+            &lt;span class=&#34;title&#34;&gt;
+             桂荣
+            &lt;/span&gt;
+            &lt;span class=&#34;title&#34;&gt;
+             / Fight Club
+            &lt;/span&gt;
+            &lt;span class=&#34;other&#34;&gt;
+             / 搏击会(港)  /  斗阵俱乐部(台)
+            &lt;/span&gt;
+           &lt;/a&gt;
+          &lt;/div&gt;
+          &lt;div class=&#34;bd&#34;&gt;
+           &lt;p class=&#34;&#34;&gt;
+            导演: 大卫·芬奇 David Fincher   主演: 爱德华·诺顿 Edward Norton / 布拉...
+            &lt;br/&gt;
+            1999 / 美国 德国 意大利 / 剧情 动作 悬疑 惊悚
+           &lt;/p&gt;
+           &lt;div class=&#34;star&#34;&gt;
+            &lt;span class=&#34;rating45-t&#34;&gt;
+            &lt;/span&gt;
+            &lt;span class=&#34;rating_num&#34; property=&#34;v:average&#34;&gt;
+             9.0
+            &lt;/span&gt;
+            &lt;span content=&#34;10.0&#34; property=&#34;v:best&#34;&gt;
+            &lt;/span&gt;
+            &lt;span&gt;
+             696788人评价
+            &lt;/span&gt;
+           &lt;/div&gt;
+           &lt;p class=&#34;quote&#34;&gt;
+            &lt;span class=&#34;inq&#34;&gt;
+             邪恶与平庸蛰伏于同一个母体，在特定的时间互相对峙。
+            &lt;/span&gt;
+           &lt;/p&gt;
+          &lt;/div&gt;
+         &lt;/div&gt;
+        &lt;/div&gt;
+       &lt;/li&gt;
+       &lt;li&gt;
+        &lt;div class=&#34;item&#34;&gt;
+         &lt;div class=&#34;pic&#34;&gt;
+          &lt;em class=&#34;&#34;&gt;
+           56
+          &lt;/em&gt;
+          &lt;a href=&#34;https://movie.douban.com/subject/1291548/&#34;&gt;
+           &lt;img alt=&#34;死亡诗社&#34; class=&#34;&#34; src=&#34;https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2575465690.jpg&#34; width=&#34;100&#34;/&gt;
+          &lt;/a&gt;
+         &lt;/div&gt;
+         &lt;div class=&#34;info&#34;&gt;
+          &lt;div class=&#34;hd&#34;&gt;
+           &lt;a class=&#34;&#34; href=&#34;https://movie.douban.com/subject/1291548/&#34;&gt;
+            &lt;span class=&#34;title&#34;&gt;
+             死亡诗社
+            &lt;/span&gt;
+            &lt;span class=&#34;title&#34;&gt;
+             / Dead Poets Society
+            &lt;/span&gt;
+            &lt;span class=&#34;other&#34;&gt;
+             / 暴雨骄阳(港)  /  春风化雨(台)
+            &lt;/span&gt;
+           &lt;/a&gt;
+           &lt;span class=&#34;playable&#34;&gt;
+            [可播放]
+           &lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class=&#34;bd&#34;&gt;
+           &lt;p class=&#34;&#34;&gt;
+            导演: 彼得·威尔 Peter Weir   主演: 罗宾·威廉姆斯 Robin Williams / 罗伯...
+            &lt;br/&gt;
+            1989 / 美国 / 剧情
+           &lt;/p&gt;
+           &lt;div class=&#34;star&#34;&gt;
+            &lt;span class=&#34;rating45-t&#34;&gt;
+            &lt;/span&gt;
+            &lt;span class=&#34;rating_num&#34; property=&#34;v:average&#34;&gt;
+             9.1
+            &lt;/span&gt;
+            &lt;span content=&#34;10.0&#34; property=&#34;v:best&#34;&gt;
+            &lt;/span&gt;
+            &lt;span&gt;
+             563911人评价
+            &lt;/span&gt;
+           &lt;/div&gt;
+           &lt;p class=&#34;quote&#34;&gt;
+            &lt;span class=&#34;inq&#34;&gt;
+             当一个死水般的体制内出现一个活跃的变数时，所有的腐臭都站在了光明的对面。
+            &lt;/span&gt;
+           &lt;/p&gt;
+          &lt;/div&gt;
+         &lt;/div&gt;
+        &lt;/div&gt;
+       &lt;/li&gt;
+       &lt;li&gt;
+        &lt;div class=&#34;item&#34;&gt;
+         &lt;div class=&#34;pic&#34;&gt;
+          &lt;em class=&#34;&#34;&gt;
+           57
+          &lt;/em&gt;
+          &lt;a href=&#34;https://movie.douban.com/subject/1291843/&#34;&gt;
+           &lt;img alt=&#34;黑客帝国&#34; class=&#34;&#34; src=&#34;https://img1.doubanio.com/view/photo/s_ratio_poster/public/p451926968.jpg&#34; width=&#34;100&#34;/&gt;
+          &lt;/a&gt;
+         &lt;/div&gt;
+         &lt;div class=&#34;info&#34;&gt;
+          &lt;div class=&#34;hd&#34;&gt;
+           &lt;a class=&#34;&#34; href=&#34;https://movie.douban.com/subject/1291843/&#34;&gt;
+            &lt;span class=&#34;title&#34;&gt;
+             黑客帝国
+            &lt;/span&gt;
+            &lt;span class=&#34;title&#34;&gt;
+             / The Matrix
+            &lt;/span&gt;
+            &lt;span class=&#34;other&#34;&gt;
+             / 22世纪杀人网络(港)  /  廿二世纪杀人网络(港)
+            &lt;/span&gt;
+           &lt;/a&gt;
+           &lt;span class=&#34;playable&#34;&gt;
+            [可播放]
+           &lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class=&#34;bd&#34;&gt;
+           &lt;p class=&#34;&#34;&gt;
+            导演: 安迪·沃卓斯基 Andy Wachowski / 拉娜·沃卓斯基 Lana Wachowski   主...
+            &lt;br/&gt;
+            1999 / 美国 澳大利亚 / 动作 科幻
+           &lt;/p&gt;
+           &lt;div class=&#34;star&#34;&gt;
+            &lt;span class=&#34;rating45-t&#34;&gt;
+            &lt;/span&gt;
+            &lt;span class=&#34;rating_num&#34; property=&#34;v:average&#34;&gt;
+             9.0
+            &lt;/span&gt;
+            &lt;span content=&#34;10.0&#34; property=&#34;v:best&#34;&gt;
+            &lt;/span&gt;
+            &lt;span&gt;
+             649618人评价
+            &lt;/span&gt;
+           &lt;/div&gt;
+           &lt;p class=&#34;quote&#34;&gt;
+            &lt;span class=&#34;inq&#34;&gt;
+             视觉革命。
+            &lt;/span&gt;
+           &lt;/p&gt;
+          &lt;/div&gt;
+         &lt;/div&gt;
+        &lt;/div&gt;
+       &lt;/li&gt;
+       &lt;li&gt;
+        &lt;div class=&#34;item&#34;&gt;
+         &lt;div class=&#34;pic&#34;&gt;
+          &lt;em class=&#34;&#34;&gt;
+           58
+          &lt;/em&gt;
+          &lt;a href=&#34;https://movie.douban.com/subject/1291571/&#34;&gt;
+           &lt;img alt=&#34;指环王1：护戒使者&#34; class=&#34;&#34; src=&#34;https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2640234840.jpg&#34; width=&#34;100&#34;/&gt;
+          &lt;/a&gt;
+         &lt;/div&gt;
+         &lt;div class=&#34;info&#34;&gt;
+          &lt;div class=&#34;hd&#34;&gt;
+           &lt;a class=&#34;&#34; href=&#34;https://movie.douban.com/subject/1291571/&#34;&gt;
+            &lt;span class=&#34;title&#34;&gt;
+             指环王1：护戒使者
+            &lt;/span&gt;
+            &lt;span class=&#34;title&#34;&gt;
+             / The Lord of the Rings: The Fellowship of the Ring
+            &lt;/span&gt;
+            &lt;span class=&#34;other&#34;&gt;
+             / 指环王1：魔戒再现  /  指环王I：护戒使者
+            &lt;/span&gt;
+           &lt;/a&gt;
+          &lt;/div&gt;
+          &lt;div class=&#34;bd&#34;&gt;
+           &lt;p class=&#34;&#34;&gt;
+            导演: 彼得·杰克逊 Peter Jackson   主演: 伊利亚·伍德 Elijah Wood / 西恩...
+            &lt;br/&gt;
+            2001 / 新西兰 美国 / 剧情 动作 奇幻 冒险
+           &lt;/p&gt;
+           &lt;div class=&#34;star&#34;&gt;
+            &lt;span class=&#34;rating45-t&#34;&gt;
+            &lt;/span&gt;
+            &lt;span class=&#34;rating_num&#34; property=&#34;v:average&#34;&gt;
+             9.0
+            &lt;/span&gt;
+            &lt;span content=&#34;10.0&#34; property=&#34;v:best&#34;&gt;
+            &lt;/span&gt;
+            &lt;span&gt;
+             646589人评价
+            &lt;/span&gt;
+           &lt;/div&gt;
+           &lt;p class=&#34;quote&#34;&gt;
+            &lt;span class=&#34;inq&#34;&gt;
+             传说的开始。
+            &lt;/span&gt;
+           &lt;/p&gt;
+          &lt;/div&gt;
+         &lt;/div&gt;
+        &lt;/div&gt;
+       &lt;/li&gt;
+       &lt;li&gt;
+        &lt;div class=&#34;item&#34;&gt;
+         &lt;div class=&#34;pic&#34;&gt;
+          &lt;em class=&#34;&#34;&gt;
+           59
+          &lt;/em&gt;
+          &lt;a href=&#34;https://movie.douban.com/subject/3742360/&#34;&gt;
+           &lt;img alt=&#34;让子弹飞&#34; class=&#34;&#34; src=&#34;https://img1.doubanio.com/view/photo/s_ratio_poster/public/p1512562287.jpg&#34; width=&#34;100&#34;/&gt;
+          &lt;/a&gt;
+         &lt;/div&gt;
+         &lt;div class=&#34;info&#34;&gt;
+          &lt;div class=&#34;hd&#34;&gt;
+           &lt;a class=&#34;&#34; href=&#34;https://movie.douban.com/subject/3742360/&#34;&gt;
+            &lt;span class=&#34;title&#34;&gt;
+             让子弹飞
+            &lt;/span&gt;
+            &lt;span class=&#34;other&#34;&gt;
+             / 让子弹飞一会儿  /  火烧云
+            &lt;/span&gt;
+           &lt;/a&gt;
+           &lt;span class=&#34;playable&#34;&gt;
+            [可播放]
+           &lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class=&#34;bd&#34;&gt;
+           &lt;p class=&#34;&#34;&gt;
+            导演: 姜文 Wen Jiang   主演: 姜文 Wen Jiang / 葛优 You Ge / 周润发 Yun-F...
+            &lt;br/&gt;
+            2010 / 中国大陆 中国香港 / 剧情 喜剧 动作 西部
+           &lt;/p&gt;
+           &lt;div class=&#34;star&#34;&gt;
+            &lt;span class=&#34;rating45-t&#34;&gt;
+            &lt;/span&gt;
+            &lt;span class=&#34;rating_num&#34; property=&#34;v:average&#34;&gt;
+             8.9
+            &lt;/span&gt;
+            &lt;span content=&#34;10.0&#34; property=&#34;v:best&#34;&gt;
+            &lt;/span&gt;
+            &lt;span&gt;
+             1313550人评价
+            &lt;/span&gt;
+           &lt;/div&gt;
+           &lt;p class=&#34;quote&#34;&gt;
+            &lt;span class=&#34;inq&#34;&gt;
+             你给我翻译翻译，神马叫做TMD的惊喜。
+            &lt;/span&gt;
+           &lt;/p&gt;
+          &lt;/div&gt;
+         &lt;/div&gt;
+        &lt;/div&gt;
+       &lt;/li&gt;
+       &lt;li&gt;
+        &lt;div class=&#34;item&#34;&gt;
+         &lt;div class=&#34;pic&#34;&gt;
+          &lt;em class=&#34;&#34;&gt;
+           60
+          &lt;/em&gt;
+          &lt;a href=&#34;https://movie.douban.com/subject/27060077/&#34;&gt;
+           &lt;img alt=&#34;绿皮书&#34; class=&#34;&#34; src=&#34;https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2549177902.jpg&#34; width=&#34;100&#34;/&gt;
+          &lt;/a&gt;
+         &lt;/div&gt;
+         &lt;div class=&#34;info&#34;&gt;
+          &lt;div class=&#34;hd&#34;&gt;
+           &lt;a class=&#34;&#34; href=&#34;https://movie.douban.com/subject/27060077/&#34;&gt;
+            &lt;span class=&#34;title&#34;&gt;
+             绿皮书
+            &lt;/span&gt;
+            &lt;span class=&#34;title&#34;&gt;
+             / Green Book
+            &lt;/span&gt;
+            &lt;span class=&#34;other&#34;&gt;
+             / 绿簿旅友(港)  /  幸福绿皮书(台)
+            &lt;/span&gt;
+           &lt;/a&gt;
+           &lt;span class=&#34;playable&#34;&gt;
+            [可播放]
+           &lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class=&#34;bd&#34;&gt;
+           &lt;p class=&#34;&#34;&gt;
+            导演: 彼得·法雷里 Peter Farrelly   主演: 维果·莫腾森 Viggo Mortensen /...
+            &lt;br/&gt;
+            2018 / 美国 中国大陆 / 剧情 喜剧 传记
+           &lt;/p&gt;
+           &lt;div class=&#34;star&#34;&gt;
+            &lt;span class=&#34;rating45-t&#34;&gt;
+            &lt;/span&gt;
+            &lt;span class=&#34;rating_num&#34; property=&#34;v:average&#34;&gt;
+             8.9
+            &lt;/span&gt;
+            &lt;span content=&#34;10.0&#34; property=&#34;v:best&#34;&gt;
+            &lt;/span&gt;
+            &lt;span&gt;
+             1262799人评价
+            &lt;/span&gt;
+           &lt;/div&gt;
+           &lt;p class=&#34;quote&#34;&gt;
+            &lt;span class=&#34;inq&#34;&gt;
+             去除成见，需要勇气。
+            &lt;/span&gt;
+           &lt;/p&gt;
+          &lt;/div&gt;
+         &lt;/div&gt;
+        &lt;/div&gt;
+       &lt;/li&gt;
+       &lt;li&gt;
+        &lt;div class=&#34;item&#34;&gt;
+         &lt;div class=&#34;pic&#34;&gt;
+          &lt;em class=&#34;&#34;&gt;
+           61
+          &lt;/em&gt;
+          &lt;a href=&#34;https://movie.douban.com/subject/1291818/&#34;&gt;
+           &lt;img alt=&#34;饮食男女&#34; class=&#34;&#34; src=&#34;https://img3.doubanio.com/view/photo/s_ratio_poster/public/p1910899751.jpg&#34; width=&#34;100&#34;/&gt;
+          &lt;/a&gt;
+         &lt;/div&gt;
+         &lt;div class=&#34;info&#34;&gt;
+          &lt;div class=&#34;hd&#34;&gt;
+           &lt;a class=&#34;&#34; href=&#34;https://movie.douban.com/subject/1291818/&#34;&gt;
+            &lt;span class=&#34;title&#34;&gt;
+             饮食男女
+            &lt;/span&gt;
+            &lt;span class=&#34;title&#34;&gt;
+             / 飲食男女
+            &lt;/span&gt;
+            &lt;span class=&#34;other&#34;&gt;
+             / Eat Drink Man Woman
+            &lt;/span&gt;
+           &lt;/a&gt;
+           &lt;span class=&#34;playable&#34;&gt;
+            [可播放]
+           &lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class=&#34;bd&#34;&gt;
+           &lt;p class=&#34;&#34;&gt;
+            导演: 李安 Ang Lee   主演: 郎雄 Sihung Lung / 杨贵媚 Kuei-Mei Yang / 吴...
+            &lt;br/&gt;
+            1994 / 中国台湾 美国 / 剧情 家庭
+           &lt;/p&gt;
+           &lt;div class=&#34;star&#34;&gt;
+            &lt;span class=&#34;rating45-t&#34;&gt;
+            &lt;/span&gt;
+            &lt;span class=&#34;rating_num&#34; property=&#34;v:average&#34;&gt;
+             9.1
+            &lt;/span&gt;
+            &lt;span content=&#34;10.0&#34; property=&#34;v:best&#34;&gt;
+            &lt;/span&gt;
+            &lt;span&gt;
+             476957人评价
+            &lt;/span&gt;
+           &lt;/div&gt;
+           &lt;p class=&#34;quote&#34;&gt;
+            &lt;span class=&#34;inq&#34;&gt;
+             人生不能像做菜，把所有的料都准备好了才下锅。
+            &lt;/span&gt;
+           &lt;/p&gt;
+          &lt;/div&gt;
+         &lt;/div&gt;
+        &lt;/div&gt;
+       &lt;/li&gt;
+       &lt;li&gt;
+        &lt;div class=&#34;item&#34;&gt;
+         &lt;div class=&#34;pic&#34;&gt;
+          &lt;em class=&#34;&#34;&gt;
+           62
+          &lt;/em&gt;
+          &lt;a href=&#34;https://movie.douban.com/subject/1306029/&#34;&gt;
+           &lt;img alt=&#34;美丽心灵&#34; class=&#34;&#34; src=&#34;https://img3.doubanio.com/view/photo/s_ratio_poster/public/p1665997400.jpg&#34; width=&#34;100&#34;/&gt;
+          &lt;/a&gt;
+         &lt;/div&gt;
+         &lt;div class=&#34;info&#34;&gt;
+          &lt;div class=&#34;hd&#34;&gt;
+           &lt;a class=&#34;&#34; href=&#34;https://movie.douban.com/subject/1306029/&#34;&gt;
+            &lt;span class=&#34;title&#34;&gt;
+             美丽心灵
+            &lt;/span&gt;
+            &lt;span class=&#34;title&#34;&gt;
+             / A Beautiful Mind
+            &lt;/span&gt;
+            &lt;span class=&#34;other&#34;&gt;
+             / 有你终生美丽(港)  /  美丽境界(台)
+            &lt;/span&gt;
+           &lt;/a&gt;
+           &lt;span class=&#34;playable&#34;&gt;
+            [可播放]
+           &lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class=&#34;bd&#34;&gt;
+           &lt;p class=&#34;&#34;&gt;
+            导演: 朗·霍华德 Ron Howard   主演: 罗素·克劳 Russell Crowe / 艾德·哈...
+            &lt;br/&gt;
+            2001 / 美国 / 传记 剧情
+           &lt;/p&gt;
+           &lt;div class=&#34;star&#34;&gt;
+            &lt;span class=&#34;rating45-t&#34;&gt;
+            &lt;/span&gt;
+            &lt;span class=&#34;rating_num&#34; property=&#34;v:average&#34;&gt;
+             9.0
+            &lt;/span&gt;
+            &lt;span content=&#34;10.0&#34; property=&#34;v:best&#34;&gt;
+            &lt;/span&gt;
+            &lt;span&gt;
+             616192人评价
+            &lt;/span&gt;
+           &lt;/div&gt;
+           &lt;p class=&#34;quote&#34;&gt;
+            &lt;span class=&#34;inq&#34;&gt;
+             爱是一切逻辑和原由。
+            &lt;/span&gt;
+           &lt;/p&gt;
+          &lt;/div&gt;
+         &lt;/div&gt;
+        &lt;/div&gt;
+       &lt;/li&gt;
+       &lt;li&gt;
+        &lt;div class=&#34;item&#34;&gt;
+         &lt;div class=&#34;pic&#34;&gt;
+          &lt;em class=&#34;&#34;&gt;
+           63
+          &lt;/em&gt;
+          &lt;a href=&#34;https://movie.douban.com/subject/1900841/&#34;&gt;
+           &lt;img alt=&#34;窃听风暴&#34; class=&#34;&#34; src=&#34;https://img1.doubanio.com/view/photo/s_ratio_poster/public/p1808872109.jpg&#34; width=&#34;100&#34;/&gt;
+          &lt;/a&gt;
+         &lt;/div&gt;
+         &lt;div class=&#34;info&#34;&gt;
+          &lt;div class=&#34;hd&#34;&gt;
+           &lt;a class=&#34;&#34; href=&#34;https://movie.douban.com/subject/1900841/&#34;&gt;
+            &lt;span class=&#34;title&#34;&gt;
+             窃听风暴
+            &lt;/span&gt;
+            &lt;span class=&#34;title&#34;&gt;
+             / Das Leben der Anderen
+            &lt;/span&gt;
+            &lt;span class=&#34;other&#34;&gt;
+             / 窃听者(港)  /  他人的生活
+            &lt;/span&gt;
+           &lt;/a&gt;
+           &lt;span class=&#34;playable&#34;&gt;
+            [可播放]
+           &lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class=&#34;bd&#34;&gt;
+           &lt;p class=&#34;&#34;&gt;
+            导演: 弗洛里安·亨克尔·冯·多纳斯马尔克 Florian Henckel von Donnersmarck  &amp;amp;n...
+            &lt;br/&gt;
+            2006 / 德国 / 剧情 悬疑
+           &lt;/p&gt;
+           &lt;div class=&#34;star&#34;&gt;
+            &lt;span class=&#34;rating45-t&#34;&gt;
+            &lt;/span&gt;
+            &lt;span class=&#34;rating_num&#34; property=&#34;v:average&#34;&gt;
+             9.2
+            &lt;/span&gt;
+            &lt;span content=&#34;10.0&#34; property=&#34;v:best&#34;&gt;
+            &lt;/span&gt;
+            &lt;span&gt;
+             456527人评价
+            &lt;/span&gt;
+           &lt;/div&gt;
+           &lt;p class=&#34;quote&#34;&gt;
+            &lt;span class=&#34;inq&#34;&gt;
+             别样人生。
+            &lt;/span&gt;
+           &lt;/p&gt;
+          &lt;/div&gt;
+         &lt;/div&gt;
+        &lt;/div&gt;
+       &lt;/li&gt;
+       &lt;li&gt;
+        &lt;div class=&#34;item&#34;&gt;
+         &lt;div class=&#34;pic&#34;&gt;
+          &lt;em class=&#34;&#34;&gt;
+           64
+          &lt;/em&gt;
+          &lt;a href=&#34;https://movie.douban.com/subject/25958717/&#34;&gt;
+           &lt;img alt=&#34;海蒂和爷爷&#34; class=&#34;&#34; src=&#34;https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2554525534.jpg&#34; width=&#34;100&#34;/&gt;
+          &lt;/a&gt;
+         &lt;/div&gt;
+         &lt;div class=&#34;info&#34;&gt;
+          &lt;div class=&#34;hd&#34;&gt;
+           &lt;a class=&#34;&#34; href=&#34;https://movie.douban.com/subject/25958717/&#34;&gt;
+            &lt;span class=&#34;title&#34;&gt;
+             海蒂和爷爷
+            &lt;/span&gt;
+            &lt;span class=&#34;title&#34;&gt;
+             / Heidi
+            &lt;/span&gt;
+            &lt;span class=&#34;other&#34;&gt;
+             / 飘零燕(港)  /  海蒂
+            &lt;/span&gt;
+           &lt;/a&gt;
+           &lt;span class=&#34;playable&#34;&gt;
+            [可播放]
+           &lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class=&#34;bd&#34;&gt;
+           &lt;p class=&#34;&#34;&gt;
+            导演: 阿兰·葛斯彭纳 Alain Gsponer   主演: 阿努克·斯特芬 Anuk Steffen /...
+            &lt;br/&gt;
+            2015 / 德国 瑞士 / 剧情 冒险 家庭
+           &lt;/p&gt;
+           &lt;div class=&#34;star&#34;&gt;
+            &lt;span class=&#34;rating45-t&#34;&gt;
+            &lt;/span&gt;
+            &lt;span class=&#34;rating_num&#34; property=&#34;v:average&#34;&gt;
+             9.2
+            &lt;/span&gt;
+            &lt;span content=&#34;10.0&#34; property=&#34;v:best&#34;&gt;
+            &lt;/span&gt;
+            &lt;span&gt;
+             366940人评价
+            &lt;/span&gt;
+           &lt;/div&gt;
+           &lt;p class=&#34;quote&#34;&gt;
+            &lt;span class=&#34;inq&#34;&gt;
+             如果生活中有什么使你感到快乐，那就去做吧！不要管别人说什么。
+            &lt;/span&gt;
+           &lt;/p&gt;
+          &lt;/div&gt;
+         &lt;/div&gt;
+        &lt;/div&gt;
+       &lt;/li&gt;
+       &lt;li&gt;
+        &lt;div class=&#34;item&#34;&gt;
+         &lt;div class=&#34;pic&#34;&gt;
+          &lt;em class=&#34;&#34;&gt;
+           65
+          &lt;/em&gt;
+          &lt;a href=&#34;https://movie.douban.com/subject/1293350/&#34;&gt;
+           &lt;img alt=&#34;两杆大烟枪&#34; class=&#34;&#34; src=&#34;https://img1.doubanio.com/view/photo/s_ratio_poster/public/p792443418.jpg&#34; width=&#34;100&#34;/&gt;
+          &lt;/a&gt;
+         &lt;/div&gt;
+         &lt;div class=&#34;info&#34;&gt;
+          &lt;div class=&#34;hd&#34;&gt;
+           &lt;a class=&#34;&#34; href=&#34;https://movie.douban.com/subject/1293350/&#34;&gt;
+            &lt;span class=&#34;title&#34;&gt;
+             两杆大烟枪
+            &lt;/span&gt;
+            &lt;span class=&#34;title&#34;&gt;
+             / Lock, Stock and Two Smoking Barrels
+            &lt;/span&gt;
+            &lt;span class=&#34;other&#34;&gt;
+             / 够姜四小强(港)  /  两根枪管(台)
+            &lt;/span&gt;
+           &lt;/a&gt;
+           &lt;span class=&#34;playable&#34;&gt;
+            [可播放]
+           &lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class=&#34;bd&#34;&gt;
+           &lt;p class=&#34;&#34;&gt;
+            导演: Guy Ritchie   主演: Jason Flemyng / Dexter Fletcher / Nick Moran
+            &lt;br/&gt;
+            1998 / 英国 / 剧情 喜剧 犯罪
+           &lt;/p&gt;
+           &lt;div class=&#34;star&#34;&gt;
+            &lt;span class=&#34;rating45-t&#34;&gt;
+            &lt;/span&gt;
+            &lt;span class=&#34;rating_num&#34; property=&#34;v:average&#34;&gt;
+             9.1
+            &lt;/span&gt;
+            &lt;span content=&#34;10.0&#34; property=&#34;v:best&#34;&gt;
+            &lt;/span&gt;
+            &lt;span&gt;
+             491580人评价
+            &lt;/span&gt;
+           &lt;/div&gt;
+           &lt;p class=&#34;quote&#34;&gt;
+            &lt;span class=&#34;inq&#34;&gt;
+             4个臭皮匠顶个诸葛亮，盖·里奇果然不是盖的。
+            &lt;/span&gt;
+           &lt;/p&gt;
+          &lt;/div&gt;
+         &lt;/div&gt;
+        &lt;/div&gt;
+       &lt;/li&gt;
+       &lt;li&gt;
+        &lt;div class=&#34;item&#34;&gt;
+         &lt;div class=&#34;pic&#34;&gt;
+          &lt;em class=&#34;&#34;&gt;
+           66
+          &lt;/em&gt;
+          &lt;a href=&#34;https://movie.douban.com/subject/1485260/&#34;&gt;
+           &lt;img alt=&#34;本杰明·巴顿奇事&#34; class=&#34;&#34; src=&#34;https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2192535722.jpg&#34; width=&#34;100&#34;/&gt;
+          &lt;/a&gt;
+         &lt;/div&gt;
+         &lt;div class=&#34;info&#34;&gt;
+          &lt;div class=&#34;hd&#34;&gt;
+           &lt;a class=&#34;&#34; href=&#34;https://movie.douban.com/subject/1485260/&#34;&gt;
+            &lt;span class=&#34;title&#34;&gt;
+             本杰明·巴顿奇事
+            &lt;/span&gt;
+            &lt;span class=&#34;title&#34;&gt;
+             / The Curious Case of Benjamin Button
+            &lt;/span&gt;
+            &lt;span class=&#34;other&#34;&gt;
+             / 奇幻逆缘(港)  /  班杰明的奇幻旅程(台)
+            &lt;/span&gt;
+           &lt;/a&gt;
+           &lt;span class=&#34;playable&#34;&gt;
+            [可播放]
+           &lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class=&#34;bd&#34;&gt;
+           &lt;p class=&#34;&#34;&gt;
+            导演: 大卫·芬奇 David Fincher   主演: 凯特·布兰切特 Cate Blanchett / ...
+            &lt;br/&gt;
+            2008 / 美国 / 剧情 爱情 奇幻
+           &lt;/p&gt;
+           &lt;div class=&#34;star&#34;&gt;
+            &lt;span class=&#34;rating45-t&#34;&gt;
+            &lt;/span&gt;
+            &lt;span class=&#34;rating_num&#34; property=&#34;v:average&#34;&gt;
+             8.9
+            &lt;/span&gt;
+            &lt;span content=&#34;10.0&#34; property=&#34;v:best&#34;&gt;
+            &lt;/span&gt;
+            &lt;span&gt;
+             799292人评价
+            &lt;/span&gt;
+           &lt;/div&gt;
+           &lt;p class=&#34;quote&#34;&gt;
+            &lt;span class=&#34;inq&#34;&gt;
+             在时间之河里感受溺水之苦。
+            &lt;/span&gt;
+           &lt;/p&gt;
+          &lt;/div&gt;
+         &lt;/div&gt;
+        &lt;/div&gt;
+       &lt;/li&gt;
+       &lt;li&gt;
+        &lt;div class=&#34;item&#34;&gt;
+         &lt;div class=&#34;pic&#34;&gt;
+          &lt;em class=&#34;&#34;&gt;
+           67
+          &lt;/em&gt;
+          &lt;a href=&#34;https://movie.douban.com/subject/26580232/&#34;&gt;
+           &lt;img alt=&#34;看不见的客人&#34; class=&#34;&#34; src=&#34;https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2498971355.jpg&#34; width=&#34;100&#34;/&gt;
+          &lt;/a&gt;
+         &lt;/div&gt;
+         &lt;div class=&#34;info&#34;&gt;
+          &lt;div class=&#34;hd&#34;&gt;
+           &lt;a class=&#34;&#34; href=&#34;https://movie.douban.com/subject/26580232/&#34;&gt;
+            &lt;span class=&#34;title&#34;&gt;
+             看不见的客人
+            &lt;/span&gt;
+            &lt;span class=&#34;title&#34;&gt;
+             / Contratiempo
+            &lt;/span&gt;
+            &lt;span class=&#34;other&#34;&gt;
+             / 死无对证(港)  /  布局(台)
+            &lt;/span&gt;
+           &lt;/a&gt;
+           &lt;span class=&#34;playable&#34;&gt;
+            [可播放]
+           &lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class=&#34;bd&#34;&gt;
+           &lt;p class=&#34;&#34;&gt;
+            导演: 奥里奥尔·保罗 Oriol Paulo   主演: 马里奥·卡萨斯 Mario Casas / 阿...
+            &lt;br/&gt;
+            2016 / 西班牙 / 剧情 犯罪 悬疑 惊悚
+           &lt;/p&gt;
+           &lt;div class=&#34;star&#34;&gt;
+            &lt;span class=&#34;rating45-t&#34;&gt;
+            &lt;/span&gt;
+            &lt;span class=&#34;rating_num&#34; property=&#34;v:average&#34;&gt;
+             8.8
+            &lt;/span&gt;
+            &lt;span content=&#34;10.0&#34; property=&#34;v:best&#34;&gt;
+            &lt;/span&gt;
+            &lt;span&gt;
+             978720人评价
+            &lt;/span&gt;
+           &lt;/div&gt;
+           &lt;p class=&#34;quote&#34;&gt;
+            &lt;span class=&#34;inq&#34;&gt;
+             你以为你以为的就是你以为的。
+            &lt;/span&gt;
+           &lt;/p&gt;
+          &lt;/div&gt;
+         &lt;/div&gt;
+        &lt;/div&gt;
+       &lt;/li&gt;
+       &lt;li&gt;
+        &lt;div class=&#34;item&#34;&gt;
+         &lt;div class=&#34;pic&#34;&gt;
+          &lt;em class=&#34;&#34;&gt;
+           68
+          &lt;/em&gt;
+          &lt;a href=&#34;https://movie.douban.com/subject/1292224/&#34;&gt;
+           &lt;img alt=&#34;飞越疯人院&#34; class=&#34;&#34; src=&#34;https://img1.doubanio.com/view/photo/s_ratio_poster/public/p792238287.jpg&#34; width=&#34;100&#34;/&gt;
+          &lt;/a&gt;
+         &lt;/div&gt;
+         &lt;div class=&#34;info&#34;&gt;
+          &lt;div class=&#34;hd&#34;&gt;
+           &lt;a class=&#34;&#34; href=&#34;https://movie.douban.com/subject/1292224/&#34;&gt;
+            &lt;span class=&#34;title&#34;&gt;
+             飞越疯人院
+            &lt;/span&gt;
+            &lt;span class=&#34;title&#34;&gt;
+             / One Flew Over the Cuckoo&#39;s Nest
+            &lt;/span&gt;
+            &lt;span class=&#34;other&#34;&gt;
+             / 飞越杜鹃窝(台)  /  飞越喜鹊巢
+            &lt;/span&gt;
+           &lt;/a&gt;
+          &lt;/div&gt;
+          &lt;div class=&#34;bd&#34;&gt;
+           &lt;p class=&#34;&#34;&gt;
+            导演: 米洛斯·福尔曼 Miloš Forman   主演: 杰克·尼科尔森 Jack Nichols...
+            &lt;br/&gt;
+            1975 / 美国 / 剧情
+           &lt;/p&gt;
+           &lt;div class=&#34;star&#34;&gt;
+            &lt;span class=&#34;rating45-t&#34;&gt;
+            &lt;/span&gt;
+            &lt;span class=&#34;rating_num&#34; property=&#34;v:average&#34;&gt;
+             9.1
+            &lt;/span&gt;
+            &lt;span content=&#34;10.0&#34; property=&#34;v:best&#34;&gt;
+            &lt;/span&gt;
+            &lt;span&gt;
+             469319人评价
+            &lt;/span&gt;
+           &lt;/div&gt;
+           &lt;p class=&#34;quote&#34;&gt;
+            &lt;span class=&#34;inq&#34;&gt;
+             自由万岁。
+            &lt;/span&gt;
+           &lt;/p&gt;
+          &lt;/div&gt;
+         &lt;/div&gt;
+        &lt;/div&gt;
+       &lt;/li&gt;
+       &lt;li&gt;
+        &lt;div class=&#34;item&#34;&gt;
+         &lt;div class=&#34;pic&#34;&gt;
+          &lt;em class=&#34;&#34;&gt;
+           69
+          &lt;/em&gt;
+          &lt;a href=&#34;https://movie.douban.com/subject/1292402/&#34;&gt;
+           &lt;img alt=&#34;西西里的美丽传说&#34; class=&#34;&#34; src=&#34;https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2441988159.jpg&#34; width=&#34;100&#34;/&gt;
+          &lt;/a&gt;
+         &lt;/div&gt;
+         &lt;div class=&#34;info&#34;&gt;
+          &lt;div class=&#34;hd&#34;&gt;
+           &lt;a class=&#34;&#34; href=&#34;https://movie.douban.com/subject/1292402/&#34;&gt;
+            &lt;span class=&#34;title&#34;&gt;
+             西西里的美丽传说
+            &lt;/span&gt;
+            &lt;span class=&#34;title&#34;&gt;
+             / Malèna
+            &lt;/span&gt;
+            &lt;span class=&#34;other&#34;&gt;
+             / 真爱伴我行(台)  /  玛莲娜
+            &lt;/span&gt;
+           &lt;/a&gt;
+           &lt;span class=&#34;playable&#34;&gt;
+            [可播放]
+           &lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class=&#34;bd&#34;&gt;
+           &lt;p class=&#34;&#34;&gt;
+            导演: 朱塞佩·托纳多雷 Giuseppe Tornatore   主演: 莫妮卡·贝鲁奇 Monica ...
+            &lt;br/&gt;
+            2000 / 意大利 美国 / 剧情 战争 情色
+           &lt;/p&gt;
+           &lt;div class=&#34;star&#34;&gt;
+            &lt;span class=&#34;rating45-t&#34;&gt;
+            &lt;/span&gt;
+            &lt;span class=&#34;rating_num&#34; property=&#34;v:average&#34;&gt;
+             8.9
+            &lt;/span&gt;
+            &lt;span content=&#34;10.0&#34; property=&#34;v:best&#34;&gt;
+            &lt;/span&gt;
+            &lt;span&gt;
+             790915人评价
+            &lt;/span&gt;
+           &lt;/div&gt;
+           &lt;p class=&#34;quote&#34;&gt;
+            &lt;span class=&#34;inq&#34;&gt;
+             美丽无罪。
+            &lt;/span&gt;
+           &lt;/p&gt;
+          &lt;/div&gt;
+         &lt;/div&gt;
+        &lt;/div&gt;
+       &lt;/li&gt;
+       &lt;li&gt;
+        &lt;div class=&#34;item&#34;&gt;
+         &lt;div class=&#34;pic&#34;&gt;
+          &lt;em class=&#34;&#34;&gt;
+           70
+          &lt;/em&gt;
+          &lt;a href=&#34;https://movie.douban.com/subject/3008247/&#34;&gt;
+           &lt;img alt=&#34;穿条纹睡衣的男孩&#34; class=&#34;&#34; src=&#34;https://img2.doubanio.com/view/photo/s_ratio_poster/public/p1473670352.jpg&#34; width=&#34;100&#34;/&gt;
+          &lt;/a&gt;
+         &lt;/div&gt;
+         &lt;div class=&#34;info&#34;&gt;
+          &lt;div class=&#34;hd&#34;&gt;
+           &lt;a class=&#34;&#34; href=&#34;https://movie.douban.com/subject/3008247/&#34;&gt;
+            &lt;span class=&#34;title&#34;&gt;
+             穿条纹睡衣的男孩
+            &lt;/span&gt;
+            &lt;span class=&#34;title&#34;&gt;
+             / The Boy in the Striped Pajamas
+            &lt;/span&gt;
+            &lt;span class=&#34;other&#34;&gt;
+             / 穿条纹衣服的男孩  /  穿条纹衣的男孩
+            &lt;/span&gt;
+           &lt;/a&gt;
+           &lt;span class=&#34;playable&#34;&gt;
+            [可播放]
+           &lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class=&#34;bd&#34;&gt;
+           &lt;p class=&#34;&#34;&gt;
+            导演: 马克·赫尔曼 Mark Herman   主演: 阿萨·巴特菲尔德 Asa Butterfield ...
+            &lt;br/&gt;
+            2008 / 英国 美国 / 剧情 战争
+           &lt;/p&gt;
+           &lt;div class=&#34;star&#34;&gt;
+            &lt;span class=&#34;rating45-t&#34;&gt;
+            &lt;/span&gt;
+            &lt;span class=&#34;rating_num&#34; property=&#34;v:average&#34;&gt;
+             9.1
+            &lt;/span&gt;
+            &lt;span content=&#34;10.0&#34; property=&#34;v:best&#34;&gt;
+            &lt;/span&gt;
+            &lt;span&gt;
+             417841人评价
+            &lt;/span&gt;
+           &lt;/div&gt;
+           &lt;p class=&#34;quote&#34;&gt;
+            &lt;span class=&#34;inq&#34;&gt;
+             尽管有些不切实际的幻想，这部电影依旧是一部感人肺腑的佳作。
+            &lt;/span&gt;
+           &lt;/p&gt;
+          &lt;/div&gt;
+         &lt;/div&gt;
+        &lt;/div&gt;
+       &lt;/li&gt;
+       &lt;li&gt;
+        &lt;div class=&#34;item&#34;&gt;
+         &lt;div class=&#34;pic&#34;&gt;
+          &lt;em class=&#34;&#34;&gt;
+           71
+          &lt;/em&gt;
+          &lt;a href=&#34;https://movie.douban.com/subject/1292849/&#34;&gt;
+           &lt;img alt=&#34;拯救大兵瑞恩&#34; class=&#34;&#34; src=&#34;https://img9.doubanio.com/view/photo/s_ratio_poster/public/p1014542496.jpg&#34; width=&#34;100&#34;/&gt;
+          &lt;/a&gt;
+         &lt;/div&gt;
+         &lt;div class=&#34;info&#34;&gt;
+          &lt;div class=&#34;hd&#34;&gt;
+           &lt;a class=&#34;&#34; href=&#34;https://movie.douban.com/subject/1292849/&#34;&gt;
+            &lt;span class=&#34;title&#34;&gt;
+             拯救大兵瑞恩
+            &lt;/span&gt;
+            &lt;span class=&#34;title&#34;&gt;
+             / Saving Private Ryan
+            &lt;/span&gt;
+            &lt;span class=&#34;other&#34;&gt;
+             / 雷霆救兵(港)  /  抢救雷恩大兵(台)
+            &lt;/span&gt;
+           &lt;/a&gt;
+           &lt;span class=&#34;playable&#34;&gt;
+            [可播放]
+           &lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class=&#34;bd&#34;&gt;
+           &lt;p class=&#34;&#34;&gt;
+            导演: 史蒂文·斯皮尔伯格 Steven Spielberg   主演: 汤姆·汉克斯 Tom Hanks...
+            &lt;br/&gt;
+            1998 / 美国 / 剧情 战争
+           &lt;/p&gt;
+           &lt;div class=&#34;star&#34;&gt;
+            &lt;span class=&#34;rating45-t&#34;&gt;
+            &lt;/span&gt;
+            &lt;span class=&#34;rating_num&#34; property=&#34;v:average&#34;&gt;
+             9.0
+            &lt;/span&gt;
+            &lt;span content=&#34;10.0&#34; property=&#34;v:best&#34;&gt;
+            &lt;/span&gt;
+            &lt;span&gt;
+             524096人评价
+            &lt;/span&gt;
+           &lt;/div&gt;
+           &lt;p class=&#34;quote&#34;&gt;
+            &lt;span class=&#34;inq&#34;&gt;
+             美利坚精神输出大片No1.
+            &lt;/span&gt;
+           &lt;/p&gt;
+          &lt;/div&gt;
+         &lt;/div&gt;
+        &lt;/div&gt;
+       &lt;/li&gt;
+       &lt;li&gt;
+        &lt;div class=&#34;item&#34;&gt;
+         &lt;div class=&#34;pic&#34;&gt;
+          &lt;em class=&#34;&#34;&gt;
+           72
+          &lt;/em&gt;
+          &lt;a href=&#34;https://movie.douban.com/subject/1303021/&#34;&gt;
+           &lt;img alt=&#34;小鞋子&#34; class=&#34;&#34; src=&#34;https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2165511465.jpg&#34; width=&#34;100&#34;/&gt;
+          &lt;/a&gt;
+         &lt;/div&gt;
+         &lt;div class=&#34;info&#34;&gt;
+          &lt;div class=&#34;hd&#34;&gt;
+           &lt;a class=&#34;&#34; href=&#34;https://movie.douban.com/subject/1303021/&#34;&gt;
+            &lt;span class=&#34;title&#34;&gt;
+             小鞋子
+            &lt;/span&gt;
+            &lt;span class=&#34;title&#34;&gt;
+             / بچههای آسمان
+            &lt;/span&gt;
+            &lt;span class=&#34;other&#34;&gt;
+             / 天堂的孩子  /  小童鞋
+            &lt;/span&gt;
+           &lt;/a&gt;
+           &lt;span class=&#34;playable&#34;&gt;
+            [可播放]
+           &lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class=&#34;bd&#34;&gt;
+           &lt;p class=&#34;&#34;&gt;
+            导演: 马基德·马基迪 Majid Majidi   主演: 法拉赫阿米尔·哈什米安 Amir Fa...
+            &lt;br/&gt;
+            1997 / 伊朗 / 剧情 儿童 家庭
+           &lt;/p&gt;
+           &lt;div class=&#34;star&#34;&gt;
+            &lt;span class=&#34;rating45-t&#34;&gt;
+            &lt;/span&gt;
+            &lt;span class=&#34;rating_num&#34; property=&#34;v:average&#34;&gt;
+             9.2
+            &lt;/span&gt;
+            &lt;span content=&#34;10.0&#34; property=&#34;v:best&#34;&gt;
+            &lt;/span&gt;
+            &lt;span&gt;
+             328694人评价
+            &lt;/span&gt;
+           &lt;/div&gt;
+           &lt;p class=&#34;quote&#34;&gt;
+            &lt;span class=&#34;inq&#34;&gt;
+             奔跑的孩子是天使。
+            &lt;/span&gt;
+           &lt;/p&gt;
+          &lt;/div&gt;
+         &lt;/div&gt;
+        &lt;/div&gt;
+       &lt;/li&gt;
+       &lt;li&gt;
+        &lt;div class=&#34;item&#34;&gt;
+         &lt;div class=&#34;pic&#34;&gt;
+          &lt;em class=&#34;&#34;&gt;
+           73
+          &lt;/em&gt;
+          &lt;a href=&#34;https://movie.douban.com/subject/1294408/&#34;&gt;
+           &lt;img alt=&#34;音乐之声&#34; class=&#34;&#34; src=&#34;https://img1.doubanio.com/view/photo/s_ratio_poster/public/p453788577.jpg&#34; width=&#34;100&#34;/&gt;
+          &lt;/a&gt;
+         &lt;/div&gt;
+         &lt;div class=&#34;info&#34;&gt;
+          &lt;div class=&#34;hd&#34;&gt;
+           &lt;a class=&#34;&#34; href=&#34;https://movie.douban.com/subject/1294408/&#34;&gt;
+            &lt;span class=&#34;title&#34;&gt;
+             音乐之声
+            &lt;/span&gt;
+            &lt;span class=&#34;title&#34;&gt;
+             / The Sound of Music
+            &lt;/span&gt;
+            &lt;span class=&#34;other&#34;&gt;
+             / 仙乐飘飘处处闻(港)  /  真善美(台)
+            &lt;/span&gt;
+           &lt;/a&gt;
+           &lt;span class=&#34;playable&#34;&gt;
+            [可播放]
+           &lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class=&#34;bd&#34;&gt;
+           &lt;p class=&#34;&#34;&gt;
+            导演: 罗伯特·怀斯 Robert Wise   主演: 朱莉·安德鲁斯 Julie Andrews / 克...
+            &lt;br/&gt;
+            1965 / 美国 / 剧情 传记 爱情 歌舞
+           &lt;/p&gt;
+           &lt;div class=&#34;star&#34;&gt;
+            &lt;span class=&#34;rating45-t&#34;&gt;
+            &lt;/span&gt;
+            &lt;span class=&#34;rating_num&#34; property=&#34;v:average&#34;&gt;
+             9.1
+            &lt;/span&gt;
+            &lt;span content=&#34;10.0&#34; property=&#34;v:best&#34;&gt;
+            &lt;/span&gt;
+            &lt;span&gt;
+             485306人评价
+            &lt;/span&gt;
+           &lt;/div&gt;
+           &lt;p class=&#34;quote&#34;&gt;
+            &lt;span class=&#34;inq&#34;&gt;
+             用音乐化解仇恨，让歌声串起美好。
+            &lt;/span&gt;
+           &lt;/p&gt;
+          &lt;/div&gt;
+         &lt;/div&gt;
+        &lt;/div&gt;
+       &lt;/li&gt;
+       &lt;li&gt;
+        &lt;div class=&#34;item&#34;&gt;
+         &lt;div class=&#34;pic&#34;&gt;
+          &lt;em class=&#34;&#34;&gt;
+           74
+          &lt;/em&gt;
+          &lt;a href=&#34;https://movie.douban.com/subject/1292220/&#34;&gt;
+           &lt;img alt=&#34;情书&#34; class=&#34;&#34; src=&#34;https://img1.doubanio.com/view/photo/s_ratio_poster/public/p449897379.jpg&#34; width=&#34;100&#34;/&gt;
+          &lt;/a&gt;
+         &lt;/div&gt;
+         &lt;div class=&#34;info&#34;&gt;
+          &lt;div class=&#34;hd&#34;&gt;
+           &lt;a class=&#34;&#34; href=&#34;https://movie.douban.com/subject/1292220/&#34;&gt;
+            &lt;span class=&#34;title&#34;&gt;
+             情书
+            &lt;/span&gt;
+            &lt;span class=&#34;title&#34;&gt;
+             / Love Letter
+            &lt;/span&gt;
+            &lt;span class=&#34;other&#34;&gt;
+             / When I Close My Eyes  /  Letters of Love
+            &lt;/span&gt;
+           &lt;/a&gt;
+          &lt;/div&gt;
+          &lt;div class=&#34;bd&#34;&gt;
+           &lt;p class=&#34;&#34;&gt;
+            导演: 岩井俊二 Shunji Iwai   主演: 中山美穗 Miho Nakayama / 丰川悦司 Ets...
+            &lt;br/&gt;
+            1995 / 日本 / 剧情 爱情
+           &lt;/p&gt;
+           &lt;div class=&#34;star&#34;&gt;
+            &lt;span class=&#34;rating45-t&#34;&gt;
+            &lt;/span&gt;
+            &lt;span class=&#34;rating_num&#34; property=&#34;v:average&#34;&gt;
+             8.9
+            &lt;/span&gt;
+            &lt;span content=&#34;10.0&#34; property=&#34;v:best&#34;&gt;
+            &lt;/span&gt;
+            &lt;span&gt;
+             731152人评价
+            &lt;/span&gt;
+           &lt;/div&gt;
+           &lt;p class=&#34;quote&#34;&gt;
+            &lt;span class=&#34;inq&#34;&gt;
+             暗恋的极致。
+            &lt;/span&gt;
+           &lt;/p&gt;
+          &lt;/div&gt;
+         &lt;/div&gt;
+        &lt;/div&gt;
+       &lt;/li&gt;
+       &lt;li&gt;
+        &lt;div class=&#34;item&#34;&gt;
+         &lt;div class=&#34;pic&#34;&gt;
+          &lt;em class=&#34;&#34;&gt;
+           75
+          &lt;/em&gt;
+          &lt;a href=&#34;https://movie.douban.com/subject/3442220/&#34;&gt;
+           &lt;img alt=&#34;海豚湾&#34; class=&#34;&#34; src=&#34;https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2559579779.jpg&#34; width=&#34;100&#34;/&gt;
+          &lt;/a&gt;
+         &lt;/div&gt;
+         &lt;div class=&#34;info&#34;&gt;
+          &lt;div class=&#34;hd&#34;&gt;
+           &lt;a class=&#34;&#34; href=&#34;https://movie.douban.com/subject/3442220/&#34;&gt;
+            &lt;span class=&#34;title&#34;&gt;
+             海豚湾
+            &lt;/span&gt;
+            &lt;span class=&#34;title&#34;&gt;
+             / The Cove
+            &lt;/span&gt;
+            &lt;span class=&#34;other&#34;&gt;
+             / 血色海湾(台)  /  海湾
+            &lt;/span&gt;
+           &lt;/a&gt;
+           &lt;span class=&#34;playable&#34;&gt;
+            [可播放]
+           &lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class=&#34;bd&#34;&gt;
+           &lt;p class=&#34;&#34;&gt;
+            导演: 路易·西霍尤斯 Louie Psihoyos   主演: Richard O&#39;Barry / 路易·西霍...
+            &lt;br/&gt;
+            2009 / 美国 / 纪录片
+           &lt;/p&gt;
+           &lt;div class=&#34;star&#34;&gt;
+            &lt;span class=&#34;rating45-t&#34;&gt;
+            &lt;/span&gt;
+            &lt;span class=&#34;rating_num&#34; property=&#34;v:average&#34;&gt;
+             9.3
+            &lt;/span&gt;
+            &lt;span content=&#34;10.0&#34; property=&#34;v:best&#34;&gt;
+            &lt;/span&gt;
+            &lt;span&gt;
+             308202人评价
+            &lt;/span&gt;
+           &lt;/div&gt;
+           &lt;p class=&#34;quote&#34;&gt;
+            &lt;span class=&#34;inq&#34;&gt;
+             海豚的微笑，是世界上最高明的伪装。
+            &lt;/span&gt;
+           &lt;/p&gt;
+          &lt;/div&gt;
+         &lt;/div&gt;
+        &lt;/div&gt;
+       &lt;/li&gt;
+      &lt;/ol&gt;
+      &lt;div class=&#34;paginator&#34;&gt;
+       &lt;span class=&#34;prev&#34;&gt;
+        &lt;link href=&#34;?start=25&amp;amp;filter=&#34; rel=&#34;prev&#34;/&gt;
+        &lt;a href=&#34;?start=25&amp;amp;filter=&#34;&gt;
+         &amp;lt;前页
+        &lt;/a&gt;
+       &lt;/span&gt;
+       &lt;a href=&#34;?start=0&amp;amp;filter=&#34;&gt;
+        1
+       &lt;/a&gt;
+       &lt;a href=&#34;?start=25&amp;amp;filter=&#34;&gt;
+        2
+       &lt;/a&gt;
+       &lt;span class=&#34;thispage&#34;&gt;
+        3
+       &lt;/span&gt;
+       &lt;a href=&#34;?start=75&amp;amp;filter=&#34;&gt;
+        4
+       &lt;/a&gt;
+       &lt;a href=&#34;?start=100&amp;amp;filter=&#34;&gt;
+        5
+       &lt;/a&gt;
+       &lt;a href=&#34;?start=125&amp;amp;filter=&#34;&gt;
+        6
+       &lt;/a&gt;
+       &lt;a href=&#34;?start=150&amp;amp;filter=&#34;&gt;
+        7
+       &lt;/a&gt;
+       &lt;a href=&#34;?start=175&amp;amp;filter=&#34;&gt;
+        8
+       &lt;/a&gt;
+       &lt;a href=&#34;?start=200&amp;amp;filter=&#34;&gt;
+        9
+       &lt;/a&gt;
+       &lt;a href=&#34;?start=225&amp;amp;filter=&#34;&gt;
+        10
+       &lt;/a&gt;
+       &lt;span class=&#34;next&#34;&gt;
+        &lt;link href=&#34;?start=75&amp;amp;filter=&#34; rel=&#34;next&#34;/&gt;
+        &lt;a href=&#34;?start=75&amp;amp;filter=&#34;&gt;
+         后页&amp;gt;
+        &lt;/a&gt;
+       &lt;/span&gt;
+       &lt;span class=&#34;count&#34;&gt;
+        (共250条)
+       &lt;/span&gt;
+      &lt;/div&gt;
+     &lt;/div&gt;
+     &lt;div class=&#34;aside&#34;&gt;
+      &lt;p class=&#34;pl&#34;&gt;
+       豆瓣用户每天都在对“看过”的电影进行“很差”到“力荐”的评价，豆瓣根据每部影片看过的人数以及该影片所得的评价等综合数据，通过算法分析产生豆瓣电影 Top 250。
+      &lt;/p&gt;
+      &lt;div id=&#34;dale_movie_top250_bottom_right&#34;&gt;
+      &lt;/div&gt;
+      &lt;!-- douban ad begin --&gt;
+      &lt;div class=&#34;mobile-app-entrance block5 app-movie&#34;&gt;
+       &lt;a class=&#34;entrance-link&#34; href=&#34;https://www.douban.com/doubanapp/frodo&#34;&gt;
+        &lt;div class=&#34;entrance-qrcode&#34;&gt;
+         &lt;img alt=&#34;扫码下载豆瓣 App&#34; height=&#34;80&#34; src=&#34;https://img3.doubanio.com/f/movie/a02f6ed325fc52e220f299d51e730c422e2bcd16/pics/movie/douban_app_ad/qrcode.png&#34; width=&#34;80&#34;/&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;entrance-info&#34;&gt;
+         &lt;span class=&#34;app-icon icon-movie&#34;&gt;
+         &lt;/span&gt;
+         &lt;span class=&#34;main-title&#34;&gt;
+          豆瓣
+         &lt;/span&gt;
+         &lt;span class=&#34;sub-title&#34;&gt;
+          让好电影来找你
+         &lt;/span&gt;
+        &lt;/div&gt;
+       &lt;/a&gt;
+      &lt;/div&gt;
+      &lt;!-- douban ad end --&gt;
+     &lt;/div&gt;
+     &lt;div class=&#34;extra&#34;&gt;
+     &lt;/div&gt;
+    &lt;/div&gt;
+   &lt;/div&gt;
+   &lt;div id=&#34;footer&#34;&gt;
+    &lt;div class=&#34;footer-extra&#34;&gt;
+    &lt;/div&gt;
+    &lt;span class=&#34;fleft gray-link&#34; id=&#34;icp&#34;&gt;
+     © 2005－2021 douban.com, all rights reserved 北京豆网科技有限公司
+    &lt;/span&gt;
+    &lt;a href=&#34;https://www.douban.com/hnypt/variformcyst.py&#34; style=&#34;display: none;&#34;&gt;
+    &lt;/a&gt;
+    &lt;span class=&#34;fright&#34;&gt;
+     &lt;a href=&#34;https://www.douban.com/about&#34;&gt;
+      关于豆瓣
+     &lt;/a&gt;
+     ·
+     &lt;a href=&#34;https://www.douban.com/jobs&#34;&gt;
+      在豆瓣工作
+     &lt;/a&gt;
+     ·
+     &lt;a href=&#34;https://www.douban.com/about?topic=contactus&#34;&gt;
+      联系我们
+     &lt;/a&gt;
+     ·
+     &lt;a href=&#34;https://www.douban.com/about/legal&#34;&gt;
+      法律声明
+     &lt;/a&gt;
+     ·
+     &lt;a href=&#34;https://help.douban.com/?app=movie&#34; target=&#34;_blank&#34;&gt;
+      帮助中心
+     &lt;/a&gt;
+     ·
+     &lt;a href=&#34;https://www.douban.com/doubanapp/&#34;&gt;
+      移动应用
+     &lt;/a&gt;
+     ·
+     &lt;a href=&#34;https://www.douban.com/partner/&#34;&gt;
+      豆瓣广告
+     &lt;/a&gt;
+    &lt;/span&gt;
+   &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;!-- COLLECTED JS --&gt;
+  &lt;link href=&#34;https://img3.doubanio.com/f/shire/8377b9498330a2e6f056d863987cc7a37eb4d486/css/ui/dialog.css&#34; rel=&#34;stylesheet&#34; type=&#34;text/css&#34;/&gt;
+  &lt;link href=&#34;https://img3.doubanio.com/f/movie/4aca95d66d37ec0712b3d19973b5d8feb75f2f05/css/movie/mod/reg_login_pop.css&#34; rel=&#34;stylesheet&#34; type=&#34;text/css&#34;/&gt;
+  &lt;script data-cfg-autoload=&#34;false&#34; src=&#34;https://img3.doubanio.com/f/shire/2c0c1c6b83f9a457b0f38c38a32fc43a42ec9bad/js/do.js&#34; type=&#34;text/javascript&#34;&gt;
+  &lt;/script&gt;
+  &lt;script src=&#34;https://img3.doubanio.com/f/shire/383a6e43f2108dc69e3ff2681bc4dc6c72a5ffb0/js/ui/dialog.js&#34; type=&#34;text/javascript&#34;&gt;
+  &lt;/script&gt;
+  &lt;script type=&#34;text/javascript&#34;&gt;
+   var HTTPS_DB=&#39;https://www.douban.com&#39;;
+var account_pop={open:function(o,e){e?referrer=&#34;?referrer=&#34;+encodeURIComponent(e):referrer=&#34;?referrer=&#34;+window.location.href;var n=&#34;&#34;,i=&#34;&#34;,t=448;n=&#34;用户登录&#34;,i=&#34;https://accounts.douban.com/passport/login_popup?source=movie&#34;;var r=document.location.protocol+&#34;//&#34;+document.location.hostname,a=dui.Dialog({width:340,title:n,height:t,cls:&#34;account_pop&#34;,isHideTitle:!0,modal:!0,content:&#34;&lt;iframe scrolling=&#39;no&#39; frameborder=&#39;0&#39; width=&#39;340&#39; height=&#39;&#34;+t+&#34;&#39; src=&#39;&#34;+i+&#34;&#39; name=&#39;&#34;+r+&#34;&#39;&gt;&lt;/iframe&gt;&#34;},!0),c=a.node;if(c.undelegate(),c.delegate(&#34;.dui-dialog-close&#34;,&#34;click&#34;,function(){var o=$(&#34;body&#34;);o.find(&#34;#login_msk&#34;).hide(),o.find(&#34;.account_pop&#34;).remove()}),$(window).width()&lt;478){var d=&#34;&#34;;&#34;reg&#34;===o?d=HTTPS_DB+&#34;/accounts/register&#34;+referrer:&#34;login&#34;===o&amp;&amp;(d=HTTPS_DB+&#34;/accounts/login&#34;+referrer),window.location.href=d}else a.open();$(window).bind(&#34;message&#34;,function(o){&#34;https://accounts.douban.com&#34;===o.originalEvent.origin&amp;&amp;(c.find(&#34;iframe&#34;).css(&#34;height&#34;,o.originalEvent.data),c.height(o.originalEvent.data),a.update())})}};Douban&amp;&amp;Douban.init_show_login&amp;&amp;(Douban.init_show_login=function(o){var e=$(o);e.click(function(){var o=e.data(&#34;ref&#34;)||&#34;&#34;;return account_pop.open(&#34;login&#34;,o),!1})}),Do(function(){$(&#34;body&#34;).delegate(&#34;.pop_register&#34;,&#34;click&#34;,function(o){o.preventDefault();var e=$(this).data(&#34;ref&#34;)||&#34;&#34;;return account_pop.open(&#34;reg&#34;,e),!1}),$(&#34;body&#34;).delegate(&#34;.pop_login&#34;,&#34;click&#34;,function(o){o.preventDefault();var e=$(this).data(&#34;ref&#34;)||&#34;&#34;;return account_pop.open(&#34;login&#34;,e),!1})});
+  &lt;/script&gt;
+  &lt;script type=&#34;text/javascript&#34;&gt;
+   (function (global) {
+        var newNode = global.document.createElement(&#39;script&#39;),
+            existingNode = global.document.getElementsByTagName(&#39;script&#39;)[0],
+            adSource = &#39;//erebor.douban.com/&#39;,
+            userId = &#39;&#39;,
+            browserId = &#39;MlvKszi8ToE&#39;,
+            criteria = &#39;3:/top250?start=50&#39;,
+            preview = &#39;&#39;,
+            debug = false,
+            adSlots = [&#39;dale_movie_top250_bottom_right&#39;];
+
+        global.DoubanAdRequest = {src: adSource, uid: userId, bid: browserId, crtr: criteria, prv: preview, debug: debug};
+        global.DoubanAdSlots = (global.DoubanAdSlots || []).concat(adSlots);
+
+        newNode.setAttribute(&#39;type&#39;, &#39;text/javascript&#39;);
+        newNode.setAttribute(&#39;src&#39;, &#39;//img1.doubanio.com/NWt2ZHQ5bC9mL2FkanMvNmEyODIwODUxODI1ZmFhMDA5YzM3YzUzM2ZmOTJkZTk5NGUzODExYS9hZC5yZWxlYXNlLmpz&#39;);
+        newNode.setAttribute(&#39;async&#39;, true);
+        existingNode.parentNode.insertBefore(newNode, existingNode);
+    })(this);
+  &lt;/script&gt;
+  &lt;script type=&#34;text/javascript&#34;&gt;
+   var _paq = _paq || [];
+_paq.push([&#39;trackPageView&#39;]);
+_paq.push([&#39;enableLinkTracking&#39;]);
+(function() {
+    var p=((&#39;https:&#39; == document.location.protocol) ? &#39;https&#39; : &#39;http&#39;), u=p+&#39;://fundin.douban.com/&#39;;
+    _paq.push([&#39;setTrackerUrl&#39;, u+&#39;piwik&#39;]);
+    _paq.push([&#39;setSiteId&#39;, &#39;100001&#39;]);
+    var d=document, g=d.createElement(&#39;script&#39;), s=d.getElementsByTagName(&#39;script&#39;)[0];
+    g.type=&#39;text/javascript&#39;;
+    g.defer=true;
+    g.async=true;
+    g.src=p+&#39;://img3.doubanio.com/dae/fundin/piwik.js&#39;;
+    s.parentNode.insertBefore(g,s);
+})();
+  &lt;/script&gt;
+  &lt;script type=&#34;text/javascript&#34;&gt;
+   var setMethodWithNs = function(namespace) {
+  var ns = namespace ? namespace + &#39;.&#39; : &#39;&#39;
+    , fn = function(string) {
+        if(!ns) {return string}
+        return ns + string
+      }
+  return fn
+}
+
+var gaWithNamespace = function(fn, namespace) {
+  var method = setMethodWithNs(namespace)
+  fn.call(this, method)
+}
+
+var _gaq = _gaq || []
+  , accounts = [
+      { id: &#39;UA-7019765-1&#39;, namespace: &#39;douban&#39; }
+    , { id: &#39;UA-7019765-19&#39;, namespace: &#39;&#39; }
+    ]
+  , gaInit = function(account) {
+      gaWithNamespace(function(method) {
+        gaInitFn.call(this, method, account)
+      }, account.namespace)
+    }
+  , gaInitFn = function(method, account) {
+      _gaq.push([method(&#39;_setAccount&#39;), account.id]);
+      _gaq.push([method(&#39;_setSampleRate&#39;), &#39;5&#39;]);
+
+      
+  _gaq.push([method(&#39;_addOrganic&#39;), &#39;google&#39;, &#39;q&#39;])
+  _gaq.push([method(&#39;_addOrganic&#39;), &#39;baidu&#39;, &#39;wd&#39;])
+  _gaq.push([method(&#39;_addOrganic&#39;), &#39;soso&#39;, &#39;w&#39;])
+  _gaq.push([method(&#39;_addOrganic&#39;), &#39;youdao&#39;, &#39;q&#39;])
+  _gaq.push([method(&#39;_addOrganic&#39;), &#39;so.360.cn&#39;, &#39;q&#39;])
+  _gaq.push([method(&#39;_addOrganic&#39;), &#39;sogou&#39;, &#39;query&#39;])
+  if (account.namespace) {
+    _gaq.push([method(&#39;_addIgnoredOrganic&#39;), &#39;豆瓣&#39;])
+    _gaq.push([method(&#39;_addIgnoredOrganic&#39;), &#39;douban&#39;])
+    _gaq.push([method(&#39;_addIgnoredOrganic&#39;), &#39;豆瓣网&#39;])
+    _gaq.push([method(&#39;_addIgnoredOrganic&#39;), &#39;www.douban.com&#39;])
+  }
+
+      if (account.namespace === &#39;douban&#39;) {
+        _gaq.push([method(&#39;_setDomainName&#39;), &#39;.douban.com&#39;])
+      }
+
+        _gaq.push([method(&#39;_setCustomVar&#39;), 1, &#39;responsive_view_mode&#39;, &#39;desktop&#39;, 3])
+
+        _gaq.push([method(&#39;_setCustomVar&#39;), 2, &#39;login_status&#39;, &#39;0&#39;, 2]);
+
+      _gaq.push([method(&#39;_trackPageview&#39;)])
+    }
+
+for(var i = 0, l = accounts.length; i &lt; l; i++) {
+  var account = accounts[i]
+  gaInit(account)
+}
+
+
+;(function() {
+    var ga = document.createElement(&#39;script&#39;);
+    ga.src = (&#39;https:&#39; == document.location.protocol ? &#39;https://ssl&#39; : &#39;http://www&#39;) + &#39;.google-analytics.com/ga.js&#39;;
+    ga.setAttribute(&#39;async&#39;, &#39;true&#39;);
+    document.documentElement.firstChild.appendChild(ga);
+})()
+  &lt;/script&gt;
+  &lt;!-- dae-web-movie--default-754fdd47cf-rk5rx--&gt;
+  &lt;script&gt;
+   _SPLITTEST=&#39;&#39;
+  &lt;/script&gt;
+ &lt;/body&gt;
+&lt;/html&gt;
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
+
+    <div class="inner_cell">
+        
+        
+        <div class="input_area">
+            <div class=" highlight highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+<span class="n">soup</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&quot;1[0-9]*2\/$&quot;</span><span class="p">))</span>
+</pre></div>
+
+        </div>
+    </div>
+
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[31]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&lt;a href=&#34;https://movie.douban.com/subject/1291572/&#34;&gt;
+ &lt;img alt=&#34;指环王2：双塔奇兵&#34; class=&#34;&#34; src=&#34;https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2640236255.jpg&#34; width=&#34;100&#34;/&gt;
+ &lt;/a&gt;,
+ &lt;a class=&#34;&#34; href=&#34;https://movie.douban.com/subject/1291572/&#34;&gt;
+ &lt;span class=&#34;title&#34;&gt;詹军&lt;/span&gt;
+ &lt;span class=&#34;title&#34;&gt; / The Lord of the Rings: The Two Towers&lt;/span&gt;
+ &lt;span class=&#34;other&#34;&gt; / 魔戒二部曲：双城奇谋  /  指环王II：双塔&lt;/span&gt;
+ &lt;/a&gt;,
+ &lt;a href=&#34;https://movie.douban.com/subject/1292402/&#34;&gt;
+ &lt;img alt=&#34;西西里的美丽传说&#34; class=&#34;&#34; src=&#34;https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2441988159.jpg&#34; width=&#34;100&#34;/&gt;
+ &lt;/a&gt;,
+ &lt;a class=&#34;&#34; href=&#34;https://movie.douban.com/subject/1292402/&#34;&gt;
+ &lt;span class=&#34;title&#34;&gt;西西里的美丽传说&lt;/span&gt;
+ &lt;span class=&#34;title&#34;&gt; / Malèna&lt;/span&gt;
+ &lt;span class=&#34;other&#34;&gt; / 真爱伴我行(台)  /  玛莲娜&lt;/span&gt;
+ &lt;/a&gt;]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+ 
+
+
+
+</div>
+</div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../../.."</script>
+    
+    <script src="../../../js/base.js"></script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="../../../assets/mathjaxhelper.js"></script>
+
+    <div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

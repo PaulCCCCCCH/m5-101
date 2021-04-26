@@ -18,7 +18,7 @@ def read_csv(filename):
     Args:
         filename 需要读取的 csv 文件名
     """
-    f = open(filename)  # 使用 open 函数打开文件，得到一个未解码的文件 f。
+    f = open(filename, encoding="utf-8")  # 使用 open 函数打开文件，得到一个未解码的文件 f。
     return csv.reader(f)  # 用 csv 这个库来解码文件。
 
 
