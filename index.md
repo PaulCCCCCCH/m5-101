@@ -187,6 +187,9 @@
     </td>
     <td class="tg-svo0">
       <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc.zh/"> 1. Beautiful Soup 4 中文文档 </a>
+      <br>
+      <a href="https://www.bilibili.com/video/BV1L64y1U71a/"> 2. 录像</a>
+      <br>
     </td>
   </tr>
   <tr>
