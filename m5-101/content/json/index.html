@@ -7,11 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="IceWould Training Hub">
     <meta name="author" content="IceWould Training Team Led by Chonghan Chen">
-    <link rel="canonical" href="https://paulcccccch.github.io/content/code-style/">
+    <link rel="canonical" href="https://paulcccccch.github.io/content/json/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
 
     
-    <title>编程规范和习惯 - m5-101</title>
+    <title>JSON —— 超时空胶囊 - m5-101</title>
     
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
@@ -114,7 +114,7 @@
 
             <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="https://github.com/PaulCCCCCCH/m5-101/edit/master/docs/content/code-style.md"><i class="fab fa-github"></i> Edit on GitHub</a>
+                        <a href="https://github.com/PaulCCCCCCH/m5-101/edit/master/docs/content/json.md"><i class="fab fa-github"></i> Edit on GitHub</a>
                     </li>
             </ul>
         </div>
@@ -126,76 +126,78 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#_1">编程规范和习惯</a></li>
-            <li class="second-level"><a href="#_2">程序一</a></li>
-                
-            <li class="second-level"><a href="#_3">程序二</a></li>
-                
-            <li class="second-level"><a href="#_4">变量的命名</a></li>
-                
-            <li class="second-level"><a href="#_5">格式的问题</a></li>
-                
-            <li class="second-level"><a href="#_6">易于更改的问题</a></li>
-                
+        <li class="first-level active"><a href="#json">JSON —— 超时空胶囊</a></li>
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h1 id="_1">编程规范和习惯</h1>
-<blockquote>
-<p>几乎所有会写代码的人都认为，编程和写诗一样，是一门艺术。<br />
-<br>
-Source: Dude trust me.  </p>
-</blockquote>
-<p>其实，能够写出实现需求的程序，只是编程能力中的一小块。很多时候更重要的事情，是代码本身。<br />
+<h1 id="json">JSON —— 超时空胶囊</h1>
+<p>在互联网上传输消息，目前最常用的格式是用 JavaScript Object Notion，或 <code>JSON</code>。<br />
 <br></p>
-<p>毕竟程序是给人看的，我们要尽可能地让自己的代码简介明了，前后一致，而且，更重要的是，改起来方便。<br />
+<p>它就像是一个胶囊，你把数据塞进去，然后它就可以通过网络，“嗖”的一下飞到别人电脑上（当然，也有 <code>XML</code> 之类的胶囊可以用）。<br />
 <br></p>
-<p>我们以下面两段程序为例来分析。<br />
-<br></p>
-<h2 id="_2">程序一</h2>
-<pre><code class="language-python">
-a=&quot;小王&quot;
-b=69
-print(a+&quot;的得分是: &quot;  +b)
-
-a =&quot;小红&quot;
-b= 80
-print (a +&quot;的得分是: &quot; + b)
-
-a=&quot;小明&quot;
-b = 73
-print (a+ &quot;的得分是: &quot;+ b)
+<p>简单来说，<code>JSON</code> 就是 <code>JavaScript</code> 版的 <code>Python</code> 字典，即很多很多键值对(<code>key-value pairs</code>) 堆在一起，像下面这样：</p>
+<pre><code class="language-json">{
+    &quot;name&quot;: &quot;Paul Chen&quot;,
+    &quot;age&quot;: 22,
+    &quot;city&quot;: &quot;Shanghai&quot;,
+    &quot;birthdate&quot;: &quot;November 27 1998&quot;
+}
 </code></pre>
-<h2 id="_3">程序二</h2>
-<pre><code class="language-python">
-def printScore(student_name, student_score):
-    print(student_name + &quot;的得分是: &quot; + str(student_score))
-
-
-for n, s in [(&quot;小王&quot;, 69), (&quot;小红&quot;, 80), (&quot;小明&quot;, 73)]:
-    printScore(n, s)
-
+<p>这里，每个索引 (<code>key</code>) 是一个字符串或数字，每个值 (<code>value</code>) 也是字符串或数字。<br />
+<br></p>
+<p>像 <code>Python</code> 的字典一样，<code>JSON</code> 也可以像下面这样嵌套：</p>
+<pre><code class="language-json">{
+    &quot;name&quot;: &quot;Paul Chen&quot;,
+    &quot;age&quot;: 22,
+    &quot;city&quot;: &quot;Shanghai&quot;,
+    &quot;birthdate&quot;: {
+        &quot;year&quot;: 1998,
+        &quot;month&quot;: 11,
+        &quot;day&quot;: 27
+    }
+}
 </code></pre>
-<p>同样是打印三个学生的成绩，我们希望你书写第二种程序。我们会从三个角度分析。<br />
-<br></p>
-<h2 id="_4">变量的命名</h2>
-<p><code>程序一</code>中，我们看到了两个变量 <code>a</code> 和 <code>b</code>。在稍微长一点的程序里，这样的变量就会让人疑惑：这个变量是干啥的？<br />
-<br></p>
-<p>于是，这个人要通过理解代码来猜测变量的用途，而这是相当费事的过程，在一些情况下，甚至是几乎不可能做到的。<br />
-<br></p>
-<p>事实上，很多人会故意把变量名都变成 <code>a</code>，<code>b</code> 之类没有意义的东西，以防止自己的程序被人理解，然后被抄袭或者盗用。然而，这也不需要你手动这样做，有很多 <code>代码混淆</code> 工具可以自动做到这件事。<br />
-<br></p>
-<p>所以，只要你在写程序，请尽量取好变量名，让人一看就知道它是干啥的。就像 <code>程序二</code> 那样，大家一看就知道 <code>student_name</code> 和 <code>student_score</code> 是啥意思。<br />
-<br></p>
-<h2 id="_5">格式的问题</h2>
-<p>每个人可能有不同的 <code>style</code>，但务必做到前后一致。比如，你如果你习惯在等号、加号等符号两边加一个空格（笔者建议这么做），那么请在你的程序里从头到尾都这么做。<br />
-<br></p>
-<h2 id="_6">易于更改的问题</h2>
-<p>很少有程序，一经写出，就再也不用修改。比如上述程序，一个很可能的修改是，我们需要 <code>print</code> 第四个第五个学生。
-<br></p>
-<p>所以，我们在写的时候，就要让程序尽量容易修改。<br />
-<br></p></div>
+<p><code>JSON</code> 也可以囊括数组，这样就可以记录一个表格的信息：  </p>
+<pre><code class="language-json">{
+    &quot;TAs&quot;: [
+    {
+        &quot;name&quot;: &quot;Paul Chen&quot;,
+        &quot;age&quot;: 22,
+        &quot;city&quot;: &quot;Shanghai&quot;,
+        &quot;birthdate&quot;: &quot;November 27 1998&quot;
+    },
+    {
+        &quot;name&quot;: &quot;皮&quot;,
+        &quot;age&quot;: 100,
+        &quot;city&quot;: &quot;Mars&quot;,
+        &quot;birthdate&quot;: &quot;Feburary 31 19998&quot;
+    },
+    {
+        &quot;name&quot;: &quot;Kobe&quot;,
+        &quot;age&quot;: 3,
+        &quot;city&quot;: &quot;The Wild Rift&quot;,
+        &quot;birthdate&quot;: &quot;Jan 1 1BC&quot;
+    }
+    ]
+}
+</code></pre>
+<p>使用 <code>Python</code> 自带的 <code>json</code> 库可以很方便地把字典转化成 <code>JSON</code>：  </p>
+<pre><code class="language-python">import json
+my_dict = {&quot;name&quot;: &quot;Paul Chen&quot;, &quot;age&quot;: 22, &quot;city&quot;: &quot;Shanghai&quot;, &quot;birthdate&quot;: &quot;November 27 1998&quot;}
+my_json = json.dumps(my_dict)
+</code></pre>
+<p>也可以把从服务器那里拿到的 <code>JSON</code> 当成字典去使用（可以复制这段代码运行一下试试看）：  </p>
+<pre><code class="language-python">import json
+import requests
+
+response = requests.get(&quot;http://icewould.com:5201/getProduct?id=1&quot;) # 向服务器发送请求
+my_dict = response.json() # 把返回的消息处理成 python 的字典
+
+print(my_dict)
+print(my_dict[&quot;name&quot;])
+</code></pre>
+<p>这在与服务器交互的时候会经常用到，在编写爬虫脚本的时候也可能会涉及。</p></div>
         
         
     </div>
