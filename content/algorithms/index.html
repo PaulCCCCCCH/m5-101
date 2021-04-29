@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="IceWould Training Hub">
+    <meta name="author" content="IceWould Training Team Led by Chonghan Chen">
+    <link rel="canonical" href="https://paulcccccch.github.io/content/algorithms/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+
+    
+    <title>算法的概念 - m5-101</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/base.min.css" rel="stylesheet">
+    <link href="../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../..">m5-101</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../home/">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../..">Schedule</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Notes <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../introduction/">Introduction</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Notebook Pages <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../hello-world/">Hello World</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="https://github.com/PaulCCCCCCH/m5-101/edit/master/docs/content/algorithms.md"><i class="fab fa-github"></i> Edit on GitHub</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#_1">算法的概念</a></li>
+            <li class="second-level"><a href="#_2">算法</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="_1">算法的概念</h1>
+<p>我们暂时不要求各位掌握任何算法或数据结构，只需要先从概念上了解一下它们是什么就行。</p>
+<h2 id="_2">算法</h2>
+<p>比如，我们想写一个程序，把给定的一堆数字从大到小进行排序。当只有几个数字的时候，比如<code>10, 3, 20, 17, 8</code>，我们觉得，一眼就能看出来答案是 <code>20, 17, 10, 8, 3</code>，所以不需要什么流程。但是，当数字很多很多的时候，流程的重要性就体现出来了。只有遵照流程，有条不紊地进行，才不会在排序过程中出错。不信的话，试试排列以下数字。  </p>
+<pre><code>8, 52, 86, 39, 34, 15, 96, 95, 79, 70, 72, 42, 48, 35, 58, 81, 42, 29, 56, 72, 90, 80, 53, 17, 87, 4, 0, 49, 46, 74, 27, 86, 6, 88, 30, 15, 52, 56, 39, 65, 36, 50, 54, 73, 85, 21, 5, 15, 38, 28, 99, 68, 74, 4, 35, 16, 68, 23, 19, 35, 53, 92, 78, 73, 34, 53, 98, 49, 10, 56, 94, 37, 36, 25, 45, 40, 48, 58, 57, 34, 99, 83, 30, 86, 14, 69, 20, 57, 19, 74, 40, 22, 76, 21, 79, 92, 25, 93, 60, 32。  
+</code></pre>
+<p><br></p>
+<p>那么，要根据怎么样的流程去做呢？你可能可以这样：把所有数字看一遍，把最大的拿出来；然后再看一遍剩下的数字，把最大的拿出来（这是第二大的）...如此反复，就把它重新排列好了。<br />
+<br></p>
+<p>用 <code>python</code> 写出来的话，是这样  </p>
+<pre><code class="language-python">def sort_numbers(numbers):
+    result = []     # 这里记录排列好的序列
+    while numbers:  # 一直循环，直到 numbers 为空
+        curr_max = -float('inf')    # 记录当前最大的数，因为还没开始，所以是负无穷大
+        curr_max_idx = 0            # 记录当前最大的数在第几个
+        for idx in range(len(numbers)):  
+            if numbers[idx] &gt; curr_max:
+                curr_max = numbers[idx] 
+                curr_max_idx = idx
+
+        numbers.pop(curr_max_idx)   # 把 numbers 里面最大的那个数扔掉
+        result.append(curr_max)     # 把这个最大的数放到 result 数组里面
+
+    return result                   # 返回的 result 就是排列好的数组了
+</code></pre>
+<p>但是，这个程序的效率其实很差劲。对十万个随机数字 (<code>[random.randint(0, 100000) for _ in range(100000)]</code>) 进行排序，花费的时间是 <code>169.0475</code> 秒，而使用 <code>python</code> 自带的 <code>sort</code> 函数，则只需要 <code>0.0222</code> 秒。<br />
+<br></p>
+<p>我们暂时不去想 <code>python</code> 的 <code>sort</code> 是怎么实现的（它一定使用了更聪明的办法）。我们只要知道，算法在效率上是分优劣的。在我们的 <code>sort_numbers</code> 中，我们不停地把数字看了一遍又一遍，这非常浪费时间，可能也不是很有必要，这是需要被<strong>优化</strong>的。<br />
+<br></p></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../.."</script>
+    
+    <script src="../../js/base.js"></script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="../../assets/mathjaxhelper.js"></script>
+
+    <div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

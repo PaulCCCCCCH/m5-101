@@ -207,8 +207,8 @@
       <br>
       <a href="./content/html-parsing">2. 网页信息提取</a>
     </td>
-    <td class="tg-svo0" rowspan="2">
-      <a href="./content/html-parsing-practice">1. 信息提取练习</a>
+    <td class="tg-svo0">
+      <a href="./content/html-parsing-practice"> 信息提取练习</a>
     </td>
     <td class="tg-svo0" rowspan="6">
       <span href="./content/web-crawler">Project 3: Web Crawler 网络爬虫</a>
@@ -219,10 +219,13 @@
     <td class="tg-c3ow">Thur<br>4/29<br>20:00-22:00</td>
     <td class="tg-c3ow">PMB<br>309</td>
     <td class="tg-c3ow">
-      <span href="./content/network">1. 递归——信仰之跃</a>
+      <a href="./content/recursion">1. 递归——信仰之跃</a>
       <br>
-      <span href="./content/network">2. 算法和数据结构概念</a>
+      <a href="./content/algorithms">2. 算法的概念</a>
       <br>
+    <td class="tg-c3ow">
+      <a href="./content/algorithms-practice">算法练习</a>
+    </td>
     <td class="tg-c3ow"></td>
   </tr>
   <tr>
