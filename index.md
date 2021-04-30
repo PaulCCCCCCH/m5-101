@@ -1,4 +1,12 @@
 # Announcements
+## 4 月 30 号（新）
+五一我们没有 `Lab`。各位如果有空的话，请把之前的练习和 `project` 都补一补。最好能再刷一刷 `advent of code` 哦！链接放在下面的 `Utils` 里面了！
+<br>
+当然，也别太卷了。春光大好的时间，还是要 **enjoy your life** 呀！  
+<br>
+
+另外，我们正在进行**暑期实习生招聘**，如果想要丰富自己的假期、获得一些工作经验，可以关注微信公众号 `icewould`，点击`校内招聘`了解更多信息！填表的时候备注来自 `m5-101` 可以优先被考虑！  
+<br>
 
 ### 3/25: 
 请先阅读所有能点击的 `Notes` 和 `Practice`，然后尝试 Project 1。务必积极寻求帮助。`Resources`里的菜鸟教程是当作新华字典用的，虽然上面的东西迟早都会熟悉，但是不建议新手一上来就先通读。
@@ -8,7 +16,8 @@
 
 
 # Utils
-请从 `icewould.com:8888` 使用我们的 `jupyter notebook`。
+- 请从 `icewould.com:8888` 使用我们的 `jupyter notebook`。
+- 请多多使用 https://adventofcode.com/ 练习自己的代码能力。在 `Leaderboard` 中输入邀请码 `387770-cbc168b5`，可以加入我们的刷题小队。
 
 # Schedule
 
@@ -213,7 +222,9 @@
     <td class="tg-svo0" rowspan="6">
       <span href="./content/web-crawler">Project 3: Web Crawler 网络爬虫</a>
     </td>
-    <td class="tg-svo0"></td>
+    <td class="tg-svo0">
+      <a href="https://www.bilibili.com/video/BV17y4y1s7ik/"> 1. 录像</a>
+    </td>
   </tr>
   <tr>
     <td class="tg-c3ow">Thur<br>4/29<br>20:00-22:00</td>
@@ -231,11 +242,11 @@
   <tr>
     <td class="tg-svo0" rowspan="2">Week 7</td>
     <td class="tg-svo0">Mon<br>5/3<br>20:00-22:00</td>
-    <td class="tg-svo0">PMB<br>309</td>
+    <td class="tg-svo0"><b>没有安排</b></td>
     <td class="tg-svo0">
-      <span href="./content/network">1. 网页遍历算法</a>
+        <b>劳动节，没有 Lab</b>
     </td>
-    <td class="tg-svo0">TBA</td>
+    <td class="tg-svo0">Nothing</td>
     <td class="tg-svo0"></td>
   </tr>
   <tr>
@@ -243,6 +254,8 @@
     <td class="tg-c3ow">PMB<br>309</td>
     <td class="tg-c3ow">
       <span href="./content/network">1. HTTP 协议和伪装</a>
+      <br>
+      <span href="./content/network">2. 网页遍历算法</a>
     </td>
     <td class="tg-c3ow">TBA</td>
     <td class="tg-c3ow"></td>
