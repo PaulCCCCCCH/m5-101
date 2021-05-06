@@ -237,7 +237,9 @@
     <td class="tg-c3ow">
       <a href="./content/algorithms-practice">算法练习</a>
     </td>
-    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow">
+      <a href="https://www.bilibili.com/video/BV1at411T75o?from=search&seid=14008345895727111022" > 1. 快速排序算法</a>
+    </td>
   </tr>
   <tr>
     <td class="tg-svo0" rowspan="2">Week 7</td>
