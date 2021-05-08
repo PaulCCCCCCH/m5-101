@@ -135,13 +135,17 @@
                 
             <li class="second-level"><a href="#section-2">Section 2: 微调</a></li>
                 
-            <li class="second-level"><a href="#section-3">Section 3: 建立简单索引</a></li>
+            <li class="second-level"><a href="#section-3">Section 3: 建立索引</a></li>
                 
             <li class="second-level"><a href="#section-4">Section 4: 项目名查询</a></li>
                 
-            <li class="second-level"><a href="#section-5">Section 5: 建立进一步索引</a></li>
+            <li class="second-level"><a href="#section-5">Section 5: 内容关键字查询</a></li>
+                
+            <li class="second-level"><a href="#section-5_1">Section 5: 建立更高效的索引</a></li>
                 
             <li class="second-level"><a href="#section-6">Section 6: 全局搜索</a></li>
+                
+            <li class="second-level"><a href="#_3">总结</a></li>
                 
     </ul>
 </div></div>
@@ -151,11 +155,13 @@
 <h2 id="_1">引言</h2>
 <p>时光飞逝。转眼间，小王已经大三了。这么多年来，他一直怀有出国读研的梦想。而现在，正是申请研究生的大好时机。只是，他对申研毫无头绪，不知道从什么地方入手：这么多学校，我怎么知道谁家的研究生更适合我呢？我该上哪去搜索相关的信息呢？<br />
 <br></p>
-<p>他去某度搜索“牛津大学数学系研究生申请”，得到的只有铺天盖地的野鸡中介的广告。听小明说，你是一位会用 <code>Python</code> 写程序大佬，上次帮他解决过工作上遇到的难题。于是，经小明的推荐，小王找到了你，希望你能帮帮他。<br />
+<p>他去某度搜索“牛津大学数学系研究生申请”，得到的只有铺天盖地的野鸡中介的广告，这让他更加绝望。<br />
+<br></p>
+<p>五一假期聚会的时候，小王听小明说，你是一位会用 <code>Python</code> 写程序大佬，上次帮他解决过工作上遇到的难题。于是，经小明的推荐，小王找到了你，希望你能帮帮他。<br />
 <br></p>
 <p>你回想起最近在学习的爬虫，眉头一皱，发现事情可以很简单。一次简单的开发，可以满足很多人的需求。于是，你欣然接下了这个请求<strike>，并且要求小王请自己吃饭</strike>。</p>
 <h2 id="_2">准备工作</h2>
-<p>请下载初始代码。
+<p>请下载初始代码。（尚未准备好）
 <a href="">下载链接</a></p>
 <h2 id="section-1">Section 1: 页面下载</h2>
 <p>以牛津的<a href="https://www.ox.ac.uk/admissions/graduate/courses/courses-a-z-listing">硕士项目列表</a>为例。<br />
@@ -172,42 +178,198 @@
 - <a href="http://catalog.illinois.edu/graduate/">UIUC</a><br />
 - <a href="https://www.imperial.ac.uk/study/pg/courses/">帝国理工</a><br />
 - <a href="https://www.postgraduate.study.cam.ac.uk/courses">剑桥大学</a>  </p>
-<p>你打算先拿上面几所学校做一下实验。比较热门的学校可能有一百来所，你打算找几个同样懂爬虫的朋友，分一下工，大概一天时间就能全部爬下来。<br />
+<p>比较热门的学校可能有一百来所，你打算先拿上面几所学校的网站做个实验，之后找几个同样懂爬虫的朋友，分一下工，大概一两天时间就能把全部热门大学的项目都爬下来。<br />
 <br></p>
-<h2 id="section-3">Section 3: 建立简单索引</h2>
-<p>光有数据，其实用处不大；从数据中提取的信息，才有价值。为了让提取信息的过程更加高效，我们要对数据进行<strong>预处理</strong>。<br />
+<h2 id="section-3">Section 3: 建立索引</h2>
+<p>我们已经把数据都下载到本地了。可是，光有数据，其实用处不大；从数据中提取的信息，才有价值。为了让提取信息的过程更加高效，我们要对数据进行<strong>预处理</strong>。<br />
 <br></p>
 <p>正常情况下，我们需要建立一个<strong>关系型数据库</strong>来高效地存储预处理之后的信息，不过这有点点超纲。我们先用普通的文件来存储。<br />
 <br></p>
+<p>想象一下：现在我们手里有大量学校的项目介绍页面。我希望从中搜索所有标题带有 <code>math</code> 的项目（这些可能都是我感兴趣的）。为了方便搜索，我该怎么做呢？<br />
+<br></p>
 <p>首先，我们遍历所有文件夹里的所有 <code>html</code> 文件。对于其中的每一个文件，我们提取以下信息（JSON 格式，以帝国理工 <code>Advanced Computer Science 为例</code>）：  </p>
 <pre><code class="language-json">{
+    &quot;document_id&quot;: &quot;1&quot;,
     &quot;school_name&quot;: &quot;Oxford&quot;,
     &quot;program_name&quot;: &quot;Advanced Computer Science&quot;,
     &quot;file_path&quot;: &quot;./oxford/advanced-computer-science.html&quot;,
     &quot;program_description&quot;: &quot;.....&quot;
 }
 </code></pre>
-<p>每一个 <code>html</code> 文件都是这样一个 <code>json</code> 文件。请把所有的 <code>object</code> 保存下来，放在一个名为 <code>programs.json</code> 的文件。<br />
+<p>每一个 <code>html</code> 文件都对应这样一个 <code>json</code> 格式的数据。<br />
 <br></p>
-<p>注意：<code>program_description</code> 字段，即是 <code>html</code> 页面的内容。但是，请进行处理以下处理<br />
+<p>之后，请把所有的 <code>json</code> 对象放在字典 <code>program_dict</code> 变量里，每个对象对应一个唯一的 <code>document_id</code>，这会作为字典的 <code>key</code>，而 <code>value</code> 则是剩下的信息。换句话说，这个字典大概长这样：</p>
+<pre><code class="language-python">{
+    1: {
+        &quot;document_id&quot;: &quot;1&quot;,
+        &quot;school_name&quot;: &quot;Oxford&quot;,
+        &quot;program_name&quot;: &quot;Advanced Computer Science&quot;,
+        &quot;file_path&quot;: &quot;./oxford/advanced-computer-science.html&quot;,
+        &quot;program_description&quot;: &quot;.....&quot;
+    }, 
+    2: {
+        &quot;document_id&quot;: &quot;2&quot;,
+        &quot;school_name&quot;: &quot;Cambridge&quot;,
+        &quot;program_name&quot;: &quot;Computer Science&quot;,
+        &quot;file_path&quot;: &quot;./cambridge/computer-science.html&quot;,
+        &quot;program_description&quot;: &quot;.....&quot;
+    }
+    # ... 其它的
+}
+
+</code></pre>
+<p><br></p>
+<p>最后，请使用 <code>python</code> 自带的 <code>pickle</code> 这个库，将 <code>program_dict</code> 这个字典变量保存在一个名为 <code>programs.pkl</code> 的文件。这就是我们的 <code>索引</code>。它的本质，就是以一定格式存放的数据，可以方便我们进行查询。它其实等价于一下这张表：<br />
+<br></p>
+<table>
+<thead>
+<tr>
+<th>document_id</th>
+<th>school_name</th>
+<th>program_name</th>
+<th>file_path</th>
+<th>program_description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Oxford</td>
+<td>Advanced Computer Science</td>
+<td>./oxford/advanced-computer-science.html</td>
+<td>...</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Cambridge</td>
+<td>Computer Science</td>
+<td>./cambridge/computer-science.html</td>
+<td>...</td>
+</tr>
+<tr>
+<td>3</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<td><br></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>注意：<code>program_description</code> 字段，即是 <code>html</code> 页面的内容。但是，请对它进行处理以下处理：<br />
 - 消除所有 <code>&lt;script&gt;&lt;/script&gt;</code> 标签中间的全部内容。<br />
 - 消除所有 <code>html</code> 标签，以及特殊符号。 <br />
-- （总之，越干净越好，最好只保留文字信息）。<br />
+- 其它可能的操作（总之，越干净越好，最好只保留文字信息）。<br />
 <br></p>
-<p>如果忘记了怎么用 <code>python</code> 管理文件，可以回顾一下<a href="../file-management">文件管理</a>这一章的内容。<br />
+<p>如果忘记了怎么用 <code>python</code> 管理文件，可以回顾一下<a href="../file-management">文件管理</a>这一章的内容。如果忘记怎么使用<code>正则表达式</code>，可以参考 Week 2 四月一号的内容。
 <br></p>
 <h2 id="section-4">Section 4: 项目名查询</h2>
 <p>索引建立好之后，我们需要另外写一个脚本 <code>search.py</code>，方便用户搜索信息。<br />
 <br></p>
 <p>这个脚本的需求如下：<br />
-1. 需要读取 <code>programs.json</code> 的所有内容，保存成一个 <code>字典</code>。<br />
-2. 需要用 <code>input</code> 函数监听用户的输入，然后。<br />
+1. 需要读取 <code>programs.pkl</code> 保存的字典。<br />
+2. 需要用 <code>input</code> 函数监听用户的输入。<br />
 3. 在字典里面搜索<strong>所有<code>program_name</code>包含用户输入</strong>的项目并打印。<br />
 <br></p>
 <p>比如，我想申请数学系的研究生，于是我输入 <code>math</code> 这个关键词，程序就会输出所有我可能感兴趣的项目。<br />
 <br></p>
-<h2 id="section-5">Section 5: 建立进一步索引</h2>
-<h2 id="section-6">Section 6: 全局搜索</h2></div>
+<h2 id="section-5">Section 5: 内容关键字查询</h2>
+<p>现在，我想知道，哪些项目可能需要考 <code>GRE</code>，哪些需要 <code>GMAT</code>，哪些两者都不要。于是，你可能需要列出包含这些关键字的项目信息。<br />
+<br></p>
+<p>稍微思考过后，你觉得可能可以这样做：</p>
+<pre><code class="language-python">1. 读取 programs.pkl，保存在名为 my_dict 的字典变量中（这就是所有 program 的信息）。
+2. 对于 my_dict 中的每一个 item （每一个 item 就是每一个 program 的信息）：
+    2.1 搜索 item 的 program_description 这一字段，看其中是否包含某些关键词。如果包含，则记录。
+3. 返回所有的记录
+</code></pre>
+<p>请写一个 <code>search_key_word.py</code>，实现以上的查询功能。具体需求如下：<br />
+1. 需要读取 <code>programs.pkl</code> （会得到一个<code>字典</code>）。<br />
+2. 需要用 <code>input</code> 函数监听用户的输入。<br />
+3. 在字典里面搜索<strong>所有<code>program_description</code>包含用户输入</strong>的项目并打印。<br />
+<br></p>
+<p>完成之后，请尝试运行，并留意程序运行所耗费的时间。<br />
+<br></p>
+<h2 id="section-5_1">Section 5: 建立更高效的索引</h2>
+<p>你也许注意到了，运行上面的程序会花费比较久的时间。如果你真的爬下了所有大学的项目信息，或者有很多关键词想要查询，就可能得花上很久很久。<br />
+<br></p>
+<p>那么，有没有什么办法，加快搜索的速度呢？答案是肯定的，只要你建立一种更为高效的索引。<br />
+<br></p>
+<p>首先，我们要用一个名为 <code>word_dict</code> 的 <code>字典</code> 变量额外存储这样一张表格（其中 <code>word</code> 是这个字典的 <code>key</code>）：  </p>
+<table>
+<thead>
+<tr>
+<th>word</th>
+<th>count</th>
+<th>occurrences</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>academic</td>
+<td>5</td>
+<td>[1, 4, 5, 8, 9]</td>
+</tr>
+<tr>
+<td>advantage</td>
+<td>3</td>
+<td>[1, 2, 3]</td>
+</tr>
+<tr>
+<td>astronomy</td>
+<td>10</td>
+<td>[1, 2, 3, 4, 5, 6, 7, 10, 12, 14]</td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<td><br></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>其中，<code>word</code> 是在所有项目里都出现过的单词，<code>count</code> 是它们出现过的次数，<code>occurrences</code> 记录了单词在哪些页面里面出现过（是一列数字，每个都对应之前的 <code>document_id</code>）<br />
+<br></p>
+<p>然后，请用 <code>pickle</code> 把之前的 <code>program_dict</code> 和 <code>word_dict</code> 塞进一个 <code>tuple</code> 变量，像这样：</p>
+<pre><code class="language-python">to_save = (program_dict, word_dict)
+</code></pre>
+<p>最后，把 <code>to_save</code> 保存到 <code>programs_improved.pkl</code>。这个<strong>新的索引</strong>可以帮我们更高效地完成搜索。<br />
+<br></p>
+<h2 id="section-6">Section 6: 全局搜索</h2>
+<p>现在，我们需要实现搜索关键词的功能。请写一个脚本 <code>search_key_word_improved.py</code>，重新实现 <code>Section 5</code> 的功能。<br />
+<br></p>
+<p>提示：你可以直接在 <code>word_dict</code> 搜索一个关键词，得到一列 <code>document_id</code>，然后用 <code>document_id</code> 去搜索 <code>program_dict</code>。<br />
+<br></p>
+<p>做好之后，请再次尝试运行这个程序，看看是不是快了很多！<br />
+<br></p>
+<h2 id="_3">总结</h2>
+<p>在这个项目里，我们完成了一个爬虫项目从数据获取 (<code>Section 1</code> 和 <code>Section 2</code>)、数据整理 (<code>Section 3</code> 和 <code>Section 5</code>)以及数据查询 (<code>Section 4</code> 和 <code>Section 6</code>) 的整个流程。我们可以在流程中加入许多其它的技术，让我们的成果更加有用。我们列出一些可以被优化的方向以及它们的难度（仅供参考），如果大家有兴趣的话，可以深入研究。  </p>
+<ul>
+<li>数据获取：  <ul>
+<li>（难）我们可以给爬虫加入基础的页面内容判断机制，让它自己适应不同学校的网站，这样就不需要针对每个学校的网页微调自己的爬虫，从而节省劳动力。  </li>
+<li>（难）我们可以从更广阔的互联网获取信息，而不是只局限于学校的官方网站。  </li>
+</ul>
+</li>
+<li>数据整理：  <ul>
+<li>（中等）我们可以使用自然语言处理 (NLP) 的相关技术，对页面的信息进行提取和分析（比如，根据特定关键词的数量和位置，为一个研究生项目打分）。  </li>
+<li>（简单）我们可以参考搜索引擎相关技术，进一步优化我们的索引。（事实上，我们在这个项目中建立的第二个索引，正是简化了的<code>倒排索引</code>，这是搜索引擎中非常常用的索引方法）  </li>
+</ul>
+</li>
+<li>数据查询：  <ul>
+<li>（简单）我们可以提供一个更优雅的查询结果展示界面（比如，在建立索引的时候，同时标记单词在文本中出现的位置，这样可以在搜索结果中把关键词高亮展示出来）。  </li>
+<li>（中等）我们可以加入模糊搜索功能。比如，搜索 <code>maths</code>，会出现 <code>mathematics</code>，<code>math</code> 相关的结果。搜索 <code>Fibonaci</code>（一个拼写错误）会出现 <code>Fibonacci</code> 的相关结果。  </li>
+</ul>
+</li>
+</ul></div>
         
         
     </div>
