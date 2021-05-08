@@ -220,7 +220,7 @@
       <a href="./content/html-parsing-practice"> 信息提取练习</a>
     </td>
     <td class="tg-svo0" rowspan="6">
-      <span href="./content/web-crawler">Project 3: Web Crawler 网络爬虫</a>
+      <a href="./content/web-crawler">Project 3: Web Crawler 网络爬虫</a>
     </td>
     <td class="tg-svo0">
       <a href="https://www.bilibili.com/video/BV17y4y1s7ik/"> 1. 录像</a>
@@ -237,7 +237,9 @@
     <td class="tg-c3ow">
       <a href="./content/algorithms-practice">算法练习</a>
     </td>
-    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow">
+      <a href="https://www.bilibili.com/video/BV1at411T75o?from=search&seid=14008345895727111022" > 1. 快速排序算法</a>
+    </td>
   </tr>
   <tr>
     <td class="tg-svo0" rowspan="2">Week 7</td>
