@@ -37,6 +37,8 @@
 - [UIUC](http://catalog.illinois.edu/graduate/)  
 - [帝国理工](https://www.imperial.ac.uk/study/pg/courses/)  
 - [剑桥大学](https://www.postgraduate.study.cam.ac.uk/courses)  
+- [Manchester](https://www.manchester.ac.uk/study/masters/courses/list/)
+
 
 比较热门的学校可能有一百来所，你打算先拿上面几所学校的网站做个实验，之后找几个同样懂爬虫的朋友，分一下工，大概一两天时间就能把全部热门大学的项目都爬下来。  
 <br>

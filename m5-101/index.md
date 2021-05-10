@@ -1,5 +1,18 @@
 # Announcements
-## 4 月 30 号（新）
+## 5 月 10 号（新）
+考虑到各位校内课业繁忙，可能许多内容还没来得及做，也不是很有时间巩固基础，<strike>而且开发内容的学长也已经顶不住压力了，</strike>所以我们对原计划作出调整：原定 `Week 8` 以及之后要学习的内容 (`遍历算法`、`HTTP 协议详解`，`客户端-服务端通讯` 以及 `UI` 制作) 先搁置，换成可以帮助大家巩固基础的内容。
+<br>
+
+之后每次 `Lab` 的形式和时间分配不变，也是讲解 + 练习。内容安排大概如下：  
+1. 讲解之前布置的习题（或者讲解新习题）  
+2. 布置新习题  
+3. 自己完成习题  
+4. 完成之前所有的 `Project` 和练习  
+
+至于原定的后续内容，如果感兴趣、想学习，可以单独找我们聊！或者，自己有什么感兴趣的方向，我们可以提供研究的指导！希望大家理解这一点，这个培训项目难得的地方并不是巧妙地组织了内容，而是我们投入了很多精力，很有针对性、效率很高地交流、答疑解惑。所以，大可不必拘泥于课程表上的内容，我们才是各位的核心资源！  
+<br>
+
+### 4 月 30 号
 五一我们没有 `Lab`。各位如果有空的话，请把之前的练习和 `project` 都补一补。最好能再刷一刷 `advent of code` 哦！链接放在下面的 `Utils` 里面了！
 <br>
 当然，也别太卷了。春光大好的时间，还是要 **enjoy your life** 呀！  
@@ -69,7 +82,6 @@
     <td class="tg-c3ow">Thur<br>3/25<br>20:00-22:00</td>
     <td class="tg-c3ow">PMB<br>309</td>
     <td class="tg-c3ow">
-
       <a href="./content/python-set-up">1. Python 开发环境搭建</a>
       <br>
       <a href="./content/hello-world">2. Hello World</a>
@@ -78,7 +90,6 @@
       <br>
       <a href="./content/python-basics-1">4. Python 基础: 数据类型和基本语句</a>
       <br>
-
     </td>
     <td class="tg-c3ow">
       <a href="./content/python-basics-1-practice">Python 基础练习1</a> 
@@ -255,6 +266,36 @@
     <td class="tg-c3ow">Thur<br>5/6<br>20:00-22:00</td>
     <td class="tg-c3ow">PMB<br>309</td>
     <td class="tg-c3ow">
+        <b> 复习，推进项目和练习</b>
+    </td>
+    <td class="tg-c3ow">Nothing</td>
+    <td class="tg-c3ow"></td>
+  </tr>
+  <tr>
+    <td class="tg-svo0" rowspan="2">Week 8</td>
+    <td class="tg-svo0">Mon<br>5/10<br>20:00-22:00</td>
+    <td class="tg-svo0">PMB<br>309</td>
+    <td class="tg-svo0">
+      <a href="./content/practice-1"> 练习内容 </a>
+    </td>
+    <td class="tg-svo0"></td>
+    <td class="tg-svo0"></td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">Thur<br>5/13<br>20:00-22:00</td>
+    <td class="tg-c3ow">PMB<br>309</td>
+    <td class="tg-c3ow">
+      <span href="practice-2">1. 练习 </a>
+    </td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+  </tr>
+<td class="tg-c3ow" colspan="6">后续内容陆续展示</td>
+<!-- 
+  <tr>
+    <td class="tg-c3ow">Thur<br>5/6<br>20:00-22:00</td>
+    <td class="tg-c3ow">PMB<br>309</td>
+    <td class="tg-c3ow">
       <span href="./content/network">1. HTTP 协议和伪装</a>
       <br>
       <span href="./content/network">2. 网页遍历算法</a>
@@ -287,8 +328,7 @@
     <td class="tg-c3ow"></td>
     <td class="tg-c3ow"></td>
   </tr>
-<td class="tg-c3ow" colspan="6">后续内容陆续展示</td>
-<!-- 
+
   <tr>
     <td class="tg-svo0" rowspan="2">Week 5</td>
     <td class="tg-svo0">Placeholder</td>
