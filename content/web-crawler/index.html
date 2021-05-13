@@ -141,9 +141,9 @@
                 
             <li class="second-level"><a href="#section-5">Section 5: 内容关键字查询</a></li>
                 
-            <li class="second-level"><a href="#section-5_1">Section 5: 建立更高效的索引</a></li>
+            <li class="second-level"><a href="#section-6">Section 6: 建立更高效的索引</a></li>
                 
-            <li class="second-level"><a href="#section-6">Section 6: 全局搜索</a></li>
+            <li class="second-level"><a href="#section-7">Section 7: 全局搜索</a></li>
                 
             <li class="second-level"><a href="#_3">总结</a></li>
                 
@@ -175,11 +175,15 @@
 2. 我们只关心硕士项目（M 开头的学位）。比如，<code>Msc</code>，<code>MSt</code>, <code>MTh</code>, <code>MPhil</code> 等都是我们要下载的，而 <code>D</code> 打头的博士学位项目，以及 <code>PG</code> 打头的继续教育项目，需要直接跳过。</p>
 <h2 id="section-2">Section 2: 微调</h2>
 <p>我们在以上程序的基础上，进行微调，爬取以下学校的项目介绍，并且每一个大学是一个单独的文件夹。<br />
-- <a href="http://catalog.illinois.edu/graduate/">UIUC</a><br />
 - <a href="https://www.imperial.ac.uk/study/pg/courses/">帝国理工</a><br />
-- <a href="https://www.postgraduate.study.cam.ac.uk/courses">剑桥大学</a><br />
-- <a href="https://www.manchester.ac.uk/study/masters/courses/list/">Manchester</a></p>
+- <a href="https://www.manchester.ac.uk/study/masters/courses/list/">Manchester</a>
+- <a href="https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees">UCL</a>
+- <a href="https://warwick.ac.uk/study/postgraduate/taught/courses-2021/">Warwick</a></p>
 <p>比较热门的学校可能有一百来所，你打算先拿上面几所学校的网站做个实验，之后找几个同样懂爬虫的朋友，分一下工，大概一两天时间就能把全部热门大学的项目都爬下来。<br />
+<br></p>
+<p>有一些学校的网页可能爬起来稍微复杂了一点，可以尝试一下，但暂时先不研究：<br />
+- <a href="https://www.postgraduate.study.cam.ac.uk/courses">剑桥大学</a><br />
+- <a href="http://catalog.illinois.edu/graduate/">UIUC</a><br />
 <br></p>
 <h2 id="section-3">Section 3: 建立索引</h2>
 <p>我们已经把数据都下载到本地了。可是，光有数据，其实用处不大；从数据中提取的信息，才有价值。为了让提取信息的过程更加高效，我们要对数据进行<strong>预处理</strong>。<br />
@@ -193,6 +197,7 @@
     &quot;document_id&quot;: &quot;1&quot;,
     &quot;school_name&quot;: &quot;Oxford&quot;,
     &quot;program_name&quot;: &quot;Advanced Computer Science&quot;,
+    &quot;degree&quot;: &quot;MSc&quot;,
     &quot;file_path&quot;: &quot;./oxford/advanced-computer-science.html&quot;,
     &quot;program_description&quot;: &quot;.....&quot;
 }
@@ -205,6 +210,7 @@
         &quot;document_id&quot;: &quot;1&quot;,
         &quot;school_name&quot;: &quot;Oxford&quot;,
         &quot;program_name&quot;: &quot;Advanced Computer Science&quot;,
+        &quot;degree&quot;: &quot;MSc&quot;,
         &quot;file_path&quot;: &quot;./oxford/advanced-computer-science.html&quot;,
         &quot;program_description&quot;: &quot;.....&quot;
     }, 
@@ -212,6 +218,7 @@
         &quot;document_id&quot;: &quot;2&quot;,
         &quot;school_name&quot;: &quot;Cambridge&quot;,
         &quot;program_name&quot;: &quot;Computer Science&quot;,
+        &quot;degree&quot;: &quot;MPhil&quot;,
         &quot;file_path&quot;: &quot;./cambridge/computer-science.html&quot;,
         &quot;program_description&quot;: &quot;.....&quot;
     }
@@ -222,47 +229,12 @@
 <p><br></p>
 <p>最后，请使用 <code>python</code> 自带的 <code>pickle</code> 这个库，将 <code>program_dict</code> 这个字典变量保存在一个名为 <code>programs.pkl</code> 的文件。这就是我们的 <code>索引</code>。它的本质，就是以一定格式存放的数据，可以方便我们进行查询。它其实等价于一下这张表：<br />
 <br></p>
-<table>
-<thead>
-<tr>
-<th>document_id</th>
-<th>school_name</th>
-<th>program_name</th>
-<th>file_path</th>
-<th>program_description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>Oxford</td>
-<td>Advanced Computer Science</td>
-<td>./oxford/advanced-computer-science.html</td>
-<td>...</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Cambridge</td>
-<td>Computer Science</td>
-<td>./cambridge/computer-science.html</td>
-<td>...</td>
-</tr>
-<tr>
-<td>3</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-</tr>
-<tr>
-<td><br></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<p>| document_id |school_name| program_name| degree | file_path | program_description |
+|-----|-----|-----|----|----|
+| 1|Oxford| Advanced Computer Science| MSc| ./oxford/advanced-computer-science.html| ... |
+| 2|Cambridge| Computer Science| MPhil| ./cambridge/computer-science.html| ... |
+| 3|...|...|...|... |... |
+<br></p>
 <p>注意：<code>program_description</code> 字段，即是 <code>html</code> 页面的内容。但是，请对它进行处理以下处理：<br />
 - 消除所有 <code>&lt;script&gt;&lt;/script&gt;</code> 标签中间的全部内容。<br />
 - 消除所有 <code>html</code> 标签，以及特殊符号。 <br />
@@ -296,7 +268,7 @@
 <br></p>
 <p>完成之后，请尝试运行，并留意程序运行所耗费的时间。<br />
 <br></p>
-<h2 id="section-5_1">Section 5: 建立更高效的索引</h2>
+<h2 id="section-6">Section 6: 建立更高效的索引</h2>
 <p>你也许注意到了，运行上面的程序会花费比较久的时间。如果你真的爬下了所有大学的项目信息，或者有很多关键词想要查询，就可能得花上很久很久。<br />
 <br></p>
 <p>那么，有没有什么办法，加快搜索的速度呢？答案是肯定的，只要你建立一种更为高效的索引。<br />
@@ -314,17 +286,17 @@
 <tr>
 <td>academic</td>
 <td>5</td>
-<td>[1, 4, 5, 8, 9]</td>
+<td>{1, 4, 5, 8, 9}</td>
 </tr>
 <tr>
 <td>advantage</td>
 <td>3</td>
-<td>[1, 2, 3]</td>
+<td>{1, 2, 3}</td>
 </tr>
 <tr>
 <td>astronomy</td>
 <td>10</td>
-<td>[1, 2, 3, 4, 5, 6, 7, 10, 12, 14]</td>
+<td>{1, 2, 3, 4, 5, 6, 7, 10, 12, 14}</td>
 </tr>
 <tr>
 <td>...</td>
@@ -338,14 +310,14 @@
 </tr>
 </tbody>
 </table>
-<p>其中，<code>word</code> 是在所有项目里都出现过的单词，<code>count</code> 是它们出现过的次数，<code>occurrences</code> 记录了单词在哪些页面里面出现过（是一列数字，每个都对应之前的 <code>document_id</code>）<br />
+<p>其中，<code>word</code> 是在所有项目里都出现过的单词，<code>count</code> 是这个单词在所有文档中出现次数的总和，<code>occurrences</code> 记录了单词在哪些页面里面出现过（是一个 <code>python</code> 的 <code>set（集合）</code>数据结构，包含数字，每个都对应之前的 <code>document_id</code>）<br />
 <br></p>
 <p>然后，请用 <code>pickle</code> 把之前的 <code>program_dict</code> 和 <code>word_dict</code> 塞进一个 <code>tuple</code> 变量，像这样：</p>
 <pre><code class="language-python">to_save = (program_dict, word_dict)
 </code></pre>
 <p>最后，把 <code>to_save</code> 保存到 <code>programs_improved.pkl</code>。这个<strong>新的索引</strong>可以帮我们更高效地完成搜索。<br />
 <br></p>
-<h2 id="section-6">Section 6: 全局搜索</h2>
+<h2 id="section-7">Section 7: 全局搜索</h2>
 <p>现在，我们需要实现搜索关键词的功能。请写一个脚本 <code>search_key_word_improved.py</code>，重新实现 <code>Section 5</code> 的功能。<br />
 <br></p>
 <p>提示：你可以直接在 <code>word_dict</code> 搜索一个关键词，得到一列 <code>document_id</code>，然后用 <code>document_id</code> 去搜索 <code>program_dict</code>。<br />
