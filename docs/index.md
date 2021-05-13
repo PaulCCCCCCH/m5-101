@@ -276,7 +276,7 @@
     <td class="tg-svo0">Mon<br>5/10<br>20:00-22:00</td>
     <td class="tg-svo0">PMB<br>309</td>
     <td class="tg-svo0">
-      <a href="./content/practice-1"> 练习内容 </a>
+      <a href="./content/practice-1"> 练习内容 1 </a>
     </td>
     <td class="tg-svo0"></td>
     <td class="tg-svo0"></td>
@@ -285,10 +285,12 @@
     <td class="tg-c3ow">Thur<br>5/13<br>20:00-22:00</td>
     <td class="tg-c3ow">PMB<br>309</td>
     <td class="tg-c3ow">
-      <span href="practice-2">1. 练习 </a>
+      <a href="./content/practice-2"> 练习内容 2 </a>
     </td>
     <td class="tg-c3ow"></td>
-    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow">
+      <a href="http://composingprograms.com/pages/25-object-oriented-programming.html"> 面向对象编程 </a> 
+    </td>
   </tr>
 <td class="tg-c3ow" colspan="6">后续内容陆续展示</td>
 <!-- 
