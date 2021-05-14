@@ -161,8 +161,8 @@
 <br></p>
 <p>你回想起最近在学习的爬虫，眉头一皱，发现事情可以很简单。一次简单的开发，可以满足很多人的需求。于是，你欣然接下了这个请求<strike>，并且要求小王请自己吃饭</strike>。</p>
 <h2 id="_2">准备工作</h2>
-<p>请下载初始代码。（尚未准备好）
-<a href="">下载链接</a></p>
+<p>请下载初始代码。
+<a href="../code/web-crawler.zip">下载链接</a></p>
 <h2 id="section-1">Section 1: 页面下载</h2>
 <p>以牛津的<a href="https://www.ox.ac.uk/admissions/graduate/courses/courses-a-z-listing">硕士项目列表</a>为例。<br />
 <br></p>
@@ -172,13 +172,21 @@
 <br></p>
 <p>提示：<br />
 1. 你可以新创建一个文件夹，叫 <code>oxford</code>，运行脚本后，里面有 <code>advanced-computer-science.html</code>，<code>african-studies.html</code>, <code>ancient-philosophy.html</code> 等等几十个文件（注意命名格式，是小写字母 + 短横线）。
-2. 我们只关心硕士项目（M 开头的学位）。比如，<code>Msc</code>，<code>MSt</code>, <code>MTh</code>, <code>MPhil</code> 等都是我们要下载的，而 <code>D</code> 打头的博士学位项目，以及 <code>PG</code> 打头的继续教育项目，需要直接跳过。</p>
+2. 我们只关心硕士项目（M 开头的学位）。比如，<code>Msc</code>，<code>MSt</code>, <code>MTh</code>, <code>MPhil</code> 等都是我们要下载的，而 <code>D</code> 打头的博士学位项目，以及 <code>PG</code> 打头的继续教育项目，需要直接跳过。
+3. 你可以在下载文件的循环里面，套一层 <code>try...except</code> 语句，防止下载到一半，突然出现了一个错误，程序直接停止运行，像下面这样：</p>
+<pre><code class="language-python">for url in all_urls:
+    try:
+        result = request.get(url)
+        # 保存 result 代码在这
+    except:
+        print(&quot;下载页面时出错： &quot; + url)
+</code></pre>
 <h2 id="section-2">Section 2: 微调</h2>
 <p>我们在以上程序的基础上，进行微调，爬取以下学校的项目介绍，并且每一个大学是一个单独的文件夹。<br />
 - <a href="https://www.imperial.ac.uk/study/pg/courses/">帝国理工</a><br />
-- <a href="https://www.manchester.ac.uk/study/masters/courses/list/">Manchester</a>
-- <a href="https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees">UCL</a>
-- <a href="https://warwick.ac.uk/study/postgraduate/taught/courses-2021/">Warwick</a></p>
+- <a href="https://www.manchester.ac.uk/study/masters/courses/list/">Manchester</a><br />
+- <a href="https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees">UCL</a><br />
+- <a href="https://warwick.ac.uk/study/postgraduate/taught/courses-2021/">Warwick</a>  </p>
 <p>比较热门的学校可能有一百来所，你打算先拿上面几所学校的网站做个实验，之后找几个同样懂爬虫的朋友，分一下工，大概一两天时间就能把全部热门大学的项目都爬下来。<br />
 <br></p>
 <p>有一些学校的网页可能爬起来稍微复杂了一点，可以尝试一下，但暂时先不研究：<br />
@@ -238,6 +246,7 @@
 <p>注意：<code>program_description</code> 字段，即是 <code>html</code> 页面的内容。但是，请对它进行处理以下处理：<br />
 - 消除所有 <code>&lt;script&gt;&lt;/script&gt;</code> 标签中间的全部内容。<br />
 - 消除所有 <code>html</code> 标签，以及特殊符号。 <br />
+- 把所有文字内容都变成小写（使用 <code>string.lower</code> 函数）。<br />
 - 其它可能的操作（总之，越干净越好，最好只保留文字信息）。<br />
 <br></p>
 <p>如果忘记了怎么用 <code>python</code> 管理文件，可以回顾一下<a href="../file-management">文件管理</a>这一章的内容。如果忘记怎么使用<code>正则表达式</code>，可以参考 Week 2 四月一号的内容。
@@ -330,6 +339,7 @@
 <li>数据获取：  <ul>
 <li>（难）我们可以给爬虫加入基础的页面内容判断机制，让它自己适应不同学校的网站，这样就不需要针对每个学校的网页微调自己的爬虫，从而节省劳动力。  </li>
 <li>（难）我们可以从更广阔的互联网获取信息，而不是只局限于学校的官方网站。  </li>
+<li>（简单）使用面向对象的思想重写爬虫脚本。父类是一个 <code>WebCrawler</code>，子类是 <code>ICWebCrawler</code>、<code>ManchesterWebCrawler</code>、<code>UCLWebCrawler</code> 等等。  </li>
 </ul>
 </li>
 <li>数据整理：  <ul>

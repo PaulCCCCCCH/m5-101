@@ -2,22 +2,16 @@ import pickle
 import json
 import re
 
-# Read pickle File
+# 读取之前建立的索引（一个 pickle 文件）
 pkl_file = 'programs.pkl'
 f = open(pkl_file, 'rb')
 infos = pickle.load(f, encoding='bytes')
-print(len(infos))
+print("数据库中一共有 {} 个项目的信息".format(len(infos)))
 
-# Search
 
-##########################
-## 提示字典套 json 的问题
-##########################
+# 提示用户数据项目名的关键词
+keyword = input('请输入你想搜索的一个关键词: ')
 
+# 搜索所有符合要求的 program，最终以一定的格式 print 出来给用户
 programs = []
-keyword = input('What ru looking for : ')
-for key in infos:
-    d = json.loads(infos[key])
-    if re.search(keyword, d['program_name'], re.IGNORECASE) is not None:
-        programs += [d['program_name']]
-print('\n'.join('{}: {}'.format(idx+1, prog) for idx, prog in enumerate(programs)))
+print(programs)

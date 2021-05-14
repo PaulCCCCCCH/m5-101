@@ -13,8 +13,8 @@
 你回想起最近在学习的爬虫，眉头一皱，发现事情可以很简单。一次简单的开发，可以满足很多人的需求。于是，你欣然接下了这个请求<strike>，并且要求小王请自己吃饭</strike>。
 
 ## 准备工作
-请下载初始代码。（尚未准备好）
-[下载链接]()
+请下载初始代码。
+[下载链接](./code/web-crawler.zip)
 
 
 ## Section 1: 页面下载
@@ -30,14 +30,23 @@
 提示：  
 1. 你可以新创建一个文件夹，叫 `oxford`，运行脚本后，里面有 `advanced-computer-science.html`，`african-studies.html`, `ancient-philosophy.html` 等等几十个文件（注意命名格式，是小写字母 + 短横线）。
 2. 我们只关心硕士项目（M 开头的学位）。比如，`Msc`，`MSt`, `MTh`, `MPhil` 等都是我们要下载的，而 `D` 打头的博士学位项目，以及 `PG` 打头的继续教育项目，需要直接跳过。
+3. 你可以在下载文件的循环里面，套一层 `try...except` 语句，防止下载到一半，突然出现了一个错误，程序直接停止运行，像下面这样：
+```python
+for url in all_urls:
+    try:
+        result = request.get(url)
+        # 保存 result 代码在这
+    except:
+        print("下载页面时出错： " + url)
+```
 
 
 ## Section 2: 微调
 我们在以上程序的基础上，进行微调，爬取以下学校的项目介绍，并且每一个大学是一个单独的文件夹。  
 - [帝国理工](https://www.imperial.ac.uk/study/pg/courses/)  
-- [Manchester](https://www.manchester.ac.uk/study/masters/courses/list/)
-- [UCL](https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees)
-- [Warwick](https://warwick.ac.uk/study/postgraduate/taught/courses-2021/)
+- [Manchester](https://www.manchester.ac.uk/study/masters/courses/list/)  
+- [UCL](https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees)  
+- [Warwick](https://warwick.ac.uk/study/postgraduate/taught/courses-2021/)  
 
 比较热门的学校可能有一百来所，你打算先拿上面几所学校的网站做个实验，之后找几个同样懂爬虫的朋友，分一下工，大概一两天时间就能把全部热门大学的项目都爬下来。  
 <br>
@@ -111,6 +120,7 @@
 注意：`program_description` 字段，即是 `html` 页面的内容。但是，请对它进行处理以下处理：  
 - 消除所有 `<script></script>` 标签中间的全部内容。  
 - 消除所有 `html` 标签，以及特殊符号。   
+- 把所有文字内容都变成小写（使用 `string.lower` 函数）。  
 - 其它可能的操作（总之，越干净越好，最好只保留文字信息）。  
 <br>
 
@@ -160,12 +170,12 @@
 
 首先，我们要用一个名为 `word_dict` 的 `字典` 变量额外存储这样一张表格（其中 `word` 是这个字典的 `key`）：  
 
-| word | count | occurrences | 
+| word | count | occurrences |
 |-----|-----|-----|
 | academic | 5 | {1, 4, 5, 8, 9} |
 | advantage | 3 | {1, 2, 3} |
-| astronomy | 10 | {1, 2, 3, 4, 5, 6, 7, 10, 12, 14} | 
-| ... | ... | ... | 
+| astronomy | 10 | {1, 2, 3, 4, 5, 6, 7, 10, 12, 14} |
+| ... | ... | ... |
 <br>
 
 其中，`word` 是在所有项目里都出现过的单词，`count` 是这个单词在所有文档中出现次数的总和，`occurrences` 记录了单词在哪些页面里面出现过（是一个 `python` 的 `set（集合）`数据结构，包含数字，每个都对应之前的 `document_id`）  
@@ -195,6 +205,7 @@ to_save = (program_dict, word_dict)
 - 数据获取：  
     - （难）我们可以给爬虫加入基础的页面内容判断机制，让它自己适应不同学校的网站，这样就不需要针对每个学校的网页微调自己的爬虫，从而节省劳动力。  
     - （难）我们可以从更广阔的互联网获取信息，而不是只局限于学校的官方网站。  
+    - （简单）使用面向对象的思想重写爬虫脚本。父类是一个 `WebCrawler`，子类是 `ICWebCrawler`、`ManchesterWebCrawler`、`UCLWebCrawler` 等等。  
 - 数据整理：  
     - （中等）我们可以使用自然语言处理 (NLP) 的相关技术，对页面的信息进行提取和分析（比如，根据特定关键词的数量和位置，为一个研究生项目打分）。  
     - （简单）我们可以参考搜索引擎相关技术，进一步优化我们的索引。（事实上，我们在这个项目中建立的第二个索引，正是简化了的`倒排索引`，这是搜索引擎中非常常用的索引方法）  
