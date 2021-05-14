@@ -289,7 +289,10 @@
     </td>
     <td class="tg-c3ow"></td>
     <td class="tg-c3ow">
-      <a href="http://composingprograms.com/pages/25-object-oriented-programming.html"> 面向对象编程 </a> 
+      <a href="http://composingprograms.com/pages/25-object-oriented-programming.html"> 1. 面向对象编程 </a> 
+      <br>
+      <a href="https://www.bilibili.com/video/BV1UN411o7Tn?share_source=copy_web"> 2. advent-of-code day 4 讲解</a> 
+
     </td>
   </tr>
 <td class="tg-c3ow" colspan="6">后续内容陆续展示</td>
