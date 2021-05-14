@@ -7,6 +7,18 @@ import re
 import os
 
 
+#############################
+#############################
+## 提示要在循环里加入 try except 语句
+#############################
+
+#############################
+#############################
+## section 3 要把词都变成 lower case
+#############################
+
+
+
 
 def re_cleaner(target: str, rep: str) -> str:
     return re.sub("[^0-9a-zA-Z]+", rep, target)
@@ -104,6 +116,9 @@ def clean_html(soup: bs):
 
 data = {}
 
+#########################
+#### 保留框架作为提示 
+#########################
 pages_path = os.path.join(os.getcwd(), 'pages')
 idx = 1
 for school in os.listdir(pages_path):

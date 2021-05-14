@@ -10,6 +10,10 @@ print(len(infos))
 
 # Search
 
+##########################
+## 提示字典套 json 的问题
+##########################
+
 programs = []
 keyword = input('What ru looking for : ')
 for key in infos:

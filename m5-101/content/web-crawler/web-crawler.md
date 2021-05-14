@@ -34,14 +34,19 @@
 
 ## Section 2: 微调
 我们在以上程序的基础上，进行微调，爬取以下学校的项目介绍，并且每一个大学是一个单独的文件夹。  
-- [UIUC](http://catalog.illinois.edu/graduate/)  
 - [帝国理工](https://www.imperial.ac.uk/study/pg/courses/)  
-- [剑桥大学](https://www.postgraduate.study.cam.ac.uk/courses)  
 - [Manchester](https://www.manchester.ac.uk/study/masters/courses/list/)
-
+- [UCL](https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees)
+- [Warwick](https://warwick.ac.uk/study/postgraduate/taught/courses-2021/)
 
 比较热门的学校可能有一百来所，你打算先拿上面几所学校的网站做个实验，之后找几个同样懂爬虫的朋友，分一下工，大概一两天时间就能把全部热门大学的项目都爬下来。  
 <br>
+
+有一些学校的网页可能爬起来稍微复杂了一点，可以尝试一下，但暂时先不研究：  
+- [剑桥大学](https://www.postgraduate.study.cam.ac.uk/courses)  
+- [UIUC](http://catalog.illinois.edu/graduate/)  
+<br>
+
 
 ## Section 3: 建立索引
 我们已经把数据都下载到本地了。可是，光有数据，其实用处不大；从数据中提取的信息，才有价值。为了让提取信息的过程更加高效，我们要对数据进行**预处理**。  
@@ -59,6 +64,7 @@
     "document_id": "1",
     "school_name": "Oxford",
     "program_name": "Advanced Computer Science",
+    "degree": "MSc",
     "file_path": "./oxford/advanced-computer-science.html",
     "program_description": "....."
 }
@@ -73,6 +79,7 @@
         "document_id": "1",
         "school_name": "Oxford",
         "program_name": "Advanced Computer Science",
+        "degree": "MSc",
         "file_path": "./oxford/advanced-computer-science.html",
         "program_description": "....."
     }, 
@@ -80,6 +87,7 @@
         "document_id": "2",
         "school_name": "Cambridge",
         "program_name": "Computer Science",
+        "degree": "MPhil",
         "file_path": "./cambridge/computer-science.html",
         "program_description": "....."
     }
@@ -93,11 +101,11 @@
 最后，请使用 `python` 自带的 `pickle` 这个库，将 `program_dict` 这个字典变量保存在一个名为 `programs.pkl` 的文件。这就是我们的 `索引`。它的本质，就是以一定格式存放的数据，可以方便我们进行查询。它其实等价于一下这张表：  
 <br>
 
-| document_id |school_name| program_name| file_path | program_description |
+| document_id |school_name| program_name| degree | file_path | program_description |
 |-----|-----|-----|----|----|
-| 1|Oxford| Advanced Computer Science| ./oxford/advanced-computer-science.html| ... |
-| 2|Cambridge| Computer Science| ./cambridge/computer-science.html| ... |
-| 3|...|...|...|... |
+| 1|Oxford| Advanced Computer Science| MSc| ./oxford/advanced-computer-science.html| ... |
+| 2|Cambridge| Computer Science| MPhil| ./cambridge/computer-science.html| ... |
+| 3|...|...|...|... |... |
 <br>
 
 注意：`program_description` 字段，即是 `html` 页面的内容。但是，请对它进行处理以下处理：  
@@ -143,7 +151,7 @@
 完成之后，请尝试运行，并留意程序运行所耗费的时间。  
 <br>
 
-## Section 5: 建立更高效的索引
+## Section 6: 建立更高效的索引
 你也许注意到了，运行上面的程序会花费比较久的时间。如果你真的爬下了所有大学的项目信息，或者有很多关键词想要查询，就可能得花上很久很久。  
 <br>
 
@@ -154,13 +162,13 @@
 
 | word | count | occurrences | 
 |-----|-----|-----|
-| academic | 5 | [1, 4, 5, 8, 9] |
-| advantage | 3 | [1, 2, 3] |
-| astronomy | 10 | [1, 2, 3, 4, 5, 6, 7, 10, 12, 14] | 
+| academic | 5 | {1, 4, 5, 8, 9} |
+| advantage | 3 | {1, 2, 3} |
+| astronomy | 10 | {1, 2, 3, 4, 5, 6, 7, 10, 12, 14} | 
 | ... | ... | ... | 
 <br>
 
-其中，`word` 是在所有项目里都出现过的单词，`count` 是它们出现过的次数，`occurrences` 记录了单词在哪些页面里面出现过（是一列数字，每个都对应之前的 `document_id`）  
+其中，`word` 是在所有项目里都出现过的单词，`count` 是这个单词在所有文档中出现次数的总和，`occurrences` 记录了单词在哪些页面里面出现过（是一个 `python` 的 `set（集合）`数据结构，包含数字，每个都对应之前的 `document_id`）  
 <br>
 
 然后，请用 `pickle` 把之前的 `program_dict` 和 `word_dict` 塞进一个 `tuple` 变量，像这样：
@@ -171,7 +179,7 @@ to_save = (program_dict, word_dict)
 最后，把 `to_save` 保存到 `programs_improved.pkl`。这个**新的索引**可以帮我们更高效地完成搜索。  
 <br>
 
-## Section 6: 全局搜索
+## Section 7: 全局搜索
 现在，我们需要实现搜索关键词的功能。请写一个脚本 `search_key_word_improved.py`，重新实现 `Section 5` 的功能。  
 <br>
 
