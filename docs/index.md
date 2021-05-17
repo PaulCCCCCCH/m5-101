@@ -295,7 +295,28 @@
 
     </td>
   </tr>
-<td class="tg-c3ow" colspan="6">后续内容陆续展示</td>
+  <tr>
+    <td class="tg-svo0" rowspan="2">Week 9</td>
+    <td class="tg-svo0">Mon<br>5/17<br>20:00-22:00</td>
+    <td class="tg-svo0">PMB<br>309</td>
+    <td class="tg-svo0">
+        <b>答疑</b>
+    </td>
+    <td class="tg-svo0"></td>
+    <td class="tg-svo0"></td>
+    <td class="tg-svo0"></td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">Thur<br>5/20<br>20:00-22:00</td>
+    <td class="tg-c3ow">PMB<br>309</td>
+    <td class="tg-c3ow">
+        <b>答疑</b>
+    </td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+  </tr>
+<td class="tg-c3ow" colspan="7"></td>
 <!-- 
   <tr>
     <td class="tg-c3ow">Thur<br>5/6<br>20:00-22:00</td>

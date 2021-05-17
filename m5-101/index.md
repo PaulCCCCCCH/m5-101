@@ -1,5 +1,5 @@
 # Announcements
-## 5 月 10 号（新）
+### 5 月 10 号
 考虑到各位校内课业繁忙，可能许多内容还没来得及做，也不是很有时间巩固基础，<strike>而且开发内容的学长也已经顶不住压力了，</strike>所以我们对原计划作出调整：原定 `Week 8` 以及之后要学习的内容 (`遍历算法`、`HTTP 协议详解`，`客户端-服务端通讯` 以及 `UI` 制作) 先搁置，换成可以帮助大家巩固基础的内容。
 <br>
 
@@ -29,7 +29,7 @@
 
 
 # Utils
-- 请从 `icewould.com:8888` 使用我们的 `jupyter notebook`。
+- 请从 `icewould.com:8888` 使用我们的 `jupyter notebook`。登录密码是 `m5101`。
 - 请多多使用 https://adventofcode.com/ 练习自己的代码能力。在 `Leaderboard` 中输入邀请码 `387770-cbc168b5`，可以加入我们的刷题小队。
 
 # Schedule
@@ -289,7 +289,10 @@
     </td>
     <td class="tg-c3ow"></td>
     <td class="tg-c3ow">
-      <a href="http://composingprograms.com/pages/25-object-oriented-programming.html"> 面向对象编程 </a> 
+      <a href="http://composingprograms.com/pages/25-object-oriented-programming.html"> 1. 面向对象编程 </a> 
+      <br>
+      <a href="https://www.bilibili.com/video/BV1UN411o7Tn?share_source=copy_web"> 2. advent-of-code day 4 讲解</a> 
+
     </td>
   </tr>
 <td class="tg-c3ow" colspan="6">后续内容陆续展示</td>
