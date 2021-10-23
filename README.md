@@ -1,4 +1,5 @@
 # m5-101 Course Repo
+[Course website](https://paulcccccch.github.io/m5-101/)
 
 Built with [mkdocs](https://www.mkdocs.org/)
 
